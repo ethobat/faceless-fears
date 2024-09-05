@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b85efult8x7e4"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_k2s7n"]
+[ext_resource type="Script" path="res://scenes/head_bob.gd" id="2_vfd0f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vnri"]
+radius = 0.2
+height = 1.67848
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_k2s7n")
+speed = 1.0
+
+[node name="FootstepsPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44843, 0)
+script = ExtResource("2_vfd0f")
+return_speed = 0.16
+bob_speed = 0.072
+horizontal_bob_distance = 0.0
+vertical_bob_distance = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868891, 0)
+shape = SubResource("CapsuleShape3D_3vnri")
