@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://11alw2brk14t"]
+
+[ext_resource type="Theme" uid="uid://bybdhtdnymat5" path="res://scenes/ui/vhs_ui_theme.tres" id="1_ohkem"]
+[ext_resource type="LabelSettings" uid="uid://byuxrryg8g8m6" path="res://scenes/ui/title_label_settings.tres" id="2_132u3"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ohkem")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(5.29438e-07, 0.221199, 0.606169, 1)
+
+[node name="TitleBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -141.5
+offset_top = 39.0
+offset_right = 141.5
+offset_bottom = 106.0
+grow_horizontal = 2
+color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[node name="Title" type="Label" parent="TitleBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = ExtResource("2_132u3")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var ui: NodePath
+
 @onready var camera: Camera3D = $Camera3D
 @onready var footsteps_player: AudioStreamPlayer3D = $FootstepsPlayer
 var tools: Node3D
@@ -7,8 +9,6 @@ var flashlight: Node3D
 var anomaly_fixer: Node3D
 var fear_bar: ProgressBar
 var scan_progress_bar: ProgressBar
-var pause_menu: Node3D
-var settings_menu: Node3D
 
 var look_target: Node3D
 var noclip: bool = false
@@ -105,10 +105,7 @@ func _process(delta: float):
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
 
 	if Input.is_action_just_pressed("menu"):
-		if pause_menu.activeSelf:
-			hide_pause_menu();
-		else:
-			show_pause_menu();
+		toggle_pause_menu()
 
 	if Input.is_action_just_pressed("screenshot"):
 		print("TODO: Take screenshot")

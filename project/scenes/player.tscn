@@ -9,7 +9,16 @@ height = 1.67848
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_k2s7n")
+ui = null
+tools_turn_speed = null
 speed = 1.0
+jump_power = null
+sensitivity = null
+gravity = null
+scroll_sensitivity = null
+interaction_distance = null
+scan_time = null
+enable_debug_hotkeys = null
 
 [node name="FootstepsPlayer" type="AudioStreamPlayer3D" parent="."]
 

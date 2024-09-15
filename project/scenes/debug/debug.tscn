@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cua3auf7j7hj"]
+[gd_scene load_steps=12 format=3 uid="uid://cua3auf7j7hj"]
 
 [ext_resource type="PackedScene" uid="uid://b85efult8x7e4" path="res://scenes/player.tscn" id="1_jkb2a"]
 [ext_resource type="PackedScene" uid="uid://ehooohbqsauu" path="res://scenes/debug/box.tscn" id="2_4ou8j"]
 [ext_resource type="PackedScene" uid="uid://c4sx13mcql8ft" path="res://scenes/debug/sphere.tscn" id="3_qyf4m"]
 [ext_resource type="Shader" path="res://assets/third party/ultimate-retro-shader-collection-main/spatial/sprite.gdshader" id="4_is1uy"]
 [ext_resource type="Texture2D" uid="uid://sfa1idkihp1r" path="res://assets/images/icons/book.png" id="5_p5yv2"]
+[ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="6_chck7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtksr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -73,5 +74,7 @@ mesh = SubResource("QuadMesh_6bokq")
 
 [node name="Spotlight" type="SpotLight3D" parent="World"]
 transform = Transform3D(0.744239, -0.59943, 0.294605, -0.421872, -0.0799231, 0.903126, -0.517815, -0.796427, -0.312365, 0, 1.735, 0)
+
+[node name="UI" parent="." instance=ExtResource("6_chck7")]
 
 [editable path="World/Box"]
