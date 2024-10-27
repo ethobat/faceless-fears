@@ -18,10 +18,11 @@ var mx: float = 0
 var my: float = 0
 var raycasted_this_frame: bool = false
 var start_pos: Vector3
-var scanning: bool = false
-var scan_progress: float = 0
 var played_footsteps_last_frame: bool = false
+var paused = false
 
+@export var sprint_forward_multipler: float = 1.2
+@export var sprint_sideways_multiplier: float = 1.1
 @export var tools_turn_speed: float = 0.9
 @export var speed: float = 2
 @export var jump_power: float = 2
@@ -39,31 +40,24 @@ var mouse_look_locked: bool = false
 func _ready():
 	start_pos = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	hide_pause_menu();
+	unlock_controls()
+	unlock_mouse_look()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_node(ui).on_menu_opened.connect(on_pause)
+	get_node(ui).on_menus_closed.connect(on_unpause)
 	
-func show_pause_menu():
-	#PauseMenu.SetActive(true);
-	#SettingsMenu.SetActive(false);
+func on_pause():
 	lock_controls();
 	lock_mouse_look();
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	stop_scanning();
-	on_stop_moving();
+	disable_footsteps();
+	paused = true;
 
-func hide_pause_menu():
-	#PauseMenu.SetActive(false);
-	#SettingsMenu.SetActive(false);
+func on_unpause():
 	unlock_controls();
 	unlock_mouse_look();
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-# For now, assume this can be called when the pause menu is not active
-func show_settings_menu():
-	#PauseMenu.SetActive(false);
-	#SettingsMenu.SetActive(true);
-	lock_controls();
-	lock_mouse_look();
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	paused = false
 
 func quit_to_desktop():
 	get_tree().quit()
@@ -71,27 +65,12 @@ func quit_to_desktop():
 #func quit_to_title_screen():
 #    # TODO
 
-func start_scanning():
-	scanning = true
-	scan_progress = 0
-	#scan_progress_bar.gameObject.SetActive(true);
-	#AudioSource source = AnomalyFixer.GetComponent<AudioSource>();
-	#source.loop = true;
-	#source.clip = AnomalyFixerScanLoop;
-	#source.Play();
-
-func stop_scanning():
-	scanning = false
-	scan_progress = 0
-	#scan_progress_bar.gameObject.SetActive(false);
-	#anomaly_fixer.GetComponent<AudioSource>().Stop()
-
-func while_moving():
+func enable_footsteps():
 	if not played_footsteps_last_frame:
 		played_footsteps_last_frame = true
 		footsteps_player.play()
 
-func on_stop_moving():
+func disable_footsteps():
 	if played_footsteps_last_frame:
 		played_footsteps_last_frame = false
 		footsteps_player.stop()
@@ -105,7 +84,10 @@ func _process(delta: float):
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
 
 	if Input.is_action_just_pressed("menu"):
-		toggle_pause_menu()
+		if paused:
+			get_node(ui).resume()
+		else:
+			get_node(ui).open_pause_menu()
 
 	if Input.is_action_just_pressed("screenshot"):
 		print("TODO: Take screenshot")
@@ -114,39 +96,46 @@ func _process(delta: float):
 	var dv = Vector3(0, velocity.y - gravity, 0)
 		
 	if not get_controls_locked():
-		if Input.is_action_just_pressed("interact"):
-			start_scanning()
-		if Input.is_action_just_released("interact"):
-			stop_scanning()
 		if Input.is_action_just_pressed("flashlight"):
 			toggle_flashlight()
 		if enable_debug_hotkeys:
 			if Input.is_key_pressed(KEY_V):
 				noclip = not noclip
 				# todo: disable collision
-				on_stop_moving();
+				disable_footsteps();
 				print("Noclip "+("enabled" if noclip else "disabled"))
 		
 		# Movement
 		var ad = 1 if Input.is_action_pressed("move_right") else (-1 if Input.is_action_pressed("move_left") else 0)
 		var ws = 1 if Input.is_action_pressed("move_backward") else (-1 if Input.is_action_pressed("move_forward") else 0)
+		var sprinting = false
+		if Input.is_action_pressed("sprint"):
+			if ws < 0:
+				ws *= sprint_forward_multipler
+				sprinting = true
+			if ad != 0:
+				ad *= sprint_sideways_multiplier
+				sprinting = true
+		camera.bobbing_fast = sprinting
+		footsteps_player.pitch_scale = 1.2 if sprinting else 1
 		if noclip:
 			dv = camera.rotation * Vector3(ad, 0, ws) * speed
+			disable_footsteps()
 		else:
 			var jump = jump_power if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
 			dv += Quaternion.from_euler(Vector3(0, camera.rotation.y, 0)) * Vector3(ad * speed, jump, ws * speed)
 			#dv = Vector3(ad * speed, jump, ws * speed)
-			if ws == 0 and ad == 0:
-				on_stop_moving();
+			if (ws == 0 and ad == 0) or not is_on_floor():
+				disable_footsteps();
 			else:
-				while_moving();
+				enable_footsteps();
 
 	# Out of bounds check
 	if position.y < -200:
 		position = start_pos
 		velocity = Vector3.ZERO
 		
-	velocity = dv
+	velocity = dv * delta * 60
 	move_and_slide()
 	if velocity == Vector3.ZERO or velocity.y != 0:
 		camera.bobbing = false
@@ -155,9 +144,9 @@ func _process(delta: float):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		mx += -event.relative.x * sensitivity * get_process_delta_time();
-		my = clamp(my + -event.relative.y * sensitivity * get_process_delta_time(), -PI/2, PI/2)
 		if not mouse_look_locked:
+			mx += -event.relative.x * sensitivity * get_process_delta_time();
+			my = clamp(my + -event.relative.y * sensitivity * get_process_delta_time(), -PI/2, PI/2)
 			camera.rotation = Vector3(my, mx, 0)
 
 func get_controls_locked() -> bool:
@@ -165,8 +154,7 @@ func get_controls_locked() -> bool:
 
 func lock_controls():
 	controls_locked = true
-	stop_scanning()
-	on_stop_moving()
+	disable_footsteps()
 
 func unlock_controls():
 	controls_locked = false

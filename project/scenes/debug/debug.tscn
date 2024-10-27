@@ -50,6 +50,7 @@ environment = SubResource("Environment_e2c2n")
 
 [node name="Player" parent="." instance=ExtResource("1_jkb2a")]
 transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0.983012, 0)
+ui = NodePath("../UI")
 
 [node name="World" type="Node3D" parent="."]
 

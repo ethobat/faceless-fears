@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b85efult8x7e4"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_k2s7n"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_k2s7n"]
 [ext_resource type="AudioStream" uid="uid://d3x7hcip1w8aw" path="res://assets/sounds/player/footstep.mp3" id="2_ihd0j"]
-[ext_resource type="Script" path="res://scripts/head_bob.gd" id="2_vfd0f"]
+[ext_resource type="Script" path="res://scenes/head_bob.gd" id="2_vfd0f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vnri"]
 radius = 0.2

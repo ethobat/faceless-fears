@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd2emxxrb6ks5"]
+[gd_scene load_steps=4 format=3 uid="uid://dd2emxxrb6ks5"]
 
-[ext_resource type="Script" path="res://scenes/debug/UI.gd" id="1_kcmwn"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_kcmwn"]
 [ext_resource type="PackedScene" uid="uid://11alw2brk14t" path="res://scenes/ui/pause_menu.tscn" id="2_iv1s3"]
+[ext_resource type="PackedScene" uid="uid://c2qw8bypwbmt6" path="res://scenes/ui/settings_menu.tscn" id="3_630b3"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -13,4 +14,14 @@ grow_vertical = 2
 script = ExtResource("1_kcmwn")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_iv1s3")]
+visible = false
 layout_mode = 1
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_630b3")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
+[connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]
+
+[editable path="PauseMenu"]

@@ -1,6 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bybdhtdnymat5"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bybdhtdnymat5"]
 
 [ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_dcbhy"]
+[ext_resource type="StyleBox" uid="uid://dvj3afefo5klb" path="res://scenes/ui/style_box_invisible.tres" id="1_elsj8"]
 
 [resource]
 default_font = ExtResource("1_dcbhy")
+Button/font_sizes/font_size = 34
+Button/styles/disabled = ExtResource("1_elsj8")
+Button/styles/focus = ExtResource("1_elsj8")
+Button/styles/hover = ExtResource("1_elsj8")
+Button/styles/normal = ExtResource("1_elsj8")
+Button/styles/pressed = ExtResource("1_elsj8")
