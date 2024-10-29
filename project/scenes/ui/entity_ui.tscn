@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjxgxuaon6tja"]
+
+[ext_resource type="Script" path="res://scenes/ui/entity_ui.gd" id="1_ub1hw"]
+[ext_resource type="Texture2D" uid="uid://sfa1idkihp1r" path="res://assets/images/icons/book.png" id="2_mlpq1"]
+
+[node name="EntityDisplay" type="Control"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 70.0
+offset_bottom = 120.0
+script = ExtResource("1_ub1hw")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(35, 36.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mlpq1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Scanner
+1"
+horizontal_alignment = 1
+vertical_alignment = 2

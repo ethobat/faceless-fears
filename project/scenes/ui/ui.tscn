@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd2emxxrb6ks5"]
+[gd_scene load_steps=6 format=3 uid="uid://dd2emxxrb6ks5"]
 
+[ext_resource type="Theme" uid="uid://bybdhtdnymat5" path="res://scenes/ui/vhs_ui_theme.tres" id="1_ffhv7"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_kcmwn"]
 [ext_resource type="PackedScene" uid="uid://11alw2brk14t" path="res://scenes/ui/pause_menu.tscn" id="2_iv1s3"]
 [ext_resource type="PackedScene" uid="uid://c2qw8bypwbmt6" path="res://scenes/ui/settings_menu.tscn" id="3_630b3"]
+[ext_resource type="Script" path="res://scenes/ui/hotbar.gd" id="5_b2yw6"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ffhv7")
 script = ExtResource("1_kcmwn")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_iv1s3")]
@@ -20,6 +23,34 @@ layout_mode = 1
 [node name="SettingsMenu" parent="." instance=ExtResource("3_630b3")]
 visible = false
 layout_mode = 1
+
+[node name="Hotbar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("5_b2yw6")
+
+[node name="Control" type="Control" parent="Hotbar"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Hotbar/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Scanner
+1"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]

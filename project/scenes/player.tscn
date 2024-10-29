@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b85efult8x7e4"]
+[gd_scene load_steps=6 format=3 uid="uid://b85efult8x7e4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k2s7n"]
 [ext_resource type="AudioStream" uid="uid://d3x7hcip1w8aw" path="res://assets/sounds/player/footstep.mp3" id="2_ihd0j"]
 [ext_resource type="Script" path="res://scripts/head_bob.gd" id="2_vfd0f"]
+[ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="4_3j7nd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vnri"]
 radius = 0.2
@@ -10,6 +11,7 @@ height = 1.67848
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_k2s7n")
+ui = NodePath("UI")
 sprint_forward_multipler = 1.8
 sprint_sideways_multiplier = 1.5
 speed = 1.0
@@ -29,3 +31,5 @@ vertical_bob_distance = 0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868891, 0)
 shape = SubResource("CapsuleShape3D_3vnri")
+
+[node name="UI" parent="." instance=ExtResource("4_3j7nd")]
