@@ -1,15 +1,16 @@
 extends HBoxContainer
 
-const ENTITY_UI = preload("res://scenes/ui/entity_ui.tscn")
+const ENTITY_PANEL = preload("res://scenes/ui/entity_panel.tscn")
 
-@export var test_entities: Array[Entity]
+@export var inv: Inventory
 
 func _ready():
-	rebuild(test_entities)
+	rebuild()
 
-func rebuild(entities: Array[Entity]):
+func rebuild():
 	for child in get_children():
 		child.queue_free()
-	for el in test_entities:
-		var slot = ENTITY_UI.new()
-		slot.entity = el
+	for entity in inv.items:
+		var slot = ENTITY_PANEL.instantiate()
+		slot.entity = entity
+		add_child(slot)

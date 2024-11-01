@@ -1,6 +1,7 @@
-extends Node3D
+extends Resource
 class_name Entity
 
+@export var physical_entity: PackedScene = null
 @export var components: Array[Component] = []
 
 func handle_event(event: Event) -> Event:

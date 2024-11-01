@@ -1,0 +1,45 @@
+An example of how events are formatted:
+
+"my_event"
+Values: float, int (0), int, string ("hello")
+This event has four values: a float, two ints, and a string. When the event is fired, the first int will always be 0, and the string will always be "hello".
+Example users: MyComponent, MyOtherComponent
+
+---
+
+"physical_entity_ready"
+Values: None
+When a PhysicalEntity's `_ready` method is run, it fires the "physical_entity_ready" method at its entity.
+
+"get_item_count"
+Values: Entity, int (0)
+Count the number of times an entity appears in the receiving entity as an item.
+Example users: Inventory
+
+"try_add_item"
+Values: Entity, int
+Try to add an entity to the receiving entity a given number of times. This is used by Inventory. The event returns with the number of items that were not successfully added.
+Example users: Inventory
+
+"try_remove_item"
+Values: Entity, int, int (0)
+Try to remove an entity from the receiving entity a given number of times.
+Once the event is complete, the first integer is the "outstanding" number of items that were not successfully removed, and the second integer is the number of items that were successfully removed - their sum will always be equal to the value of the first int when the event was fired.
+Example users: Inventory
+
+"get_energy"
+Values: float (0)
+Get the amount of energy contained by the receiving entity.
+Example users: EnergyContainer
+
+"try_add_energy":
+Values: float
+Try to add the given amoount of energy to the receiving entity.
+Returns with the amount of energy that was not successfully added.
+Example users: EnergyContainer
+
+"try_remove_energy"
+Values: float, float(0)
+Try to remove the given amount of energy from the receiving entity.
+Once the event is complete, the first float is the outstanding amount of energy that could not be removed, and the second float is the amount of energy that was removed - their sum will always be equal to the value of the first float when the event was fired.
+Example users: EnergyContainer

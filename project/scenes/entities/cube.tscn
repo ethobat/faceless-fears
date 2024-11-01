@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm1ugmxwsv72a"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_0ywp5"]
+[ext_resource type="Resource" uid="uid://nugtiiyg7pjw" path="res://scenes/entities/cube.tres" id="2_ofdrx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8la0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hgasv"]
+
+[node name="Cube" type="RigidBody3D"]
+script = ExtResource("1_0ywp5")
+entity = ExtResource("2_ofdrx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e8la0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hgasv")
