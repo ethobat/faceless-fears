@@ -6,12 +6,10 @@ var bobbing_fast: bool = false: # Whether the camera should bob faster; no effec
 		# vbdm is tweened so the player gradually breaks into a sprint over 3/10 of a second
 		# without this, beginning a sprint makes the camera suddenly jump upwards which looks jarring
 		if bobbing_fast and not value: # fast to slow
-			print("slowing down....")
 			if vbdm_tween != null: vbdm_tween.kill()
 			vbdm_tween = get_tree().create_tween()
 			vbdm_tween.tween_property(self, "vbdm", 1, 0.3)
 		if not bobbing_fast and value: # slow to fast
-			print("SPEEDING UP!!!!")
 			if vbdm_tween != null: vbdm_tween.kill()
 			vbdm_tween = get_tree().create_tween()
 			vbdm_tween.tween_property(self, "vbdm", 3, 0.3)
@@ -49,7 +47,6 @@ func _ease(x: float) -> float:
 		return x * (2 + x)
 
 func _physics_process(delta):
-	print(vbdm)
 	if bobbing:
 		oscillate(delta)
 	else:

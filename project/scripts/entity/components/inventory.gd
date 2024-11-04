@@ -25,4 +25,11 @@ func handle_event(event: Event) -> Event:
 			items[event.values[0]] -= removed
 			event.values[1] -= removed
 			event.values[2] += removed
+		"get_items":
+			for entity in items:
+				var d: Dictionary = event.values[0]
+				if d.has(entity):
+					d[entity] += items[entity]
+				else:
+					d[entity] = items[entity]
 	return event

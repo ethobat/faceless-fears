@@ -1,18 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd2emxxrb6ks5"]
+[gd_scene load_steps=7 format=3 uid="uid://dd2emxxrb6ks5"]
 
 [ext_resource type="Theme" uid="uid://bybdhtdnymat5" path="res://scenes/ui/vhs_ui_theme.tres" id="1_ffhv7"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_kcmwn"]
 [ext_resource type="PackedScene" uid="uid://11alw2brk14t" path="res://scenes/ui/pause_menu.tscn" id="2_iv1s3"]
 [ext_resource type="PackedScene" uid="uid://c2qw8bypwbmt6" path="res://scenes/ui/settings_menu.tscn" id="3_630b3"]
-[ext_resource type="Script" path="res://scenes/ui/hotbar.gd" id="5_b2yw6"]
-[ext_resource type="Resource" uid="uid://nugtiiyg7pjw" path="res://scenes/entities/cube.tres" id="6_ebeie"]
-[ext_resource type="Script" path="res://scripts/entity/components/inventory.gd" id="7_0cb7x"]
-
-[sub_resource type="Resource" id="Resource_u4oe3"]
-script = ExtResource("7_0cb7x")
-items = {
-ExtResource("6_ebeie"): 5
-}
+[ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/entity_panel_grid.tscn" id="5_mqujf"]
+[ext_resource type="PackedScene" uid="uid://c0eiiejfkk0ja" path="res://scenes/ui/inventory_window.tscn" id="6_ovrdb"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -32,18 +25,16 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="Hotbar" type="HBoxContainer" parent="."]
+[node name="Hotbar" parent="." instance=ExtResource("5_mqujf")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -120.0
-grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
-script = ExtResource("5_b2yw6")
-inv = SubResource("Resource_u4oe3")
+
+[node name="PlayerInventory" parent="." instance=ExtResource("6_ovrdb")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]

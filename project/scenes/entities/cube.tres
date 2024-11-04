@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=3 format=3 uid="uid://nugtiiyg7pjw"]
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://dwd0jbqti4dqe"]
 
-[ext_resource type="PackedScene" uid="uid://cm1ugmxwsv72a" path="res://scenes/entities/cube.tscn" id="1_rjk7b"]
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="2_yf3xi"]
 
 [resource]
-resource_name = "Cube"
+resource_name = "cube"
 script = ExtResource("2_yf3xi")
-physical_entity = ExtResource("1_rjk7b")
 components = Array[Resource("res://scripts/entity/component.gd")]([])

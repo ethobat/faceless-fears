@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b85efult8x7e4"]
+[gd_scene load_steps=7 format=3 uid="uid://b85efult8x7e4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k2s7n"]
+[ext_resource type="Resource" uid="uid://hsjeffubbbkg" path="res://scenes/entities/player.tres" id="2_a7xx0"]
 [ext_resource type="AudioStream" uid="uid://d3x7hcip1w8aw" path="res://assets/sounds/player/footstep.mp3" id="2_ihd0j"]
 [ext_resource type="Script" path="res://scripts/head_bob.gd" id="2_vfd0f"]
 [ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="4_3j7nd"]
@@ -9,18 +10,28 @@
 radius = 0.2
 height = 1.67848
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="Node" groups=["player"]]
 script = ExtResource("1_k2s7n")
-ui = NodePath("UI")
-sprint_forward_multipler = 1.8
-sprint_sideways_multiplier = 1.5
-speed = 1.0
+sprint_forward_multipler = null
+sprint_sideways_multiplier = null
+tools_turn_speed = null
+speed = null
+jump_power = null
+sensitivity = null
+gravity = null
+scroll_sensitivity = null
+interaction_distance = null
+scan_time = null
+enable_debug_hotkeys = null
+entity = ExtResource("2_a7xx0")
 
-[node name="FootstepsPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="FootstepsPlayer" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
 stream = ExtResource("2_ihd0j")
-volume_db = -27.0
+volume_db = -29.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44843, 0)
 script = ExtResource("2_vfd0f")
 return_speed = 0.16
@@ -28,8 +39,11 @@ bob_speed = 0.072
 horizontal_bob_distance = 0.0
 vertical_bob_distance = 0.06
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868891, 0)
 shape = SubResource("CapsuleShape3D_3vnri")
 
-[node name="UI" parent="." instance=ExtResource("4_3j7nd")]
+[node name="UI" parent="CharacterBody3D" instance=ExtResource("4_3j7nd")]
+
+[connection signal="on_menu_opened" from="CharacterBody3D/UI" to="." method="on_pause"]
+[connection signal="on_menus_closed" from="CharacterBody3D/UI" to="." method="on_unpause"]

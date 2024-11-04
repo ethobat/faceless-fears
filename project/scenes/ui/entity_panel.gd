@@ -13,3 +13,4 @@ var show_label: bool = true:
 	set(value):
 		show_label = value
 		$Label.visible = show_label
+		

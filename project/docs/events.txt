@@ -27,6 +27,10 @@ Try to remove an entity from the receiving entity a given number of times.
 Once the event is complete, the first integer is the "outstanding" number of items that were not successfully removed, and the second integer is the number of items that were successfully removed - their sum will always be equal to the value of the first int when the event was fired.
 Example users: Inventory
 
+"get_items"
+Values: Dictionary[Entity:int] ({})
+Get a dictionary of items contained by the receiving entity. Keys are Entities, values are the quantity of that Entity.
+
 "get_energy"
 Values: float (0)
 Get the amount of energy contained by the receiving entity.

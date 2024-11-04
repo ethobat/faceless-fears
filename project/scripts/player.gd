@@ -1,9 +1,13 @@
-extends CharacterBody3D
+extends PhysicalEntity
+class_name Player
 
-@export var ui: NodePath
+signal inventory_updated(items: Dictionary)
+signal hotbar_items_updated(items: Dictionary)
 
+@onready var body: CharacterBody3D = $CharacterBody3D
 @onready var camera: Camera3D = $Camera3D
 @onready var footsteps_player: AudioStreamPlayer3D = $FootstepsPlayer
+
 var tools: Node3D
 var flashlight: Node3D
 var anomaly_fixer: Node3D
@@ -21,10 +25,10 @@ var start_pos: Vector3
 var played_footsteps_last_frame: bool = false
 var paused = false
 
-@export var sprint_forward_multipler: float = 1.2
-@export var sprint_sideways_multiplier: float = 1.1
+@export var sprint_forward_multipler: float = 1.8
+@export var sprint_sideways_multiplier: float = 1.5
 @export var tools_turn_speed: float = 0.9
-@export var speed: float = 2
+@export var speed: float = 1
 @export var jump_power: float = 2
 @export var sensitivity: float = 0.3
 @export var gravity: float = 0.07
@@ -33,29 +37,33 @@ var paused = false
 @export var scan_time = 20
 @export var enable_debug_hotkeys: bool = false
 
-var controls_locked: bool = false
+var controls_locked: bool = false:
+	set(value):
+		controls_locked = value
+		if value:
+			disable_footsteps()
 var mouse_look_locked: bool = false
 
 # Awake
 func _ready():
-	start_pos = position
+	start_pos = body.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	unlock_controls()
-	unlock_mouse_look()
+	controls_locked = false
+	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_node(ui).on_menu_opened.connect(on_pause)
-	get_node(ui).on_menus_closed.connect(on_unpause)
+	inventory_updated.emit()
+	hotbar_items_updated.emit()
 	
 func on_pause():
-	lock_controls();
-	lock_mouse_look();
+	controls_locked = true
+	mouse_look_locked = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	disable_footsteps();
+	disable_footsteps()
 	paused = true;
 
 func on_unpause():
-	unlock_controls();
-	unlock_mouse_look();
+	controls_locked = false
+	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	paused = false
 
@@ -74,6 +82,9 @@ func disable_footsteps():
 	if played_footsteps_last_frame:
 		played_footsteps_last_frame = false
 		footsteps_player.stop()
+		
+func get_hotbar_items() -> Dictionary:
+	return entity.fire_event("get_items", [{}]).values[0]
 
 func toggle_flashlight():
 	print("Toggle flashlight")
@@ -83,19 +94,13 @@ func _process(delta: float):
 
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
 
-	if Input.is_action_just_pressed("menu"):
-		if paused:
-			get_node(ui).resume()
-		else:
-			get_node(ui).open_pause_menu()
-
 	if Input.is_action_just_pressed("screenshot"):
 		print("TODO: Take screenshot")
 		#ScreenCapture.CaptureScreenshot("screenshot");
 		
-	var dv = Vector3(0, velocity.y - gravity, 0)
+	var dv = Vector3(0, body.velocity.y - gravity, 0)
 		
-	if not get_controls_locked():
+	if not controls_locked:
 		if Input.is_action_just_pressed("flashlight"):
 			toggle_flashlight()
 		if enable_debug_hotkeys:
@@ -122,22 +127,22 @@ func _process(delta: float):
 			dv = camera.rotation * Vector3(ad, 0, ws) * speed
 			disable_footsteps()
 		else:
-			var jump = jump_power if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0
+			var jump = jump_power if Input.is_action_just_pressed("jump") and body.is_on_floor() else 0.0
 			dv += Quaternion.from_euler(Vector3(0, camera.rotation.y, 0)) * Vector3(ad * speed, jump, ws * speed)
 			#dv = Vector3(ad * speed, jump, ws * speed)
-			if (ws == 0 and ad == 0) or not is_on_floor():
+			if (ws == 0 and ad == 0) or not body.is_on_floor():
 				disable_footsteps();
 			else:
 				enable_footsteps();
 
 	# Out of bounds check
-	if position.y < -200:
-		position = start_pos
-		velocity = Vector3.ZERO
+	if body.position.y < -200:
+		body.position = start_pos
+		body.velocity = Vector3.ZERO
 		
-	velocity = dv * delta * 60
-	move_and_slide()
-	if velocity == Vector3.ZERO or velocity.y != 0:
+	body.velocity = dv * delta * 60
+	body.move_and_slide()
+	if body.velocity == Vector3.ZERO or body.velocity.y != 0:
 		camera.bobbing = false
 	else:
 		camera.bobbing = true
@@ -148,25 +153,6 @@ func _input(event):
 			mx += -event.relative.x * sensitivity * get_process_delta_time();
 			my = clamp(my + -event.relative.y * sensitivity * get_process_delta_time(), -PI/2, PI/2)
 			camera.rotation = Vector3(my, mx, 0)
-
-func get_controls_locked() -> bool:
-	return controls_locked
-
-func lock_controls():
-	controls_locked = true
-	disable_footsteps()
-
-func unlock_controls():
-	controls_locked = false
-
-func get_mouse_look_locked() -> bool:
-	return mouse_look_locked
-
-func lock_mouse_look():
-	mouse_look_locked = true
-
-func unlock_mouse_look():
-	mouse_look_locked = false
 
 func take_fear_damage(damage: float):
 	current_fear += damage

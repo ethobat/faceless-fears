@@ -1,18 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm1ugmxwsv72a"]
+[gd_scene load_steps=4 format=3 uid="uid://cvwwmei8yd7s0"]
 
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_0ywp5"]
-[ext_resource type="Resource" uid="uid://nugtiiyg7pjw" path="res://scenes/entities/cube.tres" id="2_ofdrx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_e8la0"]
+[sub_resource type="BoxMesh" id="BoxMesh_qp6wt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hgasv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ouoh"]
 
-[node name="Cube" type="RigidBody3D"]
+[node name="Cube" type="Node"]
 script = ExtResource("1_0ywp5")
-entity = ExtResource("2_ofdrx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_e8la0")
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_hgasv")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_qp6wt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_3ouoh")

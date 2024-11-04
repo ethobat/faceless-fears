@@ -1,5 +1,8 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://byuxrryg8g8m6"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://byuxrryg8g8m6"]
+
+[ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_m545a"]
 
 [resource]
+font = ExtResource("1_m545a")
 font_size = 40
 font_color = Color(0, 0.219608, 0.607843, 1)
