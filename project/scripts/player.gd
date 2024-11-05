@@ -3,10 +3,11 @@ class_name Player
 
 signal inventory_updated(items: Dictionary)
 signal hotbar_items_updated(items: Dictionary)
+signal inventory_button_pressed(items: Dictionary)
 
 @onready var body: CharacterBody3D = $CharacterBody3D
-@onready var camera: Camera3D = $Camera3D
-@onready var footsteps_player: AudioStreamPlayer3D = $FootstepsPlayer
+@onready var camera: Camera3D = $CharacterBody3D/Camera3D
+@onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
 
 var tools: Node3D
 var flashlight: Node3D
@@ -51,15 +52,13 @@ func _ready():
 	controls_locked = false
 	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	inventory_updated.emit()
-	hotbar_items_updated.emit()
 	
 func on_pause():
 	controls_locked = true
 	mouse_look_locked = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	disable_footsteps()
-	paused = true;
+	paused = true
 
 func on_unpause():
 	controls_locked = false
@@ -84,6 +83,9 @@ func disable_footsteps():
 		footsteps_player.stop()
 		
 func get_hotbar_items() -> Dictionary:
+	return get_items() # TODO
+
+func get_items() -> Dictionary:
 	return entity.fire_event("get_items", [{}]).values[0]
 
 func toggle_flashlight():
@@ -101,6 +103,8 @@ func _process(delta: float):
 	var dv = Vector3(0, body.velocity.y - gravity, 0)
 		
 	if not controls_locked:
+		if Input.is_action_just_pressed("inventory"):
+			inventory_button_pressed.emit(get_items())
 		if Input.is_action_just_pressed("flashlight"):
 			toggle_flashlight()
 		if enable_debug_hotkeys:

@@ -49,17 +49,6 @@ shadow_enabled = true
 environment = SubResource("Environment_e2c2n")
 
 [node name="Player" parent="." instance=ExtResource("1_kdold")]
-sprint_forward_multipler = 1.8
-sprint_sideways_multiplier = 1.5
-tools_turn_speed = 0.9
-speed = 1.0
-jump_power = 2.0
-sensitivity = 0.3
-gravity = 0.07
-scroll_sensitivity = 1.0
-interaction_distance = 2.2
-scan_time = 20
-enable_debug_hotkeys = false
 
 [node name="World" type="Node3D" parent="."]
 
@@ -86,10 +75,12 @@ mesh = SubResource("QuadMesh_6bokq")
 transform = Transform3D(0.744239, -0.59943, 0.294605, -0.421872, -0.0799231, 0.903126, -0.517815, -0.796427, -0.312365, 0, 1.735, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("6_eaivt")]
 
 [connection signal="hotbar_items_updated" from="Player" to="CanvasLayer/UI" method="update_hotbar"]
-[connection signal="inventory_updated" from="Player" to="CanvasLayer/UI" method="update_player_inventory"]
+[connection signal="inventory_button_pressed" from="Player" to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
+[connection signal="inventory_updated" from="Player" to="CanvasLayer/UI" method="update_inventories"]
 
 [editable path="World/Box"]

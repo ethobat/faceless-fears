@@ -17,11 +17,37 @@ grow_vertical = 2
 theme = ExtResource("1_ffhv7")
 script = ExtResource("1_kcmwn")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_iv1s3")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 40
+
+[node name="InventoryWindowsContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PlayerInventory" parent="MarginContainer/InventoryWindowsContainer" instance=ExtResource("6_ovrdb")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OtherInventory" parent="MarginContainer/InventoryWindowsContainer" instance=ExtResource("6_ovrdb")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_630b3")]
 visible = false
 layout_mode = 1
 
-[node name="SettingsMenu" parent="." instance=ExtResource("3_630b3")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_iv1s3")]
 visible = false
 layout_mode = 1
 
@@ -31,10 +57,6 @@ anchors_preset = 12
 anchor_top = 1.0
 grow_vertical = 0
 alignment = 1
-
-[node name="PlayerInventory" parent="." instance=ExtResource("6_ovrdb")]
-visible = false
-layout_mode = 1
 
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]

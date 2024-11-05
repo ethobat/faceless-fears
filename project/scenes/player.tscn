@@ -12,17 +12,6 @@ height = 1.67848
 
 [node name="Player" type="Node" groups=["player"]]
 script = ExtResource("1_k2s7n")
-sprint_forward_multipler = null
-sprint_sideways_multiplier = null
-tools_turn_speed = null
-speed = null
-jump_power = null
-sensitivity = null
-gravity = null
-scroll_sensitivity = null
-interaction_distance = null
-scan_time = null
-enable_debug_hotkeys = null
 entity = ExtResource("2_a7xx0")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
