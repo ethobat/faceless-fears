@@ -53,18 +53,16 @@ func _ready():
 	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-func on_pause():
+func _on_ui_menu_opened():
 	controls_locked = true
 	mouse_look_locked = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	disable_footsteps()
-	paused = true
 
-func on_unpause():
+func _on_ui_menus_closed():
 	controls_locked = false
 	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	paused = false
 
 func quit_to_desktop():
 	get_tree().quit()
@@ -102,9 +100,10 @@ func _process(delta: float):
 		
 	var dv = Vector3(0, body.velocity.y - gravity, 0)
 		
-	if not controls_locked:
-		if Input.is_action_just_pressed("inventory"):
+	if Input.is_action_just_pressed("inventory"):
 			inventory_button_pressed.emit(get_items())
+		
+	if not controls_locked:
 		if Input.is_action_just_pressed("flashlight"):
 			toggle_flashlight()
 		if enable_debug_hotkeys:

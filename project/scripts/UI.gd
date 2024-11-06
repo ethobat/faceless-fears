@@ -1,8 +1,8 @@
 extends Control
 class_name UI
 
-signal on_menu_opened
-signal on_menus_closed
+signal menu_opened
+signal menus_closed
 
 @onready var pause_menu: Control = $PauseMenu
 @onready var settings_menu: Control = $SettingsMenu
@@ -38,19 +38,19 @@ func resume():
 	pause_menu.visible = false
 	settings_menu.visible = false
 	paused = false
-	on_menus_closed.emit()
+	menus_closed.emit()
 	
 func open_pause_menu():
 	pause_menu.visible = true
 	settings_menu.visible = false
 	paused = true
-	on_menu_opened.emit()
+	menu_opened.emit()
 	
 func open_settings_menu():
 	pause_menu.visible = false
 	settings_menu.visible = true
 	paused = true
-	on_menu_opened.emit()
+	menu_opened.emit()
 
 func update_hotbar(items: Dictionary):
 	hotbar.update(items)
@@ -59,12 +59,14 @@ func open_player_inventory(items: Dictionary):
 	player_inv.visible = true
 	other_inv.visible = false
 	update_player_inventory(items)
+	menu_opened.emit()
 	
 func open_other_inventory(player_items: Dictionary, other_items: Dictionary):
 	player_inv.visible = true
 	other_inv.visible = true
 	update_player_inventory(player_items)
 	update_other_inventory(other_items)
+	menu_opened.emit()
 	
 func update_player_inventory(items: Dictionary):
 	if player_inv.visible:
@@ -76,3 +78,4 @@ func update_other_inventory(items: Dictionary):
 func hide_inv_windows():
 	player_inv.visible = false
 	other_inv.visible = false
+	menus_closed.emit()
