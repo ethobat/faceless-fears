@@ -7,6 +7,16 @@ Example users: MyComponent, MyOtherComponent
 
 ---
 
+"use_button_just_pressed"
+Fired when a player is holding this entity and right clicks.
+
+"use_button_just_released"
+Fired when a player is holding this entity and releases the right mouse button.
+
+"_process"
+Values: float
+When a PhysicalEntity's `_process` method is run, this event is fired with the delta time as the value.
+
 "physical_entity_ready"
 Values: None
 When a PhysicalEntity's `_ready` method is run, it fires the "physical_entity_ready" method at its entity.
@@ -14,6 +24,11 @@ When a PhysicalEntity's `_ready` method is run, it fires the "physical_entity_re
 "get_item_count"
 Values: Entity, int (0)
 Count the number of times an entity appears in the receiving entity as an item.
+Example users: Inventory
+
+"get_item_counts"
+Values: Dictionary[Entity,int]
+Count the number of times each entity appears in the receiving entity as an item. Values start at 0.
 Example users: Inventory
 
 "try_add_item"

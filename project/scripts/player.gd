@@ -8,6 +8,7 @@ signal inventory_button_pressed(items: Dictionary)
 @onready var body: CharacterBody3D = $CharacterBody3D
 @onready var camera: Camera3D = $CharacterBody3D/Camera3D
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
+@onready var hand: Node3D = $CharacterBody3D/Hand
 
 var tools: Node3D
 var flashlight: Node3D
@@ -45,6 +46,33 @@ var controls_locked: bool = false:
 			disable_footsteps()
 var mouse_look_locked: bool = false
 
+var hotbar_items: Array[Entity]: # 0th element is always null
+	set(value):
+		hotbar_items = value
+		var dic = {}
+		for en in hotbar_items:
+			if en != null:
+				dic[en] = 0
+			hotbar_items_updated.emit(entity.fire_event("get_item_counts", [dic]).values[0])
+
+var selected_slot: int = 0: # 0 means no slot is selected
+	set(value):
+		selected_slot = value
+		held_item = hotbar_items[selected_slot]
+
+var held_item: Entity = null:
+	set(value):
+		held_item = value
+		physicalize_selected_item()
+
+func physicalize_selected_item():
+	if hand.get_child_count() != 0:
+		hand.get_child(0).queue_free()
+	if held_item != null:
+		var pe = held_item.physicalize()
+		pe.disable_physics()
+		hand.add_child(pe)
+
 # Awake
 func _ready():
 	start_pos = body.position
@@ -52,6 +80,15 @@ func _ready():
 	controls_locked = false
 	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	var hi: Array[Entity] = [null]
+	var n = 1
+	for en in get_items():
+		hi.append(en)
+		n += 1
+		if n == 9:
+			break
+	hotbar_items = hi
 	
 func _on_ui_menu_opened():
 	controls_locked = true
@@ -104,6 +141,13 @@ func _process(delta: float):
 			inventory_button_pressed.emit(get_items())
 		
 	if not controls_locked:
+		for n in range(10):
+			if Input.is_action_just_pressed("hotbar_"+str(n)):
+				if selected_slot == n:
+					selected_slot = 0
+				else:
+					selected_slot = n
+				break
 		if Input.is_action_just_pressed("flashlight"):
 			toggle_flashlight()
 		if enable_debug_hotkeys:
@@ -125,7 +169,7 @@ func _process(delta: float):
 				ad *= sprint_sideways_multiplier
 				sprinting = true
 		camera.bobbing_fast = sprinting
-		footsteps_player.pitch_scale = 1.2 if sprinting else 1
+		footsteps_player.pitch_scale = 1.2 if sprinting else 1.0
 		if noclip:
 			dv = camera.rotation * Vector3(ad, 0, ws) * speed
 			disable_footsteps()

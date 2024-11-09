@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b85efult8x7e4"]
+[gd_scene load_steps=7 format=3 uid="uid://b85efult8x7e4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k2s7n"]
 [ext_resource type="Resource" uid="uid://hsjeffubbbkg" path="res://scenes/entities/player.tres" id="2_a7xx0"]
 [ext_resource type="AudioStream" uid="uid://d3x7hcip1w8aw" path="res://assets/sounds/player/footstep.mp3" id="2_ihd0j"]
 [ext_resource type="Script" path="res://scripts/head_bob.gd" id="2_vfd0f"]
+[ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="5_1side"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vnri"]
 radius = 0.2
-height = 1.67848
+height = 1.0
 
-[node name="Player" type="Node" groups=["player"]]
+[node name="Player" type="Node3D" groups=["player"]]
 script = ExtResource("1_k2s7n")
 entity = ExtResource("2_a7xx0")
 
@@ -20,13 +21,24 @@ stream = ExtResource("2_ihd0j")
 volume_db = -29.0
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44843, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_vfd0f")
 return_speed = 0.16
 bob_speed = 0.072
 horizontal_bob_distance = 0.0
-vertical_bob_distance = 0.06
+vertical_bob_distance = 0.03
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868891, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_3vnri")
+
+[node name="Hand" type="Node3D" parent="CharacterBody3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_1side")]
+
+[connection signal="hotbar_items_updated" from="." to="CanvasLayer/UI" method="update_hotbar"]
+[connection signal="inventory_button_pressed" from="." to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
+[connection signal="inventory_updated" from="." to="CanvasLayer/UI" method="_on_player_inventory_updated"]

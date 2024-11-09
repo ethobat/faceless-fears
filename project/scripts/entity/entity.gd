@@ -14,5 +14,10 @@ func fire_event(event_type: String, values: Array) -> Event:
 	event.values = values
 	return handle_event(event)
 
-func get_physical_entity() -> PackedScene:
+func get_physical_entity_scene() -> PackedScene:
 	return load("res://scenes/entities/"+self.resource_name+".tscn")
+	
+func physicalize() -> PhysicalEntity:
+	var pe = get_physical_entity_scene().instantiate()
+	pe.entity = self
+	return pe

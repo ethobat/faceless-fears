@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cua3auf7j7hj"]
+[gd_scene load_steps=11 format=3 uid="uid://cua3auf7j7hj"]
 
 [ext_resource type="PackedScene" uid="uid://b85efult8x7e4" path="res://scenes/player.tscn" id="1_kdold"]
 [ext_resource type="PackedScene" uid="uid://ehooohbqsauu" path="res://scenes/debug/box.tscn" id="2_il3wo"]
 [ext_resource type="PackedScene" uid="uid://c4sx13mcql8ft" path="res://scenes/debug/sphere.tscn" id="3_3bsho"]
 [ext_resource type="Shader" path="res://assets/third party/ultimate-retro-shader-collection-main/spatial/sprite.gdshader" id="4_0kwxp"]
 [ext_resource type="Texture2D" uid="uid://sfa1idkihp1r" path="res://assets/images/icons/book.png" id="5_sji3p"]
-[ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="6_eaivt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtksr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,6 +48,18 @@ shadow_enabled = true
 environment = SubResource("Environment_e2c2n")
 
 [node name="Player" parent="." instance=ExtResource("1_kdold")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203492, 0)
+sprint_forward_multipler = 1.8
+sprint_sideways_multiplier = 1.5
+tools_turn_speed = 0.9
+speed = 1.0
+jump_power = 2.0
+sensitivity = 0.3
+gravity = 0.07
+scroll_sensitivity = 1.0
+interaction_distance = 2.2
+scan_time = 20
+enable_debug_hotkeys = false
 
 [node name="World" type="Node3D" parent="."]
 
@@ -73,16 +84,5 @@ mesh = SubResource("QuadMesh_6bokq")
 
 [node name="Spotlight" type="SpotLight3D" parent="World"]
 transform = Transform3D(0.744239, -0.59943, 0.294605, -0.421872, -0.0799231, 0.903126, -0.517815, -0.796427, -0.312365, 0, 1.735, 0)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="UI" parent="CanvasLayer" instance=ExtResource("6_eaivt")]
-
-[connection signal="hotbar_items_updated" from="Player" to="CanvasLayer/UI" method="update_hotbar"]
-[connection signal="inventory_button_pressed" from="Player" to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
-[connection signal="inventory_updated" from="Player" to="CanvasLayer/UI" method="update_inventories"]
-[connection signal="menu_opened" from="CanvasLayer/UI" to="Player" method="_on_ui_menu_opened"]
-[connection signal="menus_closed" from="CanvasLayer/UI" to="Player" method="_on_ui_menus_closed"]
 
 [editable path="World/Box"]

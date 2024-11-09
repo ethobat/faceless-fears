@@ -10,6 +10,10 @@ func handle_event(event: Event) -> Event:
 				if entity == event.values[0]:
 					event.values[1] += items[entity]
 					break
+		"get_item_counts": # Dictionary
+			for entity in event.values[0]:
+				if items.has(entity):
+					event.values[0][entity] += items[entity]
 		"try_add_item": # Entity, int
 			var found_existing_stack = false
 			for entity in items:

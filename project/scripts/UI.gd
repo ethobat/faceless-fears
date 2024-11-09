@@ -20,7 +20,7 @@ func _ready():
 	pause_menu.visible = false
 	hide_inv_windows()
 
-func _process(delta: float):
+func _process(_delta: float):
 	if Input.is_action_just_pressed("menu"):
 		if paused:
 			resume()
@@ -54,25 +54,26 @@ func open_settings_menu():
 
 func update_hotbar(items: Dictionary):
 	hotbar.update(items)
+	print(items)
 	
 func open_player_inventory(items: Dictionary):
 	player_inv.visible = true
 	other_inv.visible = false
-	update_player_inventory(items)
+	_on_player_inventory_updated(items)
 	menu_opened.emit()
 	
 func open_other_inventory(player_items: Dictionary, other_items: Dictionary):
 	player_inv.visible = true
 	other_inv.visible = true
-	update_player_inventory(player_items)
-	update_other_inventory(other_items)
+	_on_player_inventory_updated(player_items)
+	on_other_inventory_updated(other_items)
 	menu_opened.emit()
 	
-func update_player_inventory(items: Dictionary):
+func _on_player_inventory_updated(items: Dictionary):
 	if player_inv.visible:
 		player_inv.update(items)
 	
-func update_other_inventory(items: Dictionary):
+func on_other_inventory_updated(items: Dictionary):
 	other_inv.update(items)
 
 func hide_inv_windows():
