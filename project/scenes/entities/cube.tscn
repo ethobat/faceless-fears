@@ -2,17 +2,20 @@
 
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_0ywp5"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_qp6wt"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ouoh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1ukh"]
 
 [node name="Cube" type="Node3D"]
 script = ExtResource("1_0ywp5")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("BoxMesh_qp6wt")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_3ouoh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_q1ukh")
+skeleton = NodePath("../..")

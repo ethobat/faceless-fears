@@ -5,4 +5,5 @@
 [resource]
 resource_name = "cube"
 script = ExtResource("2_yf3xi")
+placeable = true
 components = Array[Resource("res://scripts/entity/component.gd")]([])

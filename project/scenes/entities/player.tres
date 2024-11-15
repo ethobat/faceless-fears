@@ -12,4 +12,5 @@ ExtResource("1_aogua"): 1
 
 [resource]
 script = ExtResource("1_4e07d")
+placeable = false
 components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_mvrln")])

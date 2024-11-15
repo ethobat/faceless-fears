@@ -49,17 +49,6 @@ environment = SubResource("Environment_e2c2n")
 
 [node name="Player" parent="." instance=ExtResource("1_kdold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203492, 0)
-sprint_forward_multipler = 1.8
-sprint_sideways_multiplier = 1.5
-tools_turn_speed = 0.9
-speed = 1.0
-jump_power = 2.0
-sensitivity = 0.3
-gravity = 0.07
-scroll_sensitivity = 1.0
-interaction_distance = 2.2
-scan_time = 20
-enable_debug_hotkeys = false
 
 [node name="World" type="Node3D" parent="."]
 

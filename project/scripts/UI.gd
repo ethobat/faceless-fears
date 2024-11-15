@@ -54,7 +54,6 @@ func open_settings_menu():
 
 func update_hotbar(items: Dictionary):
 	hotbar.update(items)
-	print(items)
 	
 func open_player_inventory(items: Dictionary):
 	player_inv.visible = true

@@ -12,5 +12,7 @@ func disable_physics():
 static func disable_physics_on_node(node):
 	if node is CollisionShape3D:
 		node.disabled = true
+	if node is RigidBody3D:
+		node.freeze = true
 	for ch in node.get_children():
 		disable_physics_on_node(ch)

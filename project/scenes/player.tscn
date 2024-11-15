@@ -20,19 +20,28 @@ entity = ExtResource("2_a7xx0")
 stream = ExtResource("2_ihd0j")
 volume_db = -29.0
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-script = ExtResource("2_vfd0f")
-return_speed = 0.16
-bob_speed = 0.072
-horizontal_bob_distance = 0.0
-vertical_bob_distance = 0.03
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_3vnri")
 
-[node name="Hand" type="Node3D" parent="CharacterBody3D"]
+[node name="Head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
+script = ExtResource("2_vfd0f")
+bob_speed = 0.072
+return_speed = 0.16
+horizontal_bob_distance = 0.0
+vertical_bob_distance = 0.03
+hand_horizontal_bob_distance = 0.02
+hand_vertical_bob_distance = 0.01
+
+[node name="Hand" type="Node3D" parent="CharacterBody3D/Head/Camera3D"]
+transform = Transform3D(0.802817, 0.0850389, -0.590129, 0, 0.989776, 0.142629, 0.596225, -0.114505, 0.79461, 0.335, -0.235, -0.4)
+
+[node name="ItemGhostRaycast" type="RayCast3D" parent="CharacterBody3D/Head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
+target_position = Vector3(0, -2, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -42,3 +51,5 @@ follow_viewport_enabled = true
 [connection signal="hotbar_items_updated" from="." to="CanvasLayer/UI" method="update_hotbar"]
 [connection signal="inventory_button_pressed" from="." to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
 [connection signal="inventory_updated" from="." to="CanvasLayer/UI" method="_on_player_inventory_updated"]
+[connection signal="menu_opened" from="CanvasLayer/UI" to="." method="_on_ui_menu_opened"]
+[connection signal="menus_closed" from="CanvasLayer/UI" to="." method="_on_ui_menus_closed"]

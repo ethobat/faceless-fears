@@ -6,9 +6,11 @@ signal hotbar_items_updated(items: Dictionary)
 signal inventory_button_pressed(items: Dictionary)
 
 @onready var body: CharacterBody3D = $CharacterBody3D
-@onready var camera: Camera3D = $CharacterBody3D/Camera3D
+@onready var head: Node3D = $CharacterBody3D/Head
+@onready var camera: Camera3D = $CharacterBody3D/Head/Camera3D
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
-@onready var hand: Node3D = $CharacterBody3D/Hand
+@onready var hand: Node3D = $CharacterBody3D/Head/Camera3D/Hand
+@onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/ItemGhostRaycast
 
 var tools: Node3D
 var flashlight: Node3D
@@ -63,15 +65,29 @@ var selected_slot: int = 0: # 0 means no slot is selected
 var held_item: Entity = null:
 	set(value):
 		held_item = value
-		physicalize_selected_item()
-
-func physicalize_selected_item():
-	if hand.get_child_count() != 0:
-		hand.get_child(0).queue_free()
-	if held_item != null:
-		var pe = held_item.physicalize()
-		pe.disable_physics()
-		hand.add_child(pe)
+		
+		# cleanup
+		if hand.get_child_count() != 0:
+			hand.get_child(0).queue_free()
+		held_item_ghost = null
+		item_ghost_raycast.enabled = false
+		if held_item == null:
+			return
+		
+		# instantiating item
+		if held_item.placeable:
+			item_ghost_raycast.enabled = true
+			held_item_ghost = held_item.instantiate_ghost()
+			held_item_ghost.top_level = true # might not be necessary, try removing
+			hand.add_child(held_item_ghost)
+			held_item_ghost.rotation = Vector3.ZERO
+			update_held_item_ghost()
+		else:
+			var pe = held_item.physicalize()
+			pe.disable_physics()
+			hand.add_child(pe)
+			
+var held_item_ghost: Node3D = null
 
 # Awake
 func _ready():
@@ -81,10 +97,10 @@ func _ready():
 	mouse_look_locked = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	var hi: Array[Entity] = [null]
+	var hi: Array[Entity] = [null, null, null, null, null, null, null, null, null, null]
 	var n = 1
 	for en in get_items():
-		hi.append(en)
+		hi[n] = en
 		n += 1
 		if n == 9:
 			break
@@ -127,10 +143,17 @@ func toggle_flashlight():
 	print("Toggle flashlight")
 	# also needs to play sound
 
+func update_held_item_ghost():
+	if item_ghost_raycast.is_colliding():
+		held_item_ghost.visible = true
+		held_item_ghost.position = item_ghost_raycast.get_collision_point()
+	else:
+		held_item_ghost.visible = false
+
 func _process(delta: float):
 
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
-
+	
 	if Input.is_action_just_pressed("screenshot"):
 		print("TODO: Take screenshot")
 		#ScreenCapture.CaptureScreenshot("screenshot");
@@ -141,6 +164,8 @@ func _process(delta: float):
 			inventory_button_pressed.emit(get_items())
 		
 	if not controls_locked:
+		if held_item_ghost != null:
+			update_held_item_ghost()
 		for n in range(10):
 			if Input.is_action_just_pressed("hotbar_"+str(n)):
 				if selected_slot == n:
@@ -171,11 +196,11 @@ func _process(delta: float):
 		camera.bobbing_fast = sprinting
 		footsteps_player.pitch_scale = 1.2 if sprinting else 1.0
 		if noclip:
-			dv = camera.rotation * Vector3(ad, 0, ws) * speed
+			dv = head.rotation * Vector3(ad, 0, ws) * speed
 			disable_footsteps()
 		else:
 			var jump = jump_power if Input.is_action_just_pressed("jump") and body.is_on_floor() else 0.0
-			dv += Quaternion.from_euler(Vector3(0, camera.rotation.y, 0)) * Vector3(ad * speed, jump, ws * speed)
+			dv += Quaternion.from_euler(Vector3(0, head.rotation.y, 0)) * Vector3(ad * speed, jump, ws * speed)
 			#dv = Vector3(ad * speed, jump, ws * speed)
 			if (ws == 0 and ad == 0) or not body.is_on_floor():
 				disable_footsteps();
@@ -199,7 +224,7 @@ func _input(event):
 		if not mouse_look_locked:
 			mx += -event.relative.x * sensitivity * get_process_delta_time();
 			my = clamp(my + -event.relative.y * sensitivity * get_process_delta_time(), -PI/2, PI/2)
-			camera.rotation = Vector3(my, mx, 0)
+			head.rotation = Vector3(my, mx, 0)
 
 func take_fear_damage(damage: float):
 	current_fear += damage

@@ -16,18 +16,24 @@ var bobbing_fast: bool = false: # Whether the camera should bob faster; no effec
 		bobbing_fast = value
 var vbdm_tween: Tween = null
 
-@export var return_speed: float = 0.08
+@onready var hand: Node3D = $Hand
+
 @export var bob_speed: float = 0.0364
+@export var return_speed: float = 0.08
 @export var horizontal_bob_distance: float = 0.07
 @export var vertical_bob_distance: float = 0.02
+@export var hand_horizontal_bob_distance: float = 0.07
+@export var hand_vertical_bob_distance: float = 0.02
 var vbdm: float = 1
 
-var original_local_position: Vector3
+var olp: Vector3 # original local position
+var hand_olp: Vector3
 var osc: float = 0
 var osc_direction: float = 1
 
 func _ready():
-	original_local_position = position
+	olp = position
+	hand_olp = hand.position
 
 func oscillate(delta: float):
 	var newval = osc + bob_speed * osc_direction * delta * 60
@@ -38,7 +44,8 @@ func oscillate(delta: float):
 		osc = newval
 
 func update_position():
-	position = original_local_position + basis * Vector3(_ease(osc) * horizontal_bob_distance, abs(_ease(osc)) * vertical_bob_distance*vbdm, 0);
+	position = olp + basis * Vector3(_ease(osc) * horizontal_bob_distance, abs(_ease(osc)) * vertical_bob_distance*vbdm, 0);
+	hand.position = hand_olp + Vector3(_ease(osc) * hand_horizontal_bob_distance, abs(_ease(osc)) * hand_vertical_bob_distance*vbdm, 0);
 
 func _ease(x: float) -> float:
 	if x >= 0:
