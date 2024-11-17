@@ -5,7 +5,7 @@ class_name EnergyContainer
 @export var energy: float = 0.0
 @export var max_energy: float = 24000.0
 
-func handle_event(event: Event) -> Event:
+func handle_event(entity: Entity, event: Event) -> Event:
 	match event.event_type:
 		"get_energy":
 			event.values[0] += energy

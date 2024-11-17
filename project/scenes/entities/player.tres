@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_mvrln"]
 script = ExtResource("1_ds116")
 items = {
-ExtResource("1_aogua"): 1
+ExtResource("1_aogua"): 5
 }
 
 [resource]

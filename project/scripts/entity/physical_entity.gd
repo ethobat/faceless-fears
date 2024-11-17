@@ -6,13 +6,24 @@ class_name PhysicalEntity
 func _ready():
 	entity.fire_event("physical_entity_ready", [])
 	
-func disable_physics():
-	disable_physics_on_node(self)
+func disable_collision():
+	for ch in get_all_children():
+		if ch is CollisionShape3D:
+			ch.disabled = true
+		if ch is RigidBody3D:
+			ch.freeze = true
 
-static func disable_physics_on_node(node):
-	if node is CollisionShape3D:
-		node.disabled = true
-	if node is RigidBody3D:
-		node.freeze = true
-	for ch in node.get_children():
-		disable_physics_on_node(ch)
+func freeze():
+	for ch in get_all_children():
+		if ch is RigidBody3D:
+			ch.freeze = true
+
+func get_all_children():
+	return get_all_children_recursive(self)
+
+static func get_all_children_recursive(node, children := []):
+	children.push_back(node)
+	for child in node.get_children():
+		children = get_all_children_recursive(child, children)
+	return children
+

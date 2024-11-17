@@ -6,7 +6,8 @@ const ENTITY_PANEL = preload("res://scenes/ui/entity_panel.tscn")
 func update(items: Dictionary):
 	for child in get_children():
 		child.queue_free()
-	for entity in items:
+	for en in items:
 		var slot = ENTITY_PANEL.instantiate()
-		slot.entity = entity
+		slot.entity = en
+		slot.count = items[en]
 		add_child(slot)

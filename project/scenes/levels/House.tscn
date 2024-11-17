@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://rvg620pf1bxh"]
+[gd_scene load_steps=2 format=3 uid="uid://rvg620pf1bxh"]
+
+[ext_resource type="PackedScene" uid="uid://bd37hb1ri43xf" path="res://assets/models/house.blend" id="1_wvp4a"]
 
 [node name="House" type="Node3D"]
+
+[node name="house" parent="." instance=ExtResource("1_wvp4a")]

@@ -1,17 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqujymxo2gabs"]
+[gd_scene load_steps=5 format=3 uid="uid://bqujymxo2gabs"]
+
+[ext_resource type="Script" path="res://scripts/entity_ghost.gd" id="1_babqp"]
+[ext_resource type="Material" uid="uid://brav4qkxlnxkg" path="res://assets/models/materials/ghost_valid.tres" id="2_j8lwd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gb8tw"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3n8gr"]
+
 [node name="CubeGhost" type="Node3D"]
+script = ExtResource("1_babqp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.05, 0)
 mesh = SubResource("BoxMesh_gb8tw")
+surface_material_override/0 = ExtResource("2_j8lwd")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.105274, 0, 0, 0, 0.05, 0, 0.0960299, 0)
-mesh = SubResource("BoxMesh_gb8tw")
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.05, 0)
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.025, 0, 0, 0, 0.0992354, -0.0173727, 0, 0.0958975, 0.0179774, 0, 0.0702311, 0.068992)
-mesh = SubResource("BoxMesh_gb8tw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_3n8gr")

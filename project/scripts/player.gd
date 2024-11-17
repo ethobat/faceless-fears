@@ -12,16 +12,9 @@ signal inventory_button_pressed(items: Dictionary)
 @onready var hand: Node3D = $CharacterBody3D/Head/Camera3D/Hand
 @onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/ItemGhostRaycast
 
-var tools: Node3D
-var flashlight: Node3D
-var anomaly_fixer: Node3D
-var fear_bar: ProgressBar
-var scan_progress_bar: ProgressBar
+var mouse_motion_relative: Vector2
 
-var look_target: Node3D
 var noclip: bool = false
-var max_fear: float = 100
-var current_fear: float = 0
 var mx: float = 0
 var my: float = 0
 var raycasted_this_frame: bool = false
@@ -51,43 +44,55 @@ var mouse_look_locked: bool = false
 var hotbar_items: Array[Entity]: # 0th element is always null
 	set(value):
 		hotbar_items = value
-		var dic = {}
-		for en in hotbar_items:
-			if en != null:
-				dic[en] = 0
-			hotbar_items_updated.emit(entity.fire_event("get_item_counts", [dic]).values[0])
+		update_hotbar_items()
+
+func update_hotbar_items():
+	var dic = {}
+	for en in hotbar_items:
+		if en != null:
+			dic[en] = 0
+	var counts = entity.fire_event("get_item_counts", [dic]).values[0]
+	for i in range(10):
+		if counts.has(hotbar_items[i]) and counts[hotbar_items[i]] <= 0:
+			counts.erase(hotbar_items[i])
+			hotbar_items[i] = null
+	hotbar_items_updated.emit(counts)
 
 var selected_slot: int = 0: # 0 means no slot is selected
 	set(value):
 		selected_slot = value
-		held_item = hotbar_items[selected_slot]
+		update_held_item()
+	
+func toggle_noclip():
+	noclip = not noclip
+	# todo: disable collision
+	disable_footsteps();
+	print("Noclip "+("enabled" if noclip else "disabled"))
+	
+func update_held_item():
+	update_hotbar_items()
+	held_item = hotbar_items[selected_slot]
 
 var held_item: Entity = null:
 	set(value):
+		if held_item == value:
+			return
 		held_item = value
 		
 		# cleanup
 		if hand.get_child_count() != 0:
-			hand.get_child(0).queue_free()
-		held_item_ghost = null
-		item_ghost_raycast.enabled = false
+			var last_item = hand.get_child(0)
+			last_item.entity.fire_event("removed_from_hand", [self])
+			last_item.queue_free()
 		if held_item == null:
 			return
 		
 		# instantiating item
-		if held_item.placeable:
-			item_ghost_raycast.enabled = true
-			held_item_ghost = held_item.instantiate_ghost()
-			held_item_ghost.top_level = true # might not be necessary, try removing
-			hand.add_child(held_item_ghost)
-			held_item_ghost.rotation = Vector3.ZERO
-			update_held_item_ghost()
-		else:
-			var pe = held_item.physicalize()
-			pe.disable_physics()
-			hand.add_child(pe)
-			
-var held_item_ghost: Node3D = null
+		held_item.fire_event("placed_in_hand", [self])
+		var pe = held_item.physicalize()
+		pe.disable_collision()
+		hand.add_child(pe)
+		
 
 # Awake
 func _ready():
@@ -105,7 +110,7 @@ func _ready():
 		if n == 9:
 			break
 	hotbar_items = hi
-	
+
 func _on_ui_menu_opened():
 	controls_locked = true
 	mouse_look_locked = true
@@ -143,16 +148,12 @@ func toggle_flashlight():
 	print("Toggle flashlight")
 	# also needs to play sound
 
-func update_held_item_ghost():
-	if item_ghost_raycast.is_colliding():
-		held_item_ghost.visible = true
-		held_item_ghost.position = item_ghost_raycast.get_collision_point()
-	else:
-		held_item_ghost.visible = false
-
 func _process(delta: float):
 
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
+	
+	if held_item != null:
+		held_item.fire_event("in_hand", [self, mouse_motion_relative])
 	
 	if Input.is_action_just_pressed("screenshot"):
 		print("TODO: Take screenshot")
@@ -164,8 +165,6 @@ func _process(delta: float):
 			inventory_button_pressed.emit(get_items())
 		
 	if not controls_locked:
-		if held_item_ghost != null:
-			update_held_item_ghost()
 		for n in range(10):
 			if Input.is_action_just_pressed("hotbar_"+str(n)):
 				if selected_slot == n:
@@ -175,12 +174,6 @@ func _process(delta: float):
 				break
 		if Input.is_action_just_pressed("flashlight"):
 			toggle_flashlight()
-		if enable_debug_hotkeys:
-			if Input.is_key_pressed(KEY_V):
-				noclip = not noclip
-				# todo: disable collision
-				disable_footsteps();
-				print("Noclip "+("enabled" if noclip else "disabled"))
 		
 		# Movement
 		var ad = 1 if Input.is_action_pressed("move_right") else (-1 if Input.is_action_pressed("move_left") else 0)
@@ -221,15 +214,8 @@ func _process(delta: float):
 
 func _input(event):
 	if event is InputEventMouseMotion:
+		mouse_motion_relative = event.relative
 		if not mouse_look_locked:
 			mx += -event.relative.x * sensitivity * get_process_delta_time();
 			my = clamp(my + -event.relative.y * sensitivity * get_process_delta_time(), -PI/2, PI/2)
 			head.rotation = Vector3(my, mx, 0)
-
-func take_fear_damage(damage: float):
-	current_fear += damage
-	# update progress bar
-
-func heal_fear(amount: float):
-	current_fear -= amount
-	# update progress bar

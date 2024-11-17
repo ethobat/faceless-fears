@@ -74,4 +74,6 @@ mesh = SubResource("QuadMesh_6bokq")
 [node name="Spotlight" type="SpotLight3D" parent="World"]
 transform = Transform3D(0.744239, -0.59943, 0.294605, -0.421872, -0.0799231, 0.903126, -0.517815, -0.796427, -0.312365, 0, 1.735, 0)
 
+[node name="PlacedEntitiesParent" type="Node3D" parent="." groups=["placed_entities_parent"]]
+
 [editable path="World/Box"]

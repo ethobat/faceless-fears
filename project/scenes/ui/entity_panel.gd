@@ -3,6 +3,7 @@ class_name EntityPanel
 
 @onready var texture: TextureRect = $TextureRect
 @onready var label: Label = $Label
+@onready var count_label: Label = $CountLabel
 
 var entity: Entity:
 	set(value):
@@ -14,3 +15,7 @@ var show_label: bool = true:
 		show_label = value
 		$Label.visible = show_label
 		
+var count: int = 0:
+	set(value):
+		count = value
+		$CountLabel.text = str(count)

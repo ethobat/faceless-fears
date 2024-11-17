@@ -9,7 +9,7 @@ class_name Entity
 
 func handle_event(event: Event) -> Event:
 	for component in components:
-		component.handle_event(event)
+		component.handle_event(self, event)
 	return event
 	
 func fire_event(event_type: String, values: Array) -> Event:

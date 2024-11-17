@@ -7,11 +7,22 @@ Example users: MyComponent, MyOtherComponent
 
 ---
 
-"use_button_just_pressed"
-Fired when a player is holding this entity and right clicks.
+"placed_in_hand"
+values: Player
+Fired when the player selects an entity in their hotbar.
 
-"use_button_just_released"
-Fired when a player is holding this entity and releases the right mouse button.
+"in_hand"
+values: Player, Vector2
+Fired every frame while the player is holding the receiving entity as an item. Vector2 argument is the relative mouse motion for this frame.
+
+"removed_from_hand"
+values: Player
+Fired when the player de-selects an item from their hotbar.
+
+"dial"
+Values: float
+Moves the dial of an item by the given value. The implementation of thise event can vary between components. On Placeable components, for example, the dial rotates the entity ghost.
+Examples users: Placeable
 
 "_process"
 Values: float

@@ -12,6 +12,7 @@ height = 1.0
 
 [node name="Player" type="Node3D" groups=["player"]]
 script = ExtResource("1_k2s7n")
+enable_debug_hotkeys = true
 entity = ExtResource("2_a7xx0")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
