@@ -38,11 +38,15 @@ hand_horizontal_bob_distance = 0.02
 hand_vertical_bob_distance = 0.01
 
 [node name="Hand" type="Node3D" parent="CharacterBody3D/Head/Camera3D"]
-transform = Transform3D(0.802817, 0.0850389, -0.590129, 0, 0.989776, 0.142629, 0.596225, -0.114505, 0.79461, 0.335, -0.235, -0.4)
+transform = Transform3D(-0.275369, -0.755904, -0.593953, -0.773116, 0.541342, -0.330514, 0.571369, 0.368181, -0.733471, 0.375, -0.205, -0.385)
 
 [node name="ItemGhostRaycast" type="RayCast3D" parent="CharacterBody3D/Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
 target_position = Vector3(0, -2, 0)
+
+[node name="LookRaycast" type="RayCast3D" parent="CharacterBody3D/Head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
+target_position = Vector3(0, -5, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

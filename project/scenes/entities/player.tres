@@ -1,16 +1,22 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=5 format=3 uid="uid://hsjeffubbbkg"]
+[gd_resource type="Resource" script_class="Entity" load_steps=8 format=3 uid="uid://hsjeffubbbkg"]
 
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_4e07d"]
 [ext_resource type="Resource" uid="uid://dwd0jbqti4dqe" path="res://scenes/entities/cube.tres" id="1_aogua"]
 [ext_resource type="Script" path="res://scripts/entity/components/inventory.gd" id="1_ds116"]
+[ext_resource type="Resource" uid="uid://6xi86o6quau7" path="res://scenes/entities/em_meter.tres" id="2_mx61v"]
+[ext_resource type="Script" path="res://scripts/entity/components/player_ui_updater.gd" id="4_o2ud7"]
 
 [sub_resource type="Resource" id="Resource_mvrln"]
 script = ExtResource("1_ds116")
 items = {
-ExtResource("1_aogua"): 5
+ExtResource("1_aogua"): 5,
+ExtResource("2_mx61v"): 1
 }
+
+[sub_resource type="Resource" id="Resource_qmjwh"]
+script = ExtResource("4_o2ud7")
 
 [resource]
 script = ExtResource("1_4e07d")
 placeable = false
-components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_mvrln")])
+components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_mvrln"), SubResource("Resource_qmjwh")])

@@ -11,8 +11,11 @@ signal inventory_button_pressed(items: Dictionary)
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
 @onready var hand: Node3D = $CharacterBody3D/Head/Camera3D/Hand
 @onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/ItemGhostRaycast
+@onready var look_raycast: RayCast3D = $CharacterBody3D/Head/LookRaycast
 
 var mouse_motion_relative: Vector2
+
+var look_target: PhysicalEntity
 
 var noclip: bool = false
 var mx: float = 0
@@ -66,8 +69,7 @@ var selected_slot: int = 0: # 0 means no slot is selected
 func toggle_noclip():
 	noclip = not noclip
 	# todo: disable collision
-	disable_footsteps();
-	print("Noclip "+("enabled" if noclip else "disabled"))
+	disable_footsteps()
 	
 func update_held_item():
 	update_hotbar_items()
@@ -96,6 +98,7 @@ var held_item: Entity = null:
 
 # Awake
 func _ready():
+	super._ready()
 	start_pos = body.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	controls_locked = false
@@ -149,8 +152,22 @@ func toggle_flashlight():
 	# also needs to play sound
 
 func _process(delta: float):
-
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
+	
+	if look_raycast.is_colliding():
+		var parent = look_raycast.get_collider().owner
+		if parent is PhysicalEntity:
+			if parent != look_target:
+				look_target = parent
+				look_target.entity.fire_event("player_look_start", [self,look_target])
+		else:
+			if look_target != null:
+				look_target.entity.fire_event("player_look_end", [self,look_target])
+			look_target = null
+	else:
+		look_target = null
+	if look_target != null:
+		look_target.entity.fire_event("player_look", [self,look_target])
 	
 	if held_item != null:
 		held_item.fire_event("in_hand", [self, mouse_motion_relative])
@@ -165,6 +182,9 @@ func _process(delta: float):
 			inventory_button_pressed.emit(get_items())
 		
 	if not controls_locked:
+		if Input.is_action_just_pressed("use") and look_target != null:
+			look_target.entity.fire_event("player_use", [self,look_target])
+		
 		for n in range(10):
 			if Input.is_action_just_pressed("hotbar_"+str(n)):
 				if selected_slot == n:
@@ -211,6 +231,14 @@ func _process(delta: float):
 		camera.bobbing = false
 	else:
 		camera.bobbing = true
+		
+	mouse_motion_relative = Vector2.ZERO
+
+func add_control_hint(_action_name: String, _text: String):
+	pass # TODO
+	
+func remove_control_hint(_action_name: String, _text: String):
+	pass # TODO
 
 func _input(event):
 	if event is InputEventMouseMotion:

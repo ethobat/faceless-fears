@@ -7,6 +7,22 @@ Example users: MyComponent, MyOtherComponent
 
 ---
 
+"player_look_start"
+values: Player, PhysicalEntity
+Called once when the player looks directly at this entity.
+
+"player_look"
+values: Player, PhysicalEntity
+Called every frame while the player is looking directly at this entity.
+
+"player_look_end"
+values: Player, PhysicalEntity
+Called when the player looks away from this entity.
+
+"player_use"
+values: Player, PhysicalEntity
+Called when the player uses this entity. PhysicalEntity is null if the item is being used from the inventory.
+
 "placed_in_hand"
 values: Player
 Fired when the player selects an entity in their hotbar.
@@ -19,18 +35,23 @@ Fired every frame while the player is holding the receiving entity as an item. V
 values: Player
 Fired when the player de-selects an item from their hotbar.
 
-"dial"
-Values: float
-Moves the dial of an item by the given value. The implementation of thise event can vary between components. On Placeable components, for example, the dial rotates the entity ghost.
-Examples users: Placeable
-
 "_process"
 Values: float
 When a PhysicalEntity's `_process` method is run, this event is fired with the delta time as the value.
 
-"physical_entity_ready"
+"em_probe"
+Values: float, float (0)
+Probe an entity's electromagnetic radiation at the given frequency and return it in the second value.
+Example users: Anomaly, DialDetector
+
+"physicalized"
 Values: None
 When a PhysicalEntity's `_ready` method is run, it fires the "physical_entity_ready" method at its entity.
+
+"can_contain_items"
+Values: bool (false)
+Check if the receiving entity is capable of containing items.
+Example users: Inventory, UnlimitedItems
 
 "get_item_count"
 Values: Entity, int (0)

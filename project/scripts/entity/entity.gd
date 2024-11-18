@@ -18,6 +18,18 @@ func fire_event(event_type: String, values: Array) -> Event:
 	event.values = values
 	return handle_event(event)
 
+func equals(en: Entity):
+	if len(components) != len(en.components):
+		return false
+	for i in range(len(components)):
+		var ca = components[i]
+		var cb = en.components[i]
+		if not ca.is_class(cb.get_class()):
+			return false
+		if not components[i].equals(en.components[i]):
+			return false
+	return true
+
 func get_physical_entity_scene() -> PackedScene:
 	return load("res://scenes/entities/"+self.resource_name+".tscn")
 	
@@ -27,6 +39,7 @@ func get_ghost_scene() -> PackedScene:
 func physicalize() -> PhysicalEntity:
 	var pe = get_physical_entity_scene().instantiate()
 	pe.entity = self
+	fire_event("physicalized", [pe])
 	return pe
 
 func instantiate_ghost() -> Node3D:

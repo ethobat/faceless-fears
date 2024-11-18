@@ -12,12 +12,13 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 					break
 		"get_item_counts": # Dictionary
 			for en in event.values[0]:
-				if items.has(en):
-					event.values[0][en] += items[en]
+				var key = Inventory.dic_has(items, en)
+				if key != null:
+					event.values[0][en] += items[key]
 		"try_add_item": # Entity, int
 			var found_existing_stack = false
 			for en in items:
-				if en == event.values[0]:
+				if en.equals(event.values[0]):
 					items[en] += event.values[1]
 					event.values[1] = 0
 					found_existing_stack = true
@@ -25,19 +26,28 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 			if not found_existing_stack:
 				items[event.values[0]] = event.values[1]
 		"try_remove_item": # Entity, int, int
-			if not items.has(event.values[0]):
-				return
-			var removed: int = min(items[event.values[0]], event.values[1])
-			items[event.values[0]] -= removed
-			event.values[1] -= removed
-			event.values[2] += removed
-			if items[event.values[0]] <= 0:
-				items.erase(event.values[0])
+			var key = Inventory.dic_has(items, event.values[0])
+			if key != null:
+				var removed: int = min(items[key], event.values[1])
+				items[key] -= removed
+				event.values[1] -= removed
+				event.values[2] += removed
+				if items[key] <= 0:
+					items.erase(key)
 		"get_items":
 			for en in items:
-				var d: Dictionary = event.values[0]
-				if d.has(en):
-					d[en] += items[en]
+				var key = Inventory.dic_has(event.values[0], en)
+				if key != null:
+					event.values[0][key] += items[en]
 				else:
-					d[en] = items[en]
+					event.values[0][en] = items[en]
 	return event
+	
+static func dic_has(dic: Dictionary, key: Entity):
+	for en in dic:
+		if en.equals(key):
+			return en
+	return null
+	
+func equals(comp: Component): # Two entities with Inventory can only stack if they are both empty
+	return items == {} and comp.items == {}

@@ -8,7 +8,10 @@ class_name EntityPanel
 var entity: Entity:
 	set(value):
 		entity = value
-		$Label.text = entity.resource_name
+		if entity == null:
+			$Label.text = "NULL"
+		else:
+			$Label.text = entity.resource_name
 
 var show_label: bool = true:
 	set(value):
