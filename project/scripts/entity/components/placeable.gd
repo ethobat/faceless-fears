@@ -5,6 +5,8 @@ var entity_ghost: EntityGhost = null
 
 func handle_event(entity: Entity, event: Event) -> Event:
 	match event.event_type:
+		"should_render_in_hand":
+			event.values[0] = false
 		"placed_in_hand":
 			entity_ghost = entity.instantiate_ghost()
 			entity_ghost.rotation = Vector3.ZERO

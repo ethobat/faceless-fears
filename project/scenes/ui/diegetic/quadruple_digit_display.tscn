@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://h5toe48hq57u"]
+
+[ext_resource type="Script" path="res://scripts/multi_digit_display.gd" id="1_s82yl"]
+[ext_resource type="PackedScene" uid="uid://dj2qxcocgvsi7" path="res://scenes/ui/diegetic/seven_segment_display.tscn" id="2_506ld"]
+[ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="3_xbrvx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_euh04"]
+font = ExtResource("3_xbrvx")
+font_size = 64
+
+[node name="QuadrupleDigitDisplay" type="Control" node_paths=PackedStringArray("displays_before_point", "displays_after_point", "overflow_indicator")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s82yl")
+displays_before_point = [NodePath("SevenSegmentDisplay"), NodePath("SevenSegmentDisplay2")]
+displays_after_point = [NodePath("SevenSegmentDisplay3"), NodePath("SevenSegmentDisplay4")]
+overflow_indicator = NodePath("OverflowIndicator")
+
+[node name="SevenSegmentDisplay" parent="." instance=ExtResource("2_506ld")]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 224.0
+
+[node name="SevenSegmentDisplay2" parent="." instance=ExtResource("2_506ld")]
+layout_mode = 1
+offset_left = 136.0
+offset_right = 264.0
+offset_bottom = 224.0
+
+[node name="SevenSegmentDisplay3" parent="." instance=ExtResource("2_506ld")]
+layout_mode = 1
+offset_left = 325.0
+offset_top = 112.0
+offset_right = 453.0
+offset_bottom = 336.0
+scale = Vector2(0.5, 0.5)
+
+[node name="SevenSegmentDisplay4" parent="." instance=ExtResource("2_506ld")]
+layout_mode = 1
+offset_left = 397.0
+offset_top = 112.0
+offset_right = 525.0
+offset_bottom = 336.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 201.0
+offset_right = 305.0
+offset_bottom = 224.0
+color = Color(0, 1, 0, 1)
+
+[node name="OverflowIndicator" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 237.0
+offset_right = 358.0
+offset_bottom = 294.0
+text = "OVERFLOW!"
+label_settings = SubResource("LabelSettings_euh04")

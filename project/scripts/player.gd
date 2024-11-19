@@ -79,22 +79,24 @@ var held_item: Entity = null:
 	set(value):
 		if held_item == value:
 			return
+		if held_item != null:
+			held_item.fire_event("removed_from_hand", [self])
 		held_item = value
+		if held_item != null:
+			held_item.fire_event("placed_in_hand", [self])
 		
 		# cleanup
 		if hand.get_child_count() != 0:
-			var last_item = hand.get_child(0)
-			last_item.entity.fire_event("removed_from_hand", [self])
-			last_item.queue_free()
+			hand.get_child(0).queue_free()
+			
 		if held_item == null:
 			return
 		
-		# instantiating item
-		held_item.fire_event("placed_in_hand", [self])
-		var pe = held_item.physicalize()
-		pe.disable_collision()
-		hand.add_child(pe)
-		
+		# physicalize item in hand
+		if held_item.fire_event("should_render_in_hand", [true]).values[0]:
+			var pe = held_item.physicalize()
+			pe.disable_collision()
+			hand.add_child(pe)
 
 # Awake
 func _ready():
@@ -140,9 +142,6 @@ func disable_footsteps():
 	if played_footsteps_last_frame:
 		played_footsteps_last_frame = false
 		footsteps_player.stop()
-		
-func get_hotbar_items() -> Dictionary:
-	return get_items() # TODO
 
 func get_items() -> Dictionary:
 	return entity.fire_event("get_items", [{}]).values[0]

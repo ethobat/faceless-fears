@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ltfdsqcwkkxd"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_ubmub"]
+[ext_resource type="ArrayMesh" uid="uid://bakxg1euio4i1" path="res://assets/models/entities/entities_RayGun1.res" id="2_1yofv"]
+[ext_resource type="ArrayMesh" uid="uid://tlab1w8ywv2e" path="res://assets/models/entities/entities_Dial.res" id="3_icb56"]
+[ext_resource type="Script" path="res://scripts/dial.gd" id="4_03qtv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvl22"]
+size = Vector3(5.73511, 2.2337, 1)
+
+[node name="PatternSuppressor" type="Node3D"]
+script = ExtResource("1_ubmub")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_1yofv")
+skeleton = NodePath("../..")
+
+[node name="Dial" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.187009, 0)
+mesh = ExtResource("3_icb56")
+script = ExtResource("4_03qtv")
+reverse = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.115515, 0.111685, 0)
+shape = SubResource("BoxShape3D_gvl22")

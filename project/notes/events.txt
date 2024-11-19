@@ -7,6 +7,16 @@ Example users: MyComponent, MyOtherComponent
 
 ---
 
+"should_render_in_hand"
+Values: bool (true)
+If this returns false, the receiving entity will not appear in the player's hand when held.
+Example users: Placeable
+
+"get_dial"
+Values: float (0)
+Get the dial value of the receiving entity.
+Example users: MouseDial
+
 "player_look_start"
 values: Player, PhysicalEntity
 Called once when the player looks directly at this entity.

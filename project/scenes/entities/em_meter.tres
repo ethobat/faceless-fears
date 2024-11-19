@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=4 format=3 uid="uid://6xi86o6quau7"]
+[gd_resource type="Resource" script_class="Entity" load_steps=6 format=3 uid="uid://6xi86o6quau7"]
 
 [ext_resource type="Script" path="res://scripts/entity/components/em_meter.gd" id="1_scly7"]
+[ext_resource type="Script" path="res://scripts/entity/components/mouse_dial.gd" id="2_75g5t"]
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="2_pfo0p"]
+
+[sub_resource type="Resource" id="Resource_tte5p"]
+script = ExtResource("2_75g5t")
+dial_sensitivity = 0.001
 
 [sub_resource type="Resource" id="Resource_gic46"]
 script = ExtResource("1_scly7")
@@ -10,4 +15,4 @@ script = ExtResource("1_scly7")
 resource_name = "em_meter"
 script = ExtResource("2_pfo0p")
 placeable = false
-components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_gic46")])
+components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_tte5p"), SubResource("Resource_gic46")])

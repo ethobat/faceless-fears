@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=6 format=3 uid="uid://ci6rp4nihn5p"]
+
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_5vrpl"]
+[ext_resource type="Script" path="res://scripts/entity/components/placeable.gd" id="1_fgfcg"]
+[ext_resource type="Script" path="res://scripts/entity/components/pickupable.gd" id="2_dhr6b"]
+
+[sub_resource type="Resource" id="Resource_r23cw"]
+script = ExtResource("1_fgfcg")
+
+[sub_resource type="Resource" id="Resource_lsi1l"]
+script = ExtResource("2_dhr6b")
+
+[resource]
+resource_name = "lightstick"
+script = ExtResource("1_5vrpl")
+placeable = false
+components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_r23cw"), SubResource("Resource_lsi1l")])

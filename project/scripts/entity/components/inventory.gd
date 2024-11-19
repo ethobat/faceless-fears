@@ -25,6 +25,7 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 					break
 			if not found_existing_stack:
 				items[event.values[0]] = event.values[1]
+				event.values[1] = 0
 		"try_remove_item": # Entity, int, int
 			var key = Inventory.dic_has(items, event.values[0])
 			if key != null:

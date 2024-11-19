@@ -24,7 +24,7 @@ func equals(en: Entity):
 	for i in range(len(components)):
 		var ca = components[i]
 		var cb = en.components[i]
-		if not ca.is_class(cb.get_class()):
+		if not ca.get_script() == cb.get_script():
 			return false
 		if not components[i].equals(en.components[i]):
 			return false

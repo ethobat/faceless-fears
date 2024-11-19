@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://0a1q0sr15t42"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_b1mv2"]
+[ext_resource type="Material" uid="uid://cbxsr3sbea7ga" path="res://assets/shaders/pain.tres" id="2_0olat"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ouoh"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_cau7c"]
+
+[node name="AnomalousPrism" type="Node3D" groups=["physical_entity"]]
+script = ExtResource("1_b1mv2")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_3ouoh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.2, 0)
+mesh = SubResource("PrismMesh_cau7c")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_0olat")

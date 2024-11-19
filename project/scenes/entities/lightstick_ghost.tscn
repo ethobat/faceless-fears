@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://41eqwb8i27el"]
+
+[ext_resource type="Script" path="res://scripts/entity_ghost.gd" id="1_b6p71"]
+[ext_resource type="Material" uid="uid://brav4qkxlnxkg" path="res://assets/models/materials/ghost_valid.tres" id="2_6hlm6"]
+[ext_resource type="ArrayMesh" uid="uid://86a3nj06hd2b" path="res://assets/models/entities/entities_Lightstick.res" id="2_cj5jx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_431g5"]
+size = Vector3(3, 20.7245, 3)
+
+[node name="LightstickGhost" type="Node3D"]
+script = ExtResource("1_b6p71")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 5.18112, 0)
+shape = SubResource("BoxShape3D_431g5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = ExtResource("2_cj5jx")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6hlm6")
+surface_material_override/1 = ExtResource("2_6hlm6")

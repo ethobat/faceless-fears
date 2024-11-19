@@ -3,7 +3,7 @@ class_name PlayerUIUpdater
 
 var player: Player
 
-func handle_event(entity: Entity, event: Event) -> Event:
+func handle_event(_entity: Entity, event: Event) -> Event:
 	match event.event_type:
 		"physicalized":
 			player = event.values[0]

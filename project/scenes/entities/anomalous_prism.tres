@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=11 format=3 uid="uid://saux1n7l2fmj"]
+
+[ext_resource type="Script" path="res://scripts/entity/components/inventory.gd" id="1_ghq71"]
+[ext_resource type="Script" path="res://scripts/entity/components/pickupable.gd" id="2_kvf4o"]
+[ext_resource type="Script" path="res://scripts/entity/components/placeable.gd" id="3_4lvxd"]
+[ext_resource type="Script" path="res://scripts/entity/components/em_pattern.gd" id="4_tc27j"]
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="5_n3ssv"]
+
+[sub_resource type="Resource" id="Resource_q3vss"]
+script = ExtResource("1_ghq71")
+items = {}
+
+[sub_resource type="Resource" id="Resource_mewxo"]
+script = ExtResource("2_kvf4o")
+
+[sub_resource type="Resource" id="Resource_7gsvc"]
+script = ExtResource("3_4lvxd")
+
+[sub_resource type="Gradient" id="Gradient_b6cbs"]
+offsets = PackedFloat32Array(0, 0.340836, 0.4791, 0.810289, 1)
+colors = PackedColorArray(0.18359, 0.18359, 0.18359, 1, 1, 1, 1, 1, 0.377918, 0.377919, 0.377919, 1, 0.144063, 0.144063, 0.144063, 1, 0.501407, 0.501406, 0.501406, 1)
+
+[sub_resource type="Resource" id="Resource_s5086"]
+script = ExtResource("4_tc27j")
+gradient = SubResource("Gradient_b6cbs")
+
+[resource]
+resource_name = "anomalous_prism"
+script = ExtResource("5_n3ssv")
+placeable = true
+components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_q3vss"), SubResource("Resource_mewxo"), SubResource("Resource_7gsvc"), SubResource("Resource_s5086")])
