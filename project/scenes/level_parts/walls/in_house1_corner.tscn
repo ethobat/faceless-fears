@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr8ctcfdbqpet"]
+
+[ext_resource type="ArrayMesh" uid="uid://ccyarg3na4ehf" path="res://assets/models/level_parts/level_parts_in_house1_corner.res" id="1_qipyp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfgwj"]
+size = Vector3(0.530762, 1, 0.06)
+
+[node name="InHouse1Corner" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_qipyp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.234619, 0.5, 0)
+shape = SubResource("BoxShape3D_tfgwj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, -0.235)
+shape = SubResource("BoxShape3D_tfgwj")
