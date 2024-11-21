@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgaddg1t8p0ot"
+path="res://.godot/imported/sink.obj-acf6ce58b1b9eaca1101a0ccaf7a4dda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sink.obj-acf6ce58b1b9eaca1101a0ccaf7a4dda.mesh"]
+
+source_file="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Furniture/sink.obj"
+dest_files=["res://.godot/imported/sink.obj-acf6ce58b1b9eaca1101a0ccaf7a4dda.mesh", "res://.godot/imported/sink.obj-acf6ce58b1b9eaca1101a0ccaf7a4dda.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciaehscryj3os"]
+
+[ext_resource type="ArrayMesh" uid="uid://bu21fh1titg6m" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Furniture/drawers.obj" id="1_bv25i"]
+[ext_resource type="Material" uid="uid://dtlm1782fpcjg" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/drawers.tres" id="2_anxky"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xctn"]
+size = Vector3(1, 0.920776, 0.415649)
+
+[node name="Drawers" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_bv25i")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_anxky")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460388, 0.0759888)
+shape = SubResource("BoxShape3D_3xctn")

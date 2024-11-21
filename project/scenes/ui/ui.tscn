@@ -24,6 +24,7 @@ anchors_preset = 12
 anchor_top = 1.0
 grow_vertical = 0
 alignment = 1
+show_slot_numbers = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

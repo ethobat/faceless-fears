@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://co81uupcj7fyg"]
+
+[ext_resource type="ArrayMesh" uid="uid://ugymlfotrgxq" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Gadgets.res" id="1_67vog"]
+[ext_resource type="Texture2D" uid="uid://duh57eowr4n1s" path="res://assets/third party/Objects_Interior(Village)_Demo/Gadgets.png" id="2_o3p8x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ladf4"]
+transparency = 1
+albedo_texture = ExtResource("2_o3p8x")
+
+[node name="Gadgets" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00147716, 0)
+mesh = ExtResource("1_67vog")
+surface_material_override/0 = SubResource("StandardMaterial3D_ladf4")

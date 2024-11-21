@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dw2ucgf7mttfy"
+path="res://.godot/imported/rubbish.obj-11a5d6277fe2076e97a4a36b0a755fe8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rubbish.obj-11a5d6277fe2076e97a4a36b0a755fe8.mesh"]
+
+source_file="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Decor/rubbish.obj"
+dest_files=["res://.godot/imported/rubbish.obj-11a5d6277fe2076e97a4a36b0a755fe8.mesh", "res://.godot/imported/rubbish.obj-11a5d6277fe2076e97a4a36b0a755fe8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

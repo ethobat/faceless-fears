@@ -3,10 +3,10 @@
 [ext_resource type="ArrayMesh" uid="uid://8hbqdtyssahc" path="res://assets/models/level_parts/level_parts_in_house1_doorframe_wide.res" id="1_a3ly1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tfgwj"]
-size = Vector3(0.747742, 0.793457, 0.06)
+size = Vector3(0.656952, 0.888916, 0.06)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oevqx"]
-size = Vector3(2, 0.205, 0.06)
+size = Vector3(2, 1.10796, 0.06)
 
 [node name="InHouse1DoorframeWide" type="StaticBody3D"]
 
@@ -14,13 +14,13 @@ size = Vector3(2, 0.205, 0.06)
 mesh = ExtResource("1_a3ly1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62327, 0.397, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668665, 0.44473, 0)
 shape = SubResource("BoxShape3D_tfgwj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.624282, 0.396729, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.669, 0.445, 0)
 shape = SubResource("BoxShape3D_tfgwj")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897392, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44501, 0)
 shape = SubResource("BoxShape3D_oevqx")

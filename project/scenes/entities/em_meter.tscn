@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4w2dmewuyc1q"]
+[gd_scene load_steps=11 format=3 uid="uid://b4w2dmewuyc1q"]
 
 [ext_resource type="ArrayMesh" uid="uid://c3jxfmuwqb4md" path="res://assets/models/entities/entities_EMMeter.res" id="1_aha2b"]
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_l4usr"]
+[ext_resource type="Resource" uid="uid://6xi86o6quau7" path="res://scenes/entities/em_meter.tres" id="2_222wi"]
 [ext_resource type="ArrayMesh" uid="uid://tlab1w8ywv2e" path="res://assets/models/entities/entities_Dial.res" id="2_mw151"]
 [ext_resource type="Script" path="res://scripts/dial.gd" id="3_itf06"]
-[ext_resource type="PackedScene" uid="uid://h5toe48hq57u" path="res://scenes/ui/diegetic/quadruple_digit_display.tscn" id="5_tm8qw"]
+[ext_resource type="PackedScene" uid="uid://h5toe48hq57u" path="res://scenes/ui/diegetic/em_meter_display.tscn" id="5_tm8qw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvl22"]
 size = Vector3(3.63406, 0.483803, 1)
@@ -12,16 +13,17 @@ size = Vector3(3.63406, 0.483803, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_84a3d"]
 viewport_path = NodePath("RigidBody3D/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dybio"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trn3o"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_84a3d")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2k3jd"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_dybio")
+material = SubResource("StandardMaterial3D_trn3o")
 
 [node name="EMMeter" type="Node3D"]
 script = ExtResource("1_l4usr")
+entity = ExtResource("2_222wi")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
@@ -44,7 +46,7 @@ shape = SubResource("BoxShape3D_gvl22")
 transparent_bg = true
 size = Vector2i(460, 300)
 
-[node name="QuadrupleDigitDisplay" parent="RigidBody3D/SubViewport" instance=ExtResource("5_tm8qw")]
+[node name="EMMeterDisplay" parent="RigidBody3D/SubViewport" instance=ExtResource("5_tm8qw")]
 
 [node name="Screen" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(-1.74846e-09, 0, 0.02, 0, 0.04, 0, -0.04, 0, -8.74228e-10, -0.0688753, 0.0302495, -0.00186699)

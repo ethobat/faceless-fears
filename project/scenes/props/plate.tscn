@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tdruf72rso6y"]
+
+[ext_resource type="ArrayMesh" uid="uid://c0e467q1as8cb" path="res://assets/models/props/props_plate.res" id="1_i0pe1"]
+
+[node name="Plate" type="MeshInstance3D"]
+mesh = ExtResource("1_i0pe1")

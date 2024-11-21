@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://45wamguhelo6"]
+
+[ext_resource type="PackedScene" uid="uid://dj2qxcocgvsi7" path="res://scenes/ui/diegetic/seven_segment_display.tscn" id="1_3u26f"]
+[ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_fbfrf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxf27"]
+font = ExtResource("2_fbfrf")
+font_size = 30
+font_color = Color(0, 1, 0, 1)
+
+[node name="PatternSuppressorDisplay" instance=ExtResource("1_3u26f")]
+
+[node name="SegmentA" parent="." index="0"]
+offset_left = 16.0003
+offset_top = 61.0
+offset_bottom = 93.0
+
+[node name="SegmentB" parent="." index="1"]
+offset_top = 77.0
+offset_bottom = 109.0
+
+[node name="SegmentC" parent="." index="2"]
+offset_top = 173.0
+offset_bottom = 205.0
+
+[node name="SegmentD" parent="." index="3"]
+offset_left = 16.0003
+offset_top = 253.0
+offset_bottom = 285.0
+
+[node name="SegmentE" parent="." index="4"]
+offset_left = 32.0003
+offset_top = 173.0
+offset_bottom = 205.0
+
+[node name="SegmentF" parent="." index="5"]
+offset_left = 32.0003
+offset_top = 77.0
+offset_bottom = 109.0
+
+[node name="SegmentG" parent="." index="6"]
+offset_left = 16.0003
+offset_top = 157.0
+offset_bottom = 189.0
+
+[node name="Label" type="Label" parent="." index="7"]
+layout_mode = 0
+offset_left = 0.000347137
+offset_right = 126.0
+offset_bottom = 57.0
+text = "PATTERN
+TYPE:"
+label_settings = SubResource("LabelSettings_bxf27")

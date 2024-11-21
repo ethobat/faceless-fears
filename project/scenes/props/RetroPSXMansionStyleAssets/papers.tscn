@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4os1v7d5qjyr"]
+
+[ext_resource type="ArrayMesh" uid="uid://chlqf5vyvv8q7" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Items/papers.obj" id="1_246m3"]
+[ext_resource type="Material" uid="uid://kc6lbnd2kcjs" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/papers.tres" id="2_7c0o1"]
+
+[node name="Papers" type="MeshInstance3D"]
+mesh = ExtResource("1_246m3")
+surface_material_override/0 = ExtResource("2_7c0o1")

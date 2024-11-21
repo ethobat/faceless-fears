@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0a1q0sr15t42"]
+[gd_scene load_steps=8 format=3 uid="uid://0a1q0sr15t42"]
 
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_b1mv2"]
 [ext_resource type="Material" uid="uid://cbxsr3sbea7ga" path="res://assets/shaders/pain.tres" id="2_0olat"]
+[ext_resource type="Resource" uid="uid://saux1n7l2fmj" path="res://scenes/entities/anomalous_prism.tres" id="2_5bdyr"]
+[ext_resource type="Script" path="res://scripts/face_player.gd" id="3_f3jkv"]
+[ext_resource type="AudioStream" uid="uid://b2hdlxfiqh784" path="res://assets/sounds/anomaly/blackhole.wav" id="3_mo7hr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ouoh"]
 
@@ -9,16 +12,23 @@
 
 [node name="AnomalousPrism" type="Node3D" groups=["physical_entity"]]
 script = ExtResource("1_b1mv2")
+entity = ExtResource("2_5bdyr")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+script = ExtResource("3_f3jkv")
+rotate_speed = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.2, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_3ouoh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.2, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 mesh = SubResource("PrismMesh_cau7c")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_0olat")
+
+[node name="Hum" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+stream = ExtResource("3_mo7hr")
+volume_db = -35.0
+autoplay = true

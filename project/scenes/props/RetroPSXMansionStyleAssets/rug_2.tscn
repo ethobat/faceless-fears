@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1n8t4t1100nh"]
+
+[ext_resource type="ArrayMesh" uid="uid://3x6ao8ru287u" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Decor/rug2.obj" id="1_4t876"]
+[ext_resource type="Material" uid="uid://dlsdxswp40h7l" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/rug2.tres" id="2_8nlj5"]
+
+[node name="Rug2" type="MeshInstance3D"]
+mesh = ExtResource("1_4t876")
+surface_material_override/0 = ExtResource("2_8nlj5")

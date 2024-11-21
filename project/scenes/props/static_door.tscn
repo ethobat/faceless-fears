@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kmgct0ulbq4j"]
+
+[ext_resource type="ArrayMesh" uid="uid://ddst25iygx56g" path="res://assets/models/props/props_door.res" id="1_gydmm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alp1l"]
+size = Vector3(0.425, 0.785641, 0.03)
+
+[node name="StaticDoor" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.215, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+mesh = ExtResource("1_gydmm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395087, 0)
+shape = SubResource("BoxShape3D_alp1l")

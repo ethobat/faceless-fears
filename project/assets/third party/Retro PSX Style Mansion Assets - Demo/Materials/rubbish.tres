@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c62crgma08lmu"]
+
+[ext_resource type="Texture2D" uid="uid://bve0kniixtj4x" path="res://assets/third party/Retro PSX Style Mansion Assets/Textures/rubbish_texture.png" id="1_2tsht"]
+
+[resource]
+albedo_texture = ExtResource("1_2tsht")

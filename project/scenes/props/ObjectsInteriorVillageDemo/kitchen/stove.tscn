@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://2loj52rna4dq"]
+
+[ext_resource type="ArrayMesh" uid="uid://c70i7wookhfw3" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Stove.res" id="1_po62l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hltw4"]
+size = Vector3(0.39, 0.492546, 0.345039)
+
+[node name="Stove" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258, 0)
+mesh = ExtResource("1_po62l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246166, 0.00748047)
+shape = SubResource("BoxShape3D_hltw4")

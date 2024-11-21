@@ -1,12 +1,7 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=6 format=3 uid="uid://caeci20h8q4wp"]
+[gd_resource type="Resource" script_class="Entity" load_steps=4 format=3 uid="uid://caeci20h8q4wp"]
 
 [ext_resource type="Script" path="res://scripts/entity/components/pattern_suppressor.gd" id="1_35n01"]
-[ext_resource type="Script" path="res://scripts/entity/components/mouse_dial.gd" id="1_a767t"]
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="2_hmx5j"]
-
-[sub_resource type="Resource" id="Resource_oxqfj"]
-script = ExtResource("1_a767t")
-dial_sensitivity = 0.001
 
 [sub_resource type="Resource" id="Resource_3meaw"]
 script = ExtResource("1_35n01")
@@ -15,4 +10,4 @@ script = ExtResource("1_35n01")
 resource_name = "pattern_suppressor"
 script = ExtResource("2_hmx5j")
 placeable = false
-components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_oxqfj"), SubResource("Resource_3meaw")])
+components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_3meaw")])

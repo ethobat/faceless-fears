@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://diuv8gp4mam7g"]
+
+[ext_resource type="ArrayMesh" uid="uid://d3i27hu7m7vco" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Items/candle0.obj" id="1_amlxj"]
+[ext_resource type="Material" uid="uid://drdsf5jalxyef" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/candle.tres" id="2_0x2u7"]
+
+[node name="Candle0" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_amlxj")
+surface_material_override/0 = ExtResource("2_0x2u7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10442, 0)
+light_color = Color(0.890196, 0.552941, 0, 1)
+light_energy = 0.1

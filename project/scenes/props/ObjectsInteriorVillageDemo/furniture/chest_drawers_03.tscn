@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbjiv2d5dax56"]
+
+[ext_resource type="ArrayMesh" uid="uid://c8h10tx8orn2n" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_03.res" id="1_5lu0r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt4a8"]
+size = Vector3(0.325, 0.464, 0.272)
+
+[node name="ChestDrawers03" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317, 0)
+mesh = ExtResource("1_5lu0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231601, 0.000170887)
+shape = SubResource("BoxShape3D_bt4a8")

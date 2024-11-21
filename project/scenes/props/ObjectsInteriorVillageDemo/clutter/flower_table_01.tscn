@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cne4286b7j6ap"]
+
+[ext_resource type="ArrayMesh" uid="uid://dve00w1bx46o3" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Flower_Table_01.res" id="1_mblor"]
+[ext_resource type="Texture2D" uid="uid://bj36eioqqxm6" path="res://assets/third party/Objects_Interior(Village)_Demo/Flower_Table_01.png" id="2_a6v25"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5f8b"]
+transparency = 4
+albedo_texture = ExtResource("2_a6v25")
+
+[node name="FlowerTable01" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0456081, 0)
+mesh = ExtResource("1_mblor")
+surface_material_override/0 = SubResource("StandardMaterial3D_b5f8b")

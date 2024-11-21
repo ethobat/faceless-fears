@@ -12,9 +12,10 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 					break
 		"get_item_counts": # Dictionary
 			for en in event.values[0]:
-				var key = Inventory.dic_has(items, en)
-				if key != null:
-					event.values[0][en] += items[key]
+				if en != null:
+					var key = Inventory.dic_has(items, en)
+					if key != null:
+						event.values[0][en] += items[key]
 		"try_add_item": # Entity, int
 			var found_existing_stack = false
 			for en in items:

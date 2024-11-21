@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c65dht5e53gmy"]
+
+[ext_resource type="ArrayMesh" uid="uid://dxp8vmn8c48am" path="res://assets/models/props/props_washingmachine.res" id="1_0lcdo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1j4am"]
+size = Vector3(0.265, 0.402, 0.28)
+
+[node name="WashingMachine" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_0lcdo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.200887, 0)
+shape = SubResource("BoxShape3D_1j4am")

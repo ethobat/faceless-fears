@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8p4hvohxc4er"]
+
+[ext_resource type="ArrayMesh" uid="uid://byp0nms6msvyl" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Decor/candle_holder.obj" id="1_yfqf2"]
+[ext_resource type="Material" uid="uid://rreujlb8jn8x" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/candle_holder.tres" id="2_hjlw4"]
+
+[node name="CandleHolder" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.954777, 0)
+mesh = ExtResource("1_yfqf2")
+surface_material_override/0 = ExtResource("2_hjlw4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0695541, 0.174866, 0.182601)
+light_color = Color(0.890196, 0.552941, 0, 1)
+light_energy = 0.2
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, 0.175, 0.183057)
+light_color = Color(0.890196, 0.552941, 0, 1)
+light_energy = 0.2

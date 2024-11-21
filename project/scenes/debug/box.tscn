@@ -9,12 +9,11 @@ material = ExtResource("1_t5t6q")
 
 [node name="Box" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="RigidBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_goer8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.01231, 0, 0, 0, 1.01231, 0, 0, 0, 1.01231, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_ao30v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")

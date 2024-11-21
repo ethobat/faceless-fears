@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gk1y600dn2jn"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgco6v5wrdidc" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Structure/ceiling0.obj" id="1_0x41u"]
+[ext_resource type="Material" uid="uid://deofm3quy440s" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/ceiling.tres" id="2_hqbvh"]
+
+[node name="Ceiling0" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4, 0)
+mesh = ExtResource("1_0x41u")
+surface_material_override/0 = ExtResource("2_hqbvh")

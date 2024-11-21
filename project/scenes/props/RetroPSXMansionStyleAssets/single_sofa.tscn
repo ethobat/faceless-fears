@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://wf4lpuepgarl"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdwwseu4oye5k" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Furniture/single_sofa.obj" id="1_bej52"]
+[ext_resource type="Material" uid="uid://dkbyb2rtxr28r" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/sofa.tres" id="2_vh3fq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcily"]
+size = Vector3(0.48, 0.615, 0.408633)
+
+[node name="SingleSofa" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_bej52")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_vh3fq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.307373, -0.0773633)
+shape = SubResource("BoxShape3D_vcily")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drsx7myblckon"]
+
+[ext_resource type="ArrayMesh" uid="uid://4brbhp557msd" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Kitchen_01.res" id="1_tptid"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hltw4"]
+size = Vector3(0.64, 0.500895, 0.605)
+
+[node name="KitchenCounter" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.324, 0)
+mesh = ExtResource("1_tptid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250113, 0.00748047)
+shape = SubResource("BoxShape3D_hltw4")

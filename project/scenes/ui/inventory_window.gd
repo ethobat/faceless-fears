@@ -3,5 +3,5 @@ class_name InventoryWindow
 
 @onready var entity_panel_grid: EntityPanelGrid = $ItemsBG/EntityPanelGrid
 
-func update(items: Dictionary):
-	entity_panel_grid.update(items)
+func update(entities: Array[Entity], counts: Array[int]):
+	entity_panel_grid.update(entities, counts)

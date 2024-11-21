@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnv51pk8pf2lw"]
+
+[ext_resource type="ArrayMesh" uid="uid://dvdok7dao823u" path="res://assets/models/level_parts/level_parts_in_house1_wall_simple.res" id="1_1jire"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfgwj"]
+size = Vector3(1, 1, 0.06)
+
+[node name="InHouse1WallSimple" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1jire")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tfgwj")

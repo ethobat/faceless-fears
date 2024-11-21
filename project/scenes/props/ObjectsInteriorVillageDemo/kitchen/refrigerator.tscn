@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf6udg2ur3hms"]
+
+[ext_resource type="ArrayMesh" uid="uid://bidpt5tskhh0y" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Refrigerator_001.res" id="1_b37s2"]
+[ext_resource type="ArrayMesh" uid="uid://ccghrw82ufbnw" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Refrigerator_Door_01_001.res" id="2_f2tk7"]
+[ext_resource type="ArrayMesh" uid="uid://cp35gywj5upd1" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Refrigerator_Door_001.res" id="3_ggysi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k65mt"]
+size = Vector3(0.47, 1.035, 0.363364)
+
+[node name="Refrigerator" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534, 0)
+mesh = ExtResource("1_b37s2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225683, 0.874539, 0.204205)
+mesh = ExtResource("2_f2tk7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225683, 0.38279, 0.204205)
+mesh = ExtResource("3_ggysi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517334, 0.0293384)
+shape = SubResource("BoxShape3D_k65mt")

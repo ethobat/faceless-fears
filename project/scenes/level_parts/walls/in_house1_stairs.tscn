@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvx60j61tsee8"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwnlqlmudeaeu" path="res://assets/models/level_parts/level_parts_in_house1_stairs.res" id="1_2xpp3"]
+
+[node name="InHouse1Stairs" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2xpp3")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+polygon = PackedVector2Array(-0.5, 0, 0.5, 1, 0.5, 0)

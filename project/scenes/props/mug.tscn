@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfttxvsvf441o"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwo3u5vbwckbn" path="res://assets/models/props/props_mug.res" id="1_fda0f"]
+
+[node name="Mug" type="MeshInstance3D"]
+mesh = ExtResource("1_fda0f")

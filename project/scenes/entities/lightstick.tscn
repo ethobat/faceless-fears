@@ -1,24 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4itpvapnnols"]
+[gd_scene load_steps=5 format=3 uid="uid://d4itpvapnnols"]
 
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_84f50"]
 [ext_resource type="ArrayMesh" uid="uid://86a3nj06hd2b" path="res://assets/models/entities/entities_Lightstick.res" id="2_8hh0e"]
+[ext_resource type="Resource" uid="uid://ci6rp4nihn5p" path="res://scenes/entities/lightstick.tres" id="2_560hf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ouoh"]
 size = Vector3(3, 20.7245, 3)
 
 [node name="Lightstick" type="Node3D" groups=["physical_entity"]]
 script = ExtResource("1_84f50")
+entity = ExtResource("2_560hf")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.518112, 0)
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.312, 0)
 shape = SubResource("BoxShape3D_3ouoh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
 mesh = ExtResource("2_8hh0e")
 skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954365, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575252, 0)
+light_energy = 0.3

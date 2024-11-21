@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://csiwgmwun8cen"]
+
+[ext_resource type="ArrayMesh" uid="uid://b2pd0ndrj37ou" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Decor/picture8.obj" id="1_h665i"]
+[ext_resource type="Material" uid="uid://bqyy2e7dk7l0t" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/picture8.tres" id="2_ioxpq"]
+
+[node name="Picture8" type="MeshInstance3D"]
+mesh = ExtResource("1_h665i")
+surface_material_override/0 = ExtResource("2_ioxpq")

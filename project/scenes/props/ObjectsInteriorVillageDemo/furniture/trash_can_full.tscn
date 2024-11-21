@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8o4w13gicts"]
+
+[ext_resource type="ArrayMesh" uid="uid://l83m2p3imopp" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Trash_can_01.res" id="1_fv5rv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k65mt"]
+size = Vector3(0.205, 0.343994, 0.315)
+
+[node name="TrashCanFull" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202, 0)
+mesh = ExtResource("1_fv5rv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171997, 0)
+shape = SubResource("BoxShape3D_k65mt")

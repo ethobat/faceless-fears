@@ -7,6 +7,21 @@ Example users: MyComponent, MyOtherComponent
 
 ---
 
+"strengthen_anomaly"
+Values: PhysicalEntity, float
+Strengthen the receiving entity's anomalous effects by the given value.
+Example users: EMPattern, StaticPrismAnomaly
+
+"strengthen_anomaly"
+Values: PhysicalEntity, float
+Weaken the receiving entity's anomalous effects by the given value.
+Example users: EMPattern, StaticPrismAnomaly
+
+"suppress_pattern"
+Values: PhysicalEntity int, bool (false)
+Attempt to suppress an anomaly's EM pattern. If this event is called on an anomaly and the int matches that anomaly's pattern type, the bool will return true.
+Example users: EMPattern, PatternSuppressor
+
 "should_render_in_hand"
 Values: bool (true)
 If this returns false, the receiving entity will not appear in the player's hand when held.

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpljkqtjxsyg8"]
+
+[ext_resource type="ArrayMesh" uid="uid://co2omkrcedsgs" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Furniture/bed.obj" id="1_fp3ki"]
+[ext_resource type="Material" uid="uid://jo85yteg1q5s" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/bed.tres" id="2_58u4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tgs1l"]
+size = Vector3(1, 0.461426, 1.95812)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64ea8"]
+size = Vector3(1, 0.882446, 0.0859375)
+
+[node name="Bed" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fp3ki")
+surface_material_override/0 = ExtResource("2_58u4d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.230713, -0.118439)
+shape = SubResource("BoxShape3D_tgs1l")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441223, 0.908985)
+shape = SubResource("BoxShape3D_64ea8")

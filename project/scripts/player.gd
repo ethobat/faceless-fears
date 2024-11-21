@@ -2,14 +2,14 @@ extends PhysicalEntity
 class_name Player
 
 signal inventory_updated(items: Dictionary)
-signal hotbar_items_updated(items: Dictionary)
+signal hotbar_items_updated(entities: Array[Entity], counts: Array[int])
 signal inventory_button_pressed(items: Dictionary)
 
 @onready var body: CharacterBody3D = $CharacterBody3D
 @onready var head: Node3D = $CharacterBody3D/Head
 @onready var camera: Camera3D = $CharacterBody3D/Head/Camera3D
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
-@onready var hand: Node3D = $CharacterBody3D/Head/Camera3D/Hand
+@onready var hand: Node3D = $CanvasLayer/SubViewportContainer/SubViewport/Hand
 @onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/ItemGhostRaycast
 @onready var look_raycast: RayCast3D = $CharacterBody3D/Head/LookRaycast
 
@@ -54,12 +54,15 @@ func update_hotbar_items():
 	for en in hotbar_items:
 		if en != null:
 			dic[en] = 0
-	var counts = entity.fire_event("get_item_counts", [dic]).values[0]
+	var counts_dict: Dictionary = entity.fire_event("get_item_counts", [dic]).values[0]
+	var counts: Array[int] = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 	for i in range(10):
-		if counts.has(hotbar_items[i]) and counts[hotbar_items[i]] <= 0:
-			counts.erase(hotbar_items[i])
-			hotbar_items[i] = null
-	hotbar_items_updated.emit(counts)
+		if counts_dict.has(hotbar_items[i]):
+			if counts_dict[hotbar_items[i]] <= 0:
+				hotbar_items[i] = null
+		if hotbar_items[i] != null:
+			counts[i] = counts_dict[hotbar_items[i]]
+	hotbar_items_updated.emit(hotbar_items.slice(1), counts.slice(1))
 
 var selected_slot: int = 0: # 0 means no slot is selected
 	set(value):

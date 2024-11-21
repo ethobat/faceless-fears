@@ -52,28 +52,28 @@ func open_settings_menu():
 	paused = true
 	menu_opened.emit()
 
-func update_hotbar(items: Dictionary):
-	hotbar.update(items)
+func update_hotbar(entities: Array[Entity], counts: Array[int]):
+	hotbar.update(entities, counts)
 	
 func open_player_inventory(items: Dictionary):
 	player_inv.visible = true
 	other_inv.visible = false
-	_on_player_inventory_updated(items)
+	_on_player_inventory_updated(items.keys(), items.values())
 	menu_opened.emit()
 	
-func open_other_inventory(player_items: Dictionary, other_items: Dictionary):
+func open_other_inventory(player_entities: Array[Entity], player_counts: Array[int], other_entities: Array[Entity], other_counts: Array[int]):
 	player_inv.visible = true
 	other_inv.visible = true
-	_on_player_inventory_updated(player_items)
-	on_other_inventory_updated(other_items)
+	_on_player_inventory_updated(player_entities, player_counts)
+	on_other_inventory_updated(other_entities, other_counts)
 	menu_opened.emit()
 	
-func _on_player_inventory_updated(items: Dictionary):
+func _on_player_inventory_updated(entities: Array[Entity], counts: Array[int]):
 	if player_inv.visible:
-		player_inv.update(items)
+		player_inv.update(entities, counts)
 	
-func on_other_inventory_updated(items: Dictionary):
-	other_inv.update(items)
+func on_other_inventory_updated(entities: Array[Entity], counts: Array[int]):
+	other_inv.update(entities, counts)
 
 func hide_inv_windows():
 	player_inv.visible = false

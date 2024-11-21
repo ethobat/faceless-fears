@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cp3xn1ydjcfxf"
+path="res://.godot/imported/table.obj-d1a2a6cc14e1ec39b0d926ffa720cbb0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table.obj-d1a2a6cc14e1ec39b0d926ffa720cbb0.mesh"]
+
+source_file="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Furniture/table.obj"
+dest_files=["res://.godot/imported/table.obj-d1a2a6cc14e1ec39b0d926ffa720cbb0.mesh", "res://.godot/imported/table.obj-d1a2a6cc14e1ec39b0d926ffa720cbb0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

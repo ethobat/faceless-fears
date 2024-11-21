@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ttxp0bnncrh"]
+
+[ext_resource type="ArrayMesh" uid="uid://b7656c6sw8xcs" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Bookcase_02.res" id="1_lifxe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k65mt"]
+size = Vector3(0.836, 0.306, 0.356)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f80ht"]
+size = Vector3(0.836, 0.637, 0.269)
+
+[node name="Bookcase02" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+mesh = ExtResource("1_lifxe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152811, 0.033255)
+shape = SubResource("BoxShape3D_k65mt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627269, -0.00955205)
+shape = SubResource("BoxShape3D_f80ht")

@@ -16,7 +16,7 @@ var bobbing_fast: bool = false: # Whether the camera should bob faster; no effec
 		bobbing_fast = value
 var vbdm_tween: Tween = null
 
-@onready var hand: Node3D = $Hand
+#@onready var hand: Node3D = $"../../../CanvasLayer/SubViewportContainer/SubViewport/Camera3D2"
 
 @export var bob_speed: float = 0.0364
 @export var return_speed: float = 0.08
@@ -33,7 +33,7 @@ var osc_direction: float = 1
 
 func _ready():
 	olp = position
-	hand_olp = hand.position
+	#hand_olp = hand.position
 
 func oscillate(delta: float):
 	var newval = osc + bob_speed * osc_direction * delta * 60
@@ -45,7 +45,7 @@ func oscillate(delta: float):
 
 func update_position():
 	position = olp + basis * Vector3(_ease(osc) * horizontal_bob_distance, abs(_ease(osc)) * vertical_bob_distance*vbdm, 0);
-	hand.position = hand_olp + Vector3(_ease(osc) * hand_horizontal_bob_distance, abs(_ease(osc)) * hand_vertical_bob_distance*vbdm, 0);
+	#hand.position = hand_olp + Vector3(_ease(osc) * hand_horizontal_bob_distance, abs(_ease(osc)) * hand_vertical_bob_distance*vbdm, 0);
 
 func _ease(x: float) -> float:
 	if x >= 0:

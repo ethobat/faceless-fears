@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjkj2t8na5moq"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjcp506ogb148" path="res://assets/models/props/props_standinglamp.res" id="1_bp57x"]
+
+[node name="StandingLamp" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_bp57x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640956, 0)
+light_color = Color(0.890196, 0.552941, 0, 1)
+light_energy = 0.2

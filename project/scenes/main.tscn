@@ -1,41 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cua3auf7j7hj"]
+[gd_scene load_steps=4 format=3 uid="uid://cua3auf7j7hj"]
 
 [ext_resource type="PackedScene" uid="uid://b85efult8x7e4" path="res://scenes/player.tscn" id="1_kdold"]
-[ext_resource type="PackedScene" uid="uid://ehooohbqsauu" path="res://scenes/debug/box.tscn" id="2_il3wo"]
-[ext_resource type="PackedScene" uid="uid://c4sx13mcql8ft" path="res://scenes/debug/sphere.tscn" id="3_3bsho"]
-[ext_resource type="Shader" path="res://assets/third party/ultimate-retro-shader-collection-main/spatial/sprite.gdshader" id="4_0kwxp"]
-[ext_resource type="Texture2D" uid="uid://sfa1idkihp1r" path="res://assets/images/icons/book.png" id="5_sji3p"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtksr"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_ekqui"]
-sky_material = SubResource("ProceduralSkyMaterial_vtksr")
-
-[sub_resource type="Environment" id="Environment_e2c2n"]
-background_mode = 2
-sky = SubResource("Sky_ekqui")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6kjg"]
-render_priority = 0
-shader = ExtResource("4_0kwxp")
-shader_parameter/albedo_color = Color(1, 1, 1, 1)
-shader_parameter/alpha_scissor = 0.1
-shader_parameter/texture_lod_halve_distance_override = 0.0
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_scale = Vector2(1, 1)
-shader_parameter/uv_scroll_speed = Vector2(0, 0)
-shader_parameter/billboard_mode = 1
-shader_parameter/use_transform_scale = true
-shader_parameter/cull_distance_override = 0.0
-shader_parameter/convert_vertex_colors = false
-shader_parameter/albedo_texture = ExtResource("5_sji3p")
-
-[sub_resource type="QuadMesh" id="QuadMesh_6bokq"]
-material = SubResource("ShaderMaterial_i6kjg")
+[ext_resource type="PackedScene" uid="uid://rvg620pf1bxh" path="res://scenes/levels/House.tscn" id="2_bi1qv"]
+[ext_resource type="PackedScene" uid="uid://0a1q0sr15t42" path="res://scenes/entities/anomalous_prism.tscn" id="3_vh16t"]
 
 [node name="Main" type="Node3D"]
 
@@ -44,36 +11,14 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 visible = false
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_e2c2n")
-
 [node name="Player" parent="." instance=ExtResource("1_kdold")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203492, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203492, 0.411195)
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Box" parent="World" instance=ExtResource("2_il3wo")]
-transform = Transform3D(5, 0, 0, 0, 0.1, 0, 0, 0, 5, 0, 0, 0)
-
-[node name="Box2" parent="World" instance=ExtResource("2_il3wo")]
-transform = Transform3D(0.882685, 0, 0.469965, 0, 0.74022, 0, -0.469965, 0, 0.882685, -1.382, 0.42011, -1.02247)
-
-[node name="Box3" parent="World" instance=ExtResource("2_il3wo")]
-transform = Transform3D(0.395818, 0, -0.195677, 0, 2.12878, 0, 0.195677, 0, 0.395818, 1.49822, 1.11439, 1.38744)
-
-[node name="Box4" parent="World" instance=ExtResource("2_il3wo")]
-transform = Transform3D(1.67388, 0, -0.133901, 0, 1.09858, 0, 0.360438, 0, 0.621838, -0.87758, 0.599292, 1.57598)
-
-[node name="Sphere" parent="World" instance=ExtResource("3_3bsho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59255, 0.6775, 0.384866)
-
-[node name="BillboardSprite" type="MeshInstance3D" parent="World"]
-transform = Transform3D(0.760882, 0, -0.64889, 0, 1, 0, 0.64889, 0, 0.760882, 1.20206, 0.740291, -1.19007)
-mesh = SubResource("QuadMesh_6bokq")
-
-[node name="Spotlight" type="SpotLight3D" parent="World"]
-transform = Transform3D(0.744239, -0.59943, 0.294605, -0.421872, -0.0799231, 0.903126, -0.517815, -0.796427, -0.312365, 0, 1.735, 0)
+[node name="House" parent="World" instance=ExtResource("2_bi1qv")]
 
 [node name="PlacedEntitiesParent" type="Node3D" parent="." groups=["placed_entities_parent"]]
 
-[editable path="World/Box"]
+[node name="AnomalousPrism" parent="." instance=ExtResource("3_vh16t")]
+transform = Transform3D(-0.994004, -0.0285487, 0.105551, -0.0370771, 0.996126, -0.079742, -0.102865, -0.0831777, -0.991211, 0.296021, 0.749455, -5.08398)

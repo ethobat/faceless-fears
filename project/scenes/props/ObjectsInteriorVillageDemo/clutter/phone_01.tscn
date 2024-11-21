@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qtu8esfof2sl"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgorr7gac6mi8" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Phone_01.res" id="1_tfu8q"]
+
+[node name="Phone01" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0297404, 0)
+mesh = ExtResource("1_tfu8q")

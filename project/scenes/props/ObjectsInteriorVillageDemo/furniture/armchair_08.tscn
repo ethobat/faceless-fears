@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnlgirpdv4de5"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgej6qmgv6elh" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Armchair_08.res" id="1_qx223"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k65mt"]
+size = Vector3(1.395, 0.614, 0.447068)
+
+[node name="Armchair08" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.291, 0)
+mesh = ExtResource("1_qx223")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.307187, 0.0505609)
+shape = SubResource("BoxShape3D_k65mt")

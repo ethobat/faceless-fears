@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl74mnyhow16l"]
+
+[ext_resource type="ArrayMesh" uid="uid://b6v8ewpcanl" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Items/book0.obj" id="1_ch5wa"]
+[ext_resource type="Material" uid="uid://djmbnr5lfjdww" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/book0.tres" id="2_dre22"]
+
+[node name="Book0" type="MeshInstance3D"]
+mesh = ExtResource("1_ch5wa")
+surface_material_override/0 = ExtResource("2_dre22")

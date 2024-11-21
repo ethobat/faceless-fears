@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ooy0nut2xfl"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgaddg1t8p0ot" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/OBJ/Furniture/sink.obj" id="1_rgxsb"]
+[ext_resource type="Material" uid="uid://b4gte05wjglw7" path="res://assets/third party/Retro PSX Style Mansion Assets - Demo/Materials/bath.tres" id="2_576y3"]
+
+[node name="Sink" type="MeshInstance3D"]
+mesh = ExtResource("1_rgxsb")
+surface_material_override/0 = ExtResource("2_576y3")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://k8osal0usjgm"]
+
+[ext_resource type="ArrayMesh" uid="uid://cvmc6eps7go1d" path="res://assets/models/props/props_off_limits_sign.res" id="1_372gb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5vxs"]
+size = Vector3(0.88, 1.034, 0.06)
+
+[node name="OffLimitsSign" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_372gb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517151, 0)
+shape = SubResource("BoxShape3D_v5vxs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517151, 0)
+shape = SubResource("BoxShape3D_v5vxs")

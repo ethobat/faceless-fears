@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://djftuu3rb0mme"]
+
+[ext_resource type="ArrayMesh" uid="uid://cm3nc2exvufv" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Kitchen.res" id="1_x7fvy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k65mt"]
+size = Vector3(0.357971, 0.5, 1.13086)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qofi"]
+size = Vector3(0.717529, 0.497803, 0.366943)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r7fii"]
+size = Vector3(0.386963, 0.498047, 0.240723)
+
+[node name="Kitchen" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.357, 0)
+mesh = ExtResource("1_x7fvy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.435394, 0.25, 0.31543)
+shape = SubResource("BoxShape3D_k65mt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252808, 0.248901, -0.442017)
+shape = SubResource("BoxShape3D_7qofi")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705688, 0.249023, -0.379639)
+shape = SubResource("BoxShape3D_r7fii")

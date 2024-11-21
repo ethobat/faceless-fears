@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://do11tnf7uimj4"]
+
+[ext_resource type="ArrayMesh" uid="uid://5fjcfwsbuwve" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Table_02.res" id="1_b6gg5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k65mt"]
+size = Vector3(1.02, 0.424, 0.58)
+
+[node name="Table02" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.405, 0)
+mesh = ExtResource("1_b6gg5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.211397, 0.000976563)
+shape = SubResource("BoxShape3D_k65mt")
