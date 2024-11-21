@@ -19,7 +19,6 @@ colors = PackedColorArray(0.886262, 0.886261, 0.886262, 1, 0.894922, 0.894922, 0
 [sub_resource type="Resource" id="Resource_s5086"]
 script = ExtResource("4_tc27j")
 pattern_type = 0
-pattern_hp = 2
 gradients = Array[Gradient]([SubResource("Gradient_bcwg3"), SubResource("Gradient_aeobi"), SubResource("Gradient_7g8j7")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjgwh"]

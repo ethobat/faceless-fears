@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://rvg620pf1bxh"]
+[gd_scene load_steps=48 format=3 uid="uid://rvg620pf1bxh"]
 
 [ext_resource type="PackedScene" uid="uid://dml1ee451mdyr" path="res://scenes/level_parts/floors/in_floor1.tscn" id="1_50cca"]
 [ext_resource type="PackedScene" uid="uid://c5f78oklhognb" path="res://scenes/level_parts/walls/in_house1_doorframe.tscn" id="2_smvta"]
@@ -45,21 +45,8 @@
 [ext_resource type="PackedScene" uid="uid://bu8o4w13gicts" path="res://scenes/props/ObjectsInteriorVillageDemo/furniture/trash_can_full.tscn" id="42_jie54"]
 [ext_resource type="PackedScene" uid="uid://drsx7myblckon" path="res://scenes/props/ObjectsInteriorVillageDemo/kitchen/kitchen_counter.tscn" id="43_3xx18"]
 [ext_resource type="PackedScene" uid="uid://cbjiv2d5dax56" path="res://scenes/props/ObjectsInteriorVillageDemo/furniture/chest_drawers_03.tscn" id="44_4c4t1"]
+[ext_resource type="Environment" uid="uid://cr2u3jjttqe07" path="res://house_environment.tres" id="45_llak8"]
 [ext_resource type="PackedScene" uid="uid://xdwh0fmxlpam" path="res://scenes/props/ObjectsInteriorVillageDemo/clutter/flower_table.tscn" id="46_0osew"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljh8h"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_ekqui"]
-sky_material = SubResource("ProceduralSkyMaterial_ljh8h")
-
-[sub_resource type="Environment" id="Environment_vpgju"]
-background_mode = 2
-sky = SubResource("Sky_ekqui")
-ambient_light_source = 2
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="House" type="Node3D"]
 
@@ -1233,7 +1220,7 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4.5, 2, 
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4.5, 2, -3)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vpgju")
+environment = ExtResource("45_llak8")
 
 [node name="Basement" type="Node3D" parent="."]
 

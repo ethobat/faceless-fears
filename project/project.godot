@@ -142,6 +142,11 @@ debug_console_clear={
 ]
 }
 
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
 [shader_globals]
 
 affine_texture_mapping={
