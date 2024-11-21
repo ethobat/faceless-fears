@@ -8,6 +8,7 @@ signal inventory_button_pressed(items: Dictionary)
 @onready var body: CharacterBody3D = $CharacterBody3D
 @onready var head: Node3D = $CharacterBody3D/Head
 @onready var camera: Camera3D = $CharacterBody3D/Head/Camera3D
+@onready var sub_viewport_camera: Camera3D = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D2
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
 @onready var hand: Node3D = $CanvasLayer/SubViewportContainer/SubViewport/Hand
 @onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/ItemGhostRaycast
@@ -231,8 +232,10 @@ func _process(delta: float):
 	body.move_and_slide()
 	if body.velocity == Vector3.ZERO or body.velocity.y != 0:
 		camera.bobbing = false
+		sub_viewport_camera.bobbing = false
 	else:
 		camera.bobbing = true
+		sub_viewport_camera.bobbing = true
 		
 	mouse_motion_relative = Vector2.ZERO
 

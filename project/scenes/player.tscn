@@ -37,10 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_vfd0f")
 bob_speed = 0.072
 return_speed = 0.16
-horizontal_bob_distance = 0.0
-vertical_bob_distance = 0.03
-hand_horizontal_bob_distance = 0.02
-hand_vertical_bob_distance = 0.01
+horizontal_bob_distance = 0.02
+vertical_bob_distance = 0.01
 
 [node name="ItemGhostRaycast" type="RayCast3D" parent="CharacterBody3D/Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
@@ -53,18 +51,20 @@ target_position = Vector3(0, -5, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("5_1side")]
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 own_world_3d = true
 world_3d = SubResource("World3D_knl73")
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
@@ -75,15 +75,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
 script = ExtResource("2_vfd0f")
 bob_speed = 0.072
 return_speed = 0.16
-horizontal_bob_distance = 0.0
-vertical_bob_distance = 0.03
-hand_horizontal_bob_distance = 0.02
-hand_vertical_bob_distance = 0.01
+horizontal_bob_distance = 0.02
+vertical_bob_distance = 0.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595764, -0.155096)
 light_energy = 0.2
 omni_range = 1.0
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_1side")]
 
 [connection signal="hotbar_items_updated" from="." to="CanvasLayer/UI" method="update_hotbar"]
 [connection signal="inventory_button_pressed" from="." to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]

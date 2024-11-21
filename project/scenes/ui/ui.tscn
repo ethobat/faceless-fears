@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd2emxxrb6ks5"]
+[gd_scene load_steps=11 format=3 uid="uid://dd2emxxrb6ks5"]
 
 [ext_resource type="Theme" uid="uid://bybdhtdnymat5" path="res://scenes/ui/vhs_ui_theme.tres" id="1_ffhv7"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_kcmwn"]
@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/entity_panel_grid.tscn" id="5_mqujf"]
 [ext_resource type="PackedScene" uid="uid://c0eiiejfkk0ja" path="res://scenes/ui/inventory_window.tscn" id="6_ovrdb"]
 [ext_resource type="Script" path="res://scenes/ui/debug_console.gd" id="7_icrjy"]
+[ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="8_1l8rb"]
+[ext_resource type="Script" path="res://scripts/fps_label.gd" id="9_3r2md"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0rw1"]
+font = ExtResource("8_1l8rb")
+font_size = 40
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -17,6 +23,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ffhv7")
 script = ExtResource("1_kcmwn")
+
+[node name="Reticle" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Hotbar" parent="." instance=ExtResource("5_mqujf")]
 layout_mode = 1
@@ -61,20 +81,6 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="DebugConsole" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -116,7 +122,24 @@ grow_vertical = 2
 text = "Feedback text."
 vertical_alignment = 1
 
+[node name="FPSLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 48.0
+offset_right = -18.0
+offset_bottom = 77.0
+grow_horizontal = 0
+text = "12"
+label_settings = SubResource("LabelSettings_q0rw1")
+script = ExtResource("9_3r2md")
+
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]
+[connection signal="pressed" from="PauseMenu/QuitToTitleScreenButton" to="." method="quit_to_title_screen"]
+[connection signal="pressed" from="PauseMenu/QuitToDesktopButton" to="." method="quit_to_desktop"]
 
 [editable path="PauseMenu"]

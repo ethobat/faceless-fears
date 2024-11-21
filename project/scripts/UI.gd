@@ -79,3 +79,9 @@ func hide_inv_windows():
 	player_inv.visible = false
 	other_inv.visible = false
 	menus_closed.emit()
+
+func quit_to_title_screen():
+	quit_to_desktop() #TODO
+
+func quit_to_desktop():
+	get_tree().quit()

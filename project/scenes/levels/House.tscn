@@ -692,6 +692,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.67084, 6.47269e-08, 
 transform = Transform3D(-0.976341, 0, -0.216235, 0, 1, 0, 0.216235, 0, -0.976341, 2.80274, -5.44824e-08, 1.05212)
 
 [node name="1F" type="Node3D" parent="."]
+visible = false
 
 [node name="Ceilings" type="Node3D" parent="1F"]
 

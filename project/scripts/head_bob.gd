@@ -22,8 +22,8 @@ var vbdm_tween: Tween = null
 @export var return_speed: float = 0.08
 @export var horizontal_bob_distance: float = 0.07
 @export var vertical_bob_distance: float = 0.02
-@export var hand_horizontal_bob_distance: float = 0.07
-@export var hand_vertical_bob_distance: float = 0.02
+#@export var hand_horizontal_bob_distance: float = 0.07
+#@export var hand_vertical_bob_distance: float = 0.02
 var vbdm: float = 1
 
 var olp: Vector3 # original local position
