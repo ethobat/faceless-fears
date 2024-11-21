@@ -5,7 +5,7 @@ const ENTITY_PANEL = preload("res://scenes/ui/entity_panel.tscn")
 
 @export var show_slot_numbers: bool = false
 
-func update(entities: Array[Entity], counts: Array[int]):
+func update(entities: Array, counts: Array):
 	for child in get_children():
 		child.queue_free()
 	for i in range(len(entities)):
