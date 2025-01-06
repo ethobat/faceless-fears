@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b85efult8x7e4"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_k2s7n"]
+[ext_resource type="Script" path="res://scripts/world/player.gd" id="1_k2s7n"]
 [ext_resource type="Resource" uid="uid://hsjeffubbbkg" path="res://scenes/entities/player.tres" id="2_a7xx0"]
 [ext_resource type="AudioStream" uid="uid://d3x7hcip1w8aw" path="res://assets/sounds/player/footstep.mp3" id="2_ihd0j"]
-[ext_resource type="Script" path="res://scripts/head_bob.gd" id="2_vfd0f"]
+[ext_resource type="Script" path="res://scripts/world/head_bob.gd" id="2_vfd0f"]
 [ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="5_1side"]
-[ext_resource type="Environment" uid="uid://cr2u3jjttqe07" path="res://house_environment.tres" id="6_ln0s0"]
+[ext_resource type="Environment" uid="uid://chp2771k35an4" path="res://house_environment.tres" id="6_ln0s0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vnri"]
 radius = 0.2
@@ -34,6 +34,7 @@ shape = SubResource("CapsuleShape3D_3vnri")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 script = ExtResource("2_vfd0f")
 bob_speed = 0.072
 return_speed = 0.16
@@ -64,7 +65,7 @@ own_world_3d = true
 world_3d = SubResource("World3D_knl73")
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
@@ -76,7 +77,7 @@ script = ExtResource("2_vfd0f")
 bob_speed = 0.072
 return_speed = 0.16
 horizontal_bob_distance = 0.02
-vertical_bob_distance = 0.0
+vertical_bob_distance = -0.01
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595764, -0.155096)
@@ -88,5 +89,3 @@ omni_range = 1.0
 [connection signal="hotbar_items_updated" from="." to="CanvasLayer/UI" method="update_hotbar"]
 [connection signal="inventory_button_pressed" from="." to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
 [connection signal="inventory_updated" from="." to="CanvasLayer/UI" method="_on_player_inventory_updated"]
-[connection signal="menu_opened" from="CanvasLayer/UI" to="." method="_on_ui_menu_opened"]
-[connection signal="menus_closed" from="CanvasLayer/UI" to="." method="_on_ui_menus_closed"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cua3auf7j7hj"]
+[gd_scene load_steps=3 format=3 uid="uid://cua3auf7j7hj"]
 
 [ext_resource type="PackedScene" uid="uid://b85efult8x7e4" path="res://scenes/player.tscn" id="1_kdold"]
-[ext_resource type="PackedScene" uid="uid://rvg620pf1bxh" path="res://scenes/levels/House.tscn" id="2_bi1qv"]
-[ext_resource type="PackedScene" uid="uid://0a1q0sr15t42" path="res://scenes/entities/anomalous_prism.tscn" id="3_vh16t"]
+[ext_resource type="PackedScene" uid="uid://bpu2kurbb8ixr" path="res://scenes/levels/TilesetTest.tscn" id="2_168j8"]
 
 [node name="Main" type="Node3D"]
 
@@ -12,13 +11,11 @@ visible = false
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_kdold")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203492, 0.411195)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.0214505, 0.00599864)
+sensitivity = 0.2
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="House" parent="World" instance=ExtResource("2_bi1qv")]
+[node name="TilesetTest" parent="World" instance=ExtResource("2_168j8")]
 
 [node name="PlacedEntitiesParent" type="Node3D" parent="." groups=["placed_entities_parent"]]
-
-[node name="AnomalousPrism" parent="." instance=ExtResource("3_vh16t")]
-transform = Transform3D(-0.994004, -0.0285487, 0.105551, -0.0370771, 0.996126, -0.079742, -0.102865, -0.0831777, -0.991211, 0.296021, 0.749455, -5.08398)

@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpu2kurbb8ixr"]
+
+[ext_resource type="PackedScene" uid="uid://bt0g8kvnv7i34" path="res://scenes/level_parts/in/in_tech_corridor_corner.tscn" id="1_j0ppk"]
+[ext_resource type="PackedScene" uid="uid://3rijgsg1vlny" path="res://scenes/level_parts/in/in_tech_corridor_xjunction.tscn" id="2_46tby"]
+[ext_resource type="PackedScene" uid="uid://b7wk4brd1b2c4" path="res://scenes/level_parts/in/in_tech_corridor_straight.tscn" id="3_q6je5"]
+[ext_resource type="PackedScene" uid="uid://b64e4b2jb5b76" path="res://scenes/level_parts/in/in_tech_corridor_cap.tscn" id="4_bb3cw"]
+[ext_resource type="PackedScene" uid="uid://dhrje3hdy4mlq" path="res://scenes/level_parts/in/in_tech_corridor_tjunction.tscn" id="5_2m8t6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljh8h"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ekqui"]
+sky_material = SubResource("ProceduralSkyMaterial_ljh8h")
+
+[sub_resource type="Environment" id="Environment_34tuk"]
+sky = SubResource("Sky_ekqui")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.3
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TilesetTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_34tuk")
+
+[node name="in_tech_corridor_corner4" parent="." instance=ExtResource("1_j0ppk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 2)
+
+[node name="in_tech_corridor_xjunction" parent="." instance=ExtResource("2_46tby")]
+
+[node name="in_tech_corridor_xjunction4" parent="." instance=ExtResource("2_46tby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="in_tech_corridor_xjunction3" parent="." instance=ExtResource("2_46tby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="in_tech_corridor_straight" parent="." instance=ExtResource("3_q6je5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 1)
+
+[node name="in_tech_corridor_xjunction2" parent="." instance=ExtResource("2_46tby")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 2)
+
+[node name="in_tech_corridor_cap" parent="." instance=ExtResource("4_bb3cw")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1, 0, 3)
+
+[node name="in_tech_corridor_straight2" parent="." instance=ExtResource("3_q6je5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1)
+
+[node name="in_tech_corridor_tjunction" parent="." instance=ExtResource("5_2m8t6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="in_tech_corridor_corner" parent="." instance=ExtResource("1_j0ppk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="in_tech_corridor_corner2" parent="." instance=ExtResource("1_j0ppk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, -1)
+
+[node name="in_tech_corridor_straight3" parent="." instance=ExtResource("3_q6je5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="in_tech_corridor_cap2" parent="." instance=ExtResource("4_bb3cw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 0)
+
+[node name="in_tech_corridor_tjunction2" parent="." instance=ExtResource("5_2m8t6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -2)
+
+[node name="in_tech_corridor_cap3" parent="." instance=ExtResource("4_bb3cw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="in_tech_corridor_corner3" parent="." instance=ExtResource("1_j0ppk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -1)
+
+[node name="in_tech_corridor_cap4" parent="." instance=ExtResource("4_bb3cw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, 1)
+
+[node name="in_tech_corridor_cap5" parent="." instance=ExtResource("4_bb3cw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, -2)
+
+[node name="in_tech_corridor_cap6" parent="." instance=ExtResource("4_bb3cw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 1)

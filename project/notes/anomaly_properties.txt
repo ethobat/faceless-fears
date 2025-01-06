@@ -1,0 +1,54 @@
+_____ PSYCHOMETRICS _____
+
+Psychometric tools deal with the psychic properties of an anomaly.
+
+-- Action Balance --
+
+A psychic anomaly's action balance consists of two values, libido and destrudo, which can each be positive or negative. Both values start relatively small, but can be massively boosted in either direction by psychic instruments.
+
+While the magnitude of libido or destrudo is above certain value, the anomaly becomes psychically unstable, and a variety of effects could happen at any moment. The chance of an effect happening depends on the total magnitude of both values. All of these effects move both values towards the origin, meaning the object will stabilize over time.
+
+Psychic instability effects:
+-Libido, +Destrudo: The anomaly psychically self-annihilates, changing its psychopattern to Dull.
++Libido, +Destrudo: 
++Libido: The anomaly's ego inflates massively, increasing ego circumference.
++Libido, -Destrudo: The anomaly gains a new psychic effect.
+
+-- Ego Circumference --
+
+Ego circumference acts as a multiplier for a psychically-active anomaly's effects, and also represents the object's resistance to changes in action balance.
+
+-- Psychopattern --
+
+The most poorly understood psychometric value - there are several known psychopatterns types, which affect the object's tendency to be affected by a variety of instruments. A psychopattern is something like a psychic fingerprint that is subtly different for every psychic entity, but they all fall into one of several categories.
+
+"Dull" represents an entity that is totally psychically inert. No form of psychic instrumentation can act upon it.
+"Clear" represents an anomaly that is not psychically active, but still has a psychic presence that can be detected and acted upon by psychic instruments.
+"Red" represents a human-like psychic presence. These types of psychic anomalies are often living in some other capacity. When psychometric instruments are used to measure a human's psychic presence, the subject's pattern is invariably "Red".
+"Blue" represents a type of alien psychic presence that is particularly common among non-living, psychically active anomalies. Psychometric specialists are trained mostly to combat Pattern "Blue" anomalies.
+"Cyan" represents a pattern that is similar in nature but subtly different to "Blue". Pattern "Cyan" entities are resistant to most psychic instruments.
+
+== Diagnostic Tools ==
+
+Psychodyne Egometer:
+A tablet device with a screen that displays information about ego circumference and psychopattern. Like all Psychodyne products, it has a sleek, modern design.
+
+== Containment Tools ==
+
+Psychodyne Ego Collapser:
+Dangerous containment tool that destructively provokes the ego, decreasing ego circumference and sharply increasing the fluctuation bias. This tool is particularly dangerous to use due to the unpredictability associated with increasing the fluctuation bias, and should only be used by an agent who is prepared to deal with the effects of psychic instability.
+
+Psychodyne Pattern Expunger:
+Heavy-duty containment tool that is expensive to run, but capable of psychically annihilating an anomaly, permanently changing its pattern to "Dull". It can only be used if the ambient normality is above a certain value - the Pattern Expunger is an incredibly complex instrument, and as such is particularly sensitive to the muddling effects of irreality.
+
+_____ PERCEPTUALS & INFODYNAMICS _____
+
+The twin fields of perceptuals and infodynamics are used to combat objects with an anomalous dearth of discernible information. This property, which many anomalies share in one way or another, is often noticeable through the inability of humans to correctly perceive an object. Some antiperceptual anomalies appear as blank spaces in the air, or as television static. Particularly dangerous anomalies can be directly harmful to the human brain when perceived.
+
+-- Info-Hazard Graph --
+
+The two most important values in applied infodynamics are info density and perceptual hazard rating. Info density indicates the amount of information present in an object that the human brain is capable of taking in. Low info density can be observed as a visual static effect, and high info density manifests as an overload-class perceptual hazard.
+
+Info density can be altered relatively easily with infodynamic containment tools, but perceptual hazard rating is generally static, so the most straightforward way to neutralize a perceptual hazard is by reducing info density to zero.
+
+_____ GRAND TOPOLOGY _____

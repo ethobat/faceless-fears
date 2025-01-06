@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj2qxcocgvsi7"]
 
+[ext_resource type="Script" path="res://scripts/ui/seven_segment_display.gd" id="1_81m80"]
 [ext_resource type="Texture2D" uid="uid://dhh4q7dqv2c3c" path="res://assets/images/seven_segment.png" id="1_jrx5g"]
-[ext_resource type="Script" path="res://scripts/seven_segment_display.gd" id="1_so3qs"]
 
 [node name="SevenSegmentDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_so3qs")
+script = ExtResource("1_81m80")
 
 [node name="SegmentA" type="TextureRect" parent="."]
 layout_mode = 0

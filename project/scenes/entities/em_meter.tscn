@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_l4usr"]
 [ext_resource type="Resource" uid="uid://6xi86o6quau7" path="res://scenes/entities/em_meter.tres" id="2_222wi"]
 [ext_resource type="ArrayMesh" uid="uid://tlab1w8ywv2e" path="res://assets/models/entities/entities_Dial.res" id="2_mw151"]
-[ext_resource type="Script" path="res://scripts/dial.gd" id="3_itf06"]
+[ext_resource type="Script" path="res://scripts/world/dial.gd" id="3_itf06"]
 [ext_resource type="PackedScene" uid="uid://h5toe48hq57u" path="res://scenes/ui/diegetic/em_meter_display.tscn" id="5_tm8qw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvl22"]

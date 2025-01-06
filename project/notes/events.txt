@@ -7,12 +7,16 @@ Example users: MyComponent, MyOtherComponent
 
 ---
 
+"is_anomalous"
+Value: bool (false)
+Returns true if the receiving entity has anomalous properties.
+
 "strengthen_anomaly"
 Values: PhysicalEntity, float
 Strengthen the receiving entity's anomalous effects by the given value.
 Example users: EMPattern, StaticPrismAnomaly
 
-"strengthen_anomaly"
+"weaken_anomaly"
 Values: PhysicalEntity, float
 Weaken the receiving entity's anomalous effects by the given value.
 Example users: EMPattern, StaticPrismAnomaly

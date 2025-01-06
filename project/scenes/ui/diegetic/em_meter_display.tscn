@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://h5toe48hq57u"]
 
-[ext_resource type="Script" path="res://scripts/multi_digit_display.gd" id="1_s82yl"]
+[ext_resource type="Script" path="res://scripts/ui/multi_digit_display.gd" id="1_00odr"]
 [ext_resource type="PackedScene" uid="uid://dj2qxcocgvsi7" path="res://scenes/ui/diegetic/seven_segment_display.tscn" id="2_506ld"]
 [ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="3_xbrvx"]
 
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s82yl")
+script = ExtResource("1_00odr")
 displays_before_point = [NodePath("SevenSegmentDisplay"), NodePath("SevenSegmentDisplay2")]
 displays_after_point = [NodePath("SevenSegmentDisplay3"), NodePath("SevenSegmentDisplay4")]
 overflow_indicator = NodePath("OverflowIndicator")

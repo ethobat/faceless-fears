@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_ubmub"]
 [ext_resource type="ArrayMesh" uid="uid://bakxg1euio4i1" path="res://assets/models/entities/entities_RayGun1.res" id="2_1yofv"]
 [ext_resource type="Resource" uid="uid://caeci20h8q4wp" path="res://scenes/entities/pattern_suppressor.tres" id="2_8mdsu"]
-[ext_resource type="Script" path="res://scripts/dial.gd" id="4_03qtv"]
+[ext_resource type="Script" path="res://scripts/world/dial.gd" id="4_03qtv"]
 [ext_resource type="PackedScene" uid="uid://45wamguhelo6" path="res://scenes/ui/diegetic/pattern_suppressor_display.tscn" id="6_feu00"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvl22"]

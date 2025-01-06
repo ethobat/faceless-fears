@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqujymxo2gabs"]
 
-[ext_resource type="Script" path="res://scripts/entity_ghost.gd" id="1_babqp"]
+[ext_resource type="Script" path="res://scripts/entity/entity_ghost.gd" id="1_babqp"]
 [ext_resource type="Material" uid="uid://brav4qkxlnxkg" path="res://assets/models/materials/ghost_valid.tres" id="2_j8lwd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gb8tw"]

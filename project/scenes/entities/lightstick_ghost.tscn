@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://41eqwb8i27el"]
 
-[ext_resource type="Script" path="res://scripts/entity_ghost.gd" id="1_b6p71"]
+[ext_resource type="Script" path="res://scripts/entity/entity_ghost.gd" id="1_b6p71"]
 [ext_resource type="Material" uid="uid://brav4qkxlnxkg" path="res://assets/models/materials/ghost_valid.tres" id="2_6hlm6"]
 [ext_resource type="ArrayMesh" uid="uid://86a3nj06hd2b" path="res://assets/models/entities/entities_Lightstick.res" id="2_cj5jx"]
 

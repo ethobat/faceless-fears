@@ -7,7 +7,7 @@ class_name EMPattern
 func handle_event(entity: Entity, event: Event) -> Event:
 	match event.event_type:
 		"em_probe":
-			if pattern_type == -1:
+			if pattern_type == -1 or not entity.fire_event("is_anomalous", [false]).values[0]:
 				event.values[1] = 0.0
 			else:
 				event.values[1] = gradients[pattern_type].sample(event.values[0])[0]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjxgxuaon6tja"]
 
-[ext_resource type="Script" path="res://scenes/ui/entity_panel.gd" id="1_blnaf"]
+[ext_resource type="Script" path="res://scripts/ui/entity_panel.gd" id="1_blnaf"]
 [ext_resource type="Texture2D" uid="uid://dwa3idl0fmysa" path="res://assets/images/icons/FearSkull.png" id="2_5motg"]
 [ext_resource type="LabelSettings" uid="uid://74g2xjgag6f2" path="res://scenes/ui/entity_panel_label_settings.tres" id="3_2y0tr"]
 

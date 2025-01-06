@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo77qx2ufbw7u"]
+
+[ext_resource type="ArrayMesh" uid="uid://digg060jxc08p" path="res://assets/models/level_parts/level_parts_in_house_room_middle.res" id="1_dxwx4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vm0lq"]
+data = PackedVector3Array(0.5, 1.125, 0.5, -0.5, 1.125, -0.5, -0.5, 1.125, 0.5, 0.5, 1.125, 0.5, 0.5, 1.125, -0.5, -0.5, 1.125, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5)
+
+[node name="in_house_room_middle" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_dxwx4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_vm0lq")

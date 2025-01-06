@@ -1,0 +1,138 @@
+Items:
+
+-- Multipurpose Battery --
+
+Energy storage device developed by the DSI to power equipment in the field.
+
+-- Flashlight --
+
+A simple source of light. Requires a battery to operate. The amount of power drained is negligible, but some agents who are out of batteries may wish to remove the battery from their flashlight to power other gadgets.
+
+-- Lucidity Plug --
+
+"Small device capable of neutralizing anomalies. Consists of a solid-state drive affixed to a sharpened stake.
+Instructions on use: Remove the cap, exposing the sharp end of the plug. Drive sharp end into hazardous object. If anomalous properties do not cease within 5 minutes, insert another plug. If no physical form can be identified, the Lucidity Plug may not be suitable."
+
+-- Incursion Detector --
+
+Monitoring device that detects when anomalies appear. Lights up when a disruption is detected, which usually indicates the incursion of an anomalous entity into our world. Normally only works on anomalies with a fairly high incursion shock.
+Upgrades:
+- Shock sensitivity: Allows the device to detect less disruptive anomalies.
+
+-- EM Receiver --
+
+A device capable of receiving and recording electromagnetic signals at a wide range of frequencies. Developed by the DSI to allow agents to detect the presence of anomalies that are not otherwise audible or visible.
+
+(Looks like a metal detector - handheld tool with a radar dish on the end, and a pair of headphones. This should be similar to the receiver from Outer Wilds, where you point it at stuff and it plays an audio loop.)
+
+-- Plug Harpoon --
+
+Experimental crossbow-like firearm designed to overcome a limitation of the Lucidity Plug - namely that it can only be used on anomalies within arm's length. The Harpoon is capable of launching plugs several meters, allowing agents to neutralize anomalies that would otherwise be dangerous to approach.
+The force of impact has a chance of destroying fired plugs, so the harpoon should only be used when necessary.
+
+-- Watchdog Protective Headset --
+
+"Bulky protective headset with noise-cancelling headphones and a battery-powered visor. The built-in computer automatically censors visual hazards from the camera feed, providing the wearer with a safe view of their environment through an LCD display directly in front of the eyes. The headphones play a constant tone that helps the wearer to stay focused in existentially taxing situations.
+Agents should note that the Watchdog Headset is *not* capable of automatically adapting to novel visual hazards, and manual calibration may be necessary if such hazards are encountered in the field."
+
+When the headset is on, all noises are muffled. The player's normal display has a big black border around it and the color is washed out of the image. Visual hazards are censored with several black rectangles with the text "[VISUAL HAZARD REMOVED]".
+
+
+
+Anomalies:
+
+Anomaly documentation follows this format:
+- Anomaly name & image
+- Risk class: indicates the threat the anomaly poses to human life
+- Ontological threat class: indicates the threat the anomaly poses to reality
+- Incursion shock rating: the intensity of the anomaly's effects when it first appears. Anomalies with a low incursion shock may have no indication that they have appeared; anomalies with a high incursion shock are impossible to miss.
+- Perceptual hazard class: The hazard posed by any visual threats associated with the anomaly.
+- Brief: A detailed description of the anomaly's effects and clarifications on the ratings in the header.
+- Associated files: Lore section that can be unlocked as a bonus for researching an anomaly.
+
+Anomaly ideas...
+- Pose-changing weeping angel mannequin. Especially common in the horror dimension.
+- Static mannequin, Class-4 visual hazard, telegraphed by extremely loud static noise which is itself a Class-3 auditory hazard
+- TV static, Class-3 visual hazard
+- Portal window: a random window in the house starts showing scenes of a different environment which is slightly "off". Two moons, discolored sky, etc.. The environment may change the longer the window is active for, and becomes a visual hazard if it stays active for too long.
+
+Classifications:
+
+Perceptual hazards:
+0 (Safe) 		- No hazard.
+1 (Notice) 		- Mild hazard. May cause discomfort or other unusual perceptual effects, but not otherwise capable of lasting damage. Personnel are advised to avoid exposure when feasible. Common effects include headache and nausea. Class-1 perceptual hazards are sometimes not immediately obvious. Indicators of a visual hazard include a tingling sensation felt behind the eyeballs and a strong compulsion to look away. Indicators of an auditory hazard include involuntarily remembering the sound and hearing the sound in random noise.
+2 (Warning)		- Indicates a dangerous perceptual hazard, capable of causing immediate harm or lasting effects when perceived. May cause migraines, extreme pain, and fainting. Hypothesized to cause an array of poorly-understood psychological effects.
+3 (Danger)		- Indicates a particularly dangerous perceptual hazard. Exposure for more than a few seconds is likely to cause harm that requires immediate medical attention. Common effects include tonic-clonic seizure and extended absence seizure. Often results in permanent brain damage that makes interviewing patients difficult.
+4 (Basilisk)	- Likely to cause immediate death or irreversible damage. Greatly varies in effect. May cause permanent locked-in syndrome, vegetative state, or immediate death by unknown means. Autopsy of individuals who have been killed by exposure to a Class-4 perceptual hazard often reveals that their brain is missing from their body.
+
+
+
+Suppression and neutralization:
+
+In order to neutralize (or permanently destroy) an anomaly, it must first be suppressed. Each anomaly has a "activity" meter, which the player can see with a certain tool. The activity meter slowly goes up over time, possibly making the anomaly's effects more drastic or dangerous. Some anomalies may cap out at a particular activity level, and some may rise without limit.
+
+An anomaly's activity can be lowered by using specific suppression tools on it. The player will carry several tools, and each anomaly will only respond to a certain combination of tools. The player should be able to intuit which tools will work just by observing the anomaly. For example, an anomaly that continuously produces sound will respond to the "oscilloscope" tool, and humanoid anomalies will respond to the "face scanner" tool. Every anomaly can respond to multiple tools, so a humanoid anomaly that also produces sound will respond to both of the above mentioned tools. Suppression in each category (i.e. sound suppression, face suppression) is soft-capped, so the player has to use multiple tools to lower activity past a certain point.
+
+Using the wrong tool on an anomaly will waste battery power, and possibly even raise its activity or provoke dangerous effects. Identifying and remembering which tools work on an anomaly will let the player deal with that anomaly more quickly in the future.
+
+Each tool has a "minigame" associated with it. The oscilloscope requires the player to line up two waves in an oscilloscope view, and the face-scanner requires the player to pick out the normal face in a group of faces with uncanny or inhuman features. The minigames will get more difficult the higher the anomaly's activity level is, e.g. the target wave's properties will change over time, a visual distortion effect will be applied to the faces to make subtle features harder to make out. etc.. Failing a minigame repeatedly carries the danger of raising the activity level, so extreme care is required to "defuse" a dangerous anomaly with a high activity level.
+
+Once an anomaly has been sufficiently suppressed (e.g. activity level below 10%) a special item can be used to permanently neutralize it. This ability should be scarce, encouraging the player to only neutralize anomalies that are particularly hard to deal with. The neutralization ability can be implemented as a consumable item or a tool that takes several minutes to recharge.
+
+- Plug suppression: Sometimes, throwing a Reality Plug into an anomaly is enough to suppress it. Most anomalies are vulnerable to this kind of suppression, though some might take more plugs than others. This technique is not effective on anomalies that have no physical form, or that are too dangerous to approach.
+
+- Psychic suppression: An esoteric technique used by some field agents. One can deliberately open their mind to an anomaly that is psychically active and attempt to suppress it through pure willpower. The process requires the user's mind to be fully engaged with the anomaly, making it impossible to move one's body. Naturally, this also increases the hold the psychic effect has on one's mind, so this technique can be devastatingly dangerous if the user is not prepared. Psychic suppression is most effective in an altered state of mind.
+
+- Dive suppression: A perilous method of suppression used to neutralize dangerous anomalies where all other approaches have failed. The agent binds themself to an anomaly, then deliberately instigates a reality failure event, removing the offending anomaly from conventional reality. This technique is used only as a last resort, as there is no guarantee the agent will return home with sound body and mind.
+
+
+
+Levels and the hub area:
+
+Each level will have a different set of anomalies, and possibly different maps. Maps can be reused for multiple levels, e.g. by making new areas within the map accessible or spawning different combinations of anomalies.
+
+Rather than a level select menu, there will be a hub area the player can walk around in. The hub area can be the interior of a vehicle, similar to Phasmophobia. In that game, the van serves as a framing device that appears at the beginning of each area, and contains all the equipment the player will need to complete the level.
+
+A computer in the back will allow the player to order new items, a storage locker will allow them to choose which items to take into a level, and interacting with the driver's seat will bring up the level select menu. If we do choose to add CCTV cameras in the future, the van will be an appropriate place to put the screens. The player may buy other stationary equipment that can be used from inside the van, e.g. scanning equipment that provides a more detailed prediction of the anomalies the player can expect to encounter in this area.
+
+The mechanic of buying tools can be used as a way of gating certain levels. Levels that contain visual hazards will be gated behind the protective headset, meaning the player must have earned a certain amount of money by playing other levels.
+
+
+
+Research and earning money:
+
+To provide a form of progression between levels, the player will be able to complete certain actions in each level to earn money, which can be used to upgrade their tools and buy new items to make future levels easier.
+
+Earning money can be framed as a research task. As an operative of a paranormal organization, the player may earn extra money by recording and selling scientific data in the field. This would provide an incentive to keep dangerous anomalies around in a "controlled" state rather than neutralizing them immediately. If the player is confident they can keep an anomaly suppressed, valuable data may be recorded from it, allowing the player to buy more upgrades once the level has been completed.
+
+To record data, the player must buy empty tapes before starting a level. The player's tools can then record data onto the tapes, which can be sold for money after the level has been completed. For example, when using a tool to suppress an anomaly, the player can press a button to insert a tape into the device before starting the suppression minigame. Once the suppression task has been completed, a full tape will be added to the player's inventory. The value of the data, and thus the money earned by selling the tape, depends on both the dangerousness or rarity of the anomaly, and the anomaly's activity meter when the data was recorded. This provides an incentive for the player to keep dangerous anomalies stabilized at a high activity level - doing so would be very lucrative, but also extremely dangerous. This adds more tension to the game by providing a risky option for the player to progress more quickly.
+
+As mentioned before, empty tapes must be purchased between levels to record data. There can be more expensive tapes that allow the player to record a larger volume of data at once, multiplying the filled tape's value by a certain amount. Buying high-capacity tapes would be more expensive so that they are only profitable when used to record high-value data from dangerous anomalies. There will be an option to erase a tape's data in the field, allowing it to be used again if the player accidentally recorded low-quality data.
+
+To prevent the player from "snowballing" (earning a lot of money, then buying a large amount of tapes, then earning even more money) a hard limit can be placed on the amount of tapes that can be brought into a level. Preventing the player from bringing more than 3 tapes puts a limit on the amount of data that can be recorded in that mission, both incentivizing them to collect high-quality data, and making high-capacity tapes more valuable.
+
+
+
+Spending money - upgrades and consumable items:
+
+Money earned by completing levels and selling tapes can be used to buy new tools, upgrades for existing tools, tapes that allow you to record more data during a mission, and consumable items.
+
+The generic "consumable" item would be the battery - a power source that all tools need to operate. Batteries can work like "Subnautica", where in order for a tool to work, it must have a battery inserted into it, and each battery has its own power bar. If the player has two tools but only one battery, the battery can be freely swapped between tools to allow them to share power. Money can be spent between missions on buying new batteries or recharging existing batteries.
+
+Upgrades for tools can be implemented in the form of computer chips. Chips would act like skill points, inserted into tools to unlock new perks. Chips are fungible, meaning once the player has bought a few chips, they can be freely swapped between tools. If the player knows a certain level is going to include a lot of sound anomalies, they may "respec" their chips before entering the level to upgrade their oscilloscope (sound anomaly suppression tool w/ wave minigame).
+
+A skill line for the oscilloscope may look something like this:
+
+_ _ _ _		- TOLERANCE (makes the minigame easier to complete by allowing the selected wave to be further from the target wave)
+__ __		- EFFICIENCY (tool uses less battery power)
+_ _ _ 		- STABILITY (target wave moves more slowly)
+__ __		- SUPPRESSION (increases the tool's ability to suppress, but makes the minigame harder)
+____		- HEAVY DUTY (allows the tool to suppress "rare" anomalies; explained below)
+
+In this skill line, each underscore (_) represents a slot for a chip. The "tolerance" skill has four one-chip slots, meaning up to four chips can be inserted to increase the oscilloscope's tolerance and make the minigame easier. Multiple underscores together (e.g. __) indicates a slot for multiple chips; more than one chip needs to be inserted into these kind of slots to activate the effect. To upgrade efficiency, the player needs to have 2 chips to activate the first level of the effect, and 4 chips to activate the second level.
+
+Once the player has earned enough money, a new, stationary piece of equipment can be added to the van which allows players to respec their chips without exiting a level. Later levels may be more unpredictable and include many different types of anomalies, so that if something unexpected appears, the player has the option to run out to the van and assign some chips to a different tool that will help suppress the new anomaly.
+
+The "heavy duty" skill would allow the oscilloscope to suppress specific "rare" anomalies that require that skill to be active. If a rare anomaly appears, and the "heavy duty" skill is not active, the oscilloscope will be significantly less effective in suppressing it. This provides an extra incentive to run out to the van and respec chips during a mission - if a rare anomaly appears that the player was not expecting, some chips can be reassigned to help suppress it at the cost of making the tool less effective against other anomalies.
+
+The player will have the option to buy multiple tools with different combinations of chips. It may be wise for the player to carry two oscilloscopes with different chip assignments, e.g. one with a high "stability" skill which makes it easier to suppress high-activity anomalies, and another with a high "efficiency" skill for general use. To incentivize carrying multiple instances of the same tool rather than fully upgrading a single tool, there can be a hard limit (e.g. a maximum of 12) on the amount of chips that can be assigned to the tool. The player could have the option of customizing tools further by assigning names and custom colors.

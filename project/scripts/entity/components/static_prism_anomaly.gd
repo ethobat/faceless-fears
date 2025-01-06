@@ -7,6 +7,8 @@ var body: RigidBody3D
 var mesh: MeshInstance3D
 var audio: AudioStreamPlayer3D
 
+var anomalous: bool = true
+
 func handle_event(_entity: Entity, event: Event) -> Event:
 	match event.event_type:
 		"physicalized":
@@ -28,10 +30,13 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 			body = null
 			mesh = null
 			audio = null
+		"is_anomalous":
+			event.values[0] = anomalous
 	return event
 
 func neutralize():
 	print("Neutralized!")
+	anomalous = false
 	mesh.set_surface_override_material(0, inactive_material)
 	audio.playing = false
 	body.freeze = false
