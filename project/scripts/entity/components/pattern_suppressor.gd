@@ -9,7 +9,7 @@ var display: SevenSegmentDisplay
 func handle_event(_entity: Entity, event: Event) -> Event:
 	match event.event_type:
 		"physicalized":
-			display = event.values[0].get_node("SubViewport/PatternSuppressorDisplay")
+			display = event.values[0].get_node("RigidBody3D/PatternSuppressorModel/SubViewport/PatternSuppressorDisplay")
 		"in_hand":
 			if Input.is_action_just_pressed("use"):
 				var tgt: PhysicalEntity = event.values[0].look_target

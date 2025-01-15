@@ -11,3 +11,6 @@ resource_name = "pattern_suppressor"
 script = ExtResource("2_hmx5j")
 placeable = false
 components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_3meaw")])
+slot_render_position = Vector3(0, -0.2, -0.245)
+slot_render_rotation = Vector3(0, 0, 0)
+slot_render_scale = 1.2

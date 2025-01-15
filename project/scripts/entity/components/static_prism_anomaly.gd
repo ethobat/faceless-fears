@@ -14,7 +14,7 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 		"physicalized":
 			body = event.values[0].get_node("RigidBody3D")
 			body.freeze = true
-			mesh = body.get_node("MeshInstance3D")
+			mesh = body.get_node("AnomalousPrismModel/MeshInstance3D")
 			audio = body.get_node("Hum")
 		"strengthen_anomaly":
 			var t: Tween = event.values[0].get_tree().create_tween()

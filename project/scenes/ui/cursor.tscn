@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3xyd0b40uksq"]
+
+[ext_resource type="Script" path="res://cursor.gd" id="1_jxs5k"]
+[ext_resource type="PackedScene" uid="uid://cjxgxuaon6tja" path="res://scenes/ui/inventory/entity_panel.tscn" id="2_r1pwj"]
+
+[node name="Cursor" type="Control" groups=["cursor"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxs5k")
+
+[node name="CursorEntityPanel" parent="." instance=ExtResource("2_r1pwj")]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 0.0
+offset_bottom = 0.0
+highlight_on_mouseover = false
+show_label = false
+
+[node name="TooltipPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tooltip" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

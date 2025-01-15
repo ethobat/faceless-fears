@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqg30iqgouaku"]
+
+[ext_resource type="ArrayMesh" uid="uid://86a3nj06hd2b" path="res://assets/models/entities/entities_Lightstick.res" id="3_8okvm"]
+
+[node name="LightstickModel" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+mesh = ExtResource("3_8okvm")

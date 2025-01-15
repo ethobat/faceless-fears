@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd2emxxrb6ks5"]
+[gd_scene load_steps=11 format=3 uid="uid://dd2emxxrb6ks5"]
 
 [ext_resource type="Theme" uid="uid://bybdhtdnymat5" path="res://scenes/ui/vhs_ui_theme.tres" id="1_ffhv7"]
 [ext_resource type="Script" path="res://scripts/ui/UI.gd" id="2_21fc8"]
 [ext_resource type="PackedScene" uid="uid://11alw2brk14t" path="res://scenes/ui/pause_menu.tscn" id="2_iv1s3"]
 [ext_resource type="PackedScene" uid="uid://c2qw8bypwbmt6" path="res://scenes/ui/settings_menu.tscn" id="3_630b3"]
-[ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/entity_panel_grid.tscn" id="5_mqujf"]
-[ext_resource type="PackedScene" uid="uid://c0eiiejfkk0ja" path="res://scenes/ui/inventory_window.tscn" id="6_ovrdb"]
+[ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/inventory/entity_panel_grid.tscn" id="3_ingpk"]
+[ext_resource type="PackedScene" uid="uid://c0eiiejfkk0ja" path="res://scenes/ui/inventory/inventory_window.tscn" id="4_r8ga5"]
 [ext_resource type="Script" path="res://scripts/ui/debug_console.gd" id="7_icrjy"]
 [ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="8_1l8rb"]
+[ext_resource type="PackedScene" uid="uid://b3xyd0b40uksq" path="res://scenes/ui/cursor.tscn" id="9_ixfrd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0rw1"]
 font = ExtResource("8_1l8rb")
@@ -37,7 +38,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Hotbar" parent="." instance=ExtResource("5_mqujf")]
+[node name="Hotbar" parent="." instance=ExtResource("3_ingpk")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -61,12 +62,12 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PlayerInventory" parent="MarginContainer/InventoryWindowsContainer" instance=ExtResource("6_ovrdb")]
+[node name="PlayerInventory" parent="MarginContainer/InventoryWindowsContainer" instance=ExtResource("4_r8ga5")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OtherInventory" parent="MarginContainer/InventoryWindowsContainer" instance=ExtResource("6_ovrdb")]
+[node name="OtherInventory" parent="MarginContainer/InventoryWindowsContainer" instance=ExtResource("4_r8ga5")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -132,6 +133,14 @@ offset_bottom = 77.0
 grow_horizontal = 0
 text = "12"
 label_settings = SubResource("LabelSettings_q0rw1")
+
+[node name="Cursor" parent="." instance=ExtResource("9_ixfrd")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]

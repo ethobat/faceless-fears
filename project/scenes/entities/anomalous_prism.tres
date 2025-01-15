@@ -34,3 +34,6 @@ resource_name = "anomalous_prism"
 script = ExtResource("5_n3ssv")
 placeable = true
 components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_s5086"), SubResource("Resource_mjcrs")])
+slot_render_position = Vector3(0, 0, 0)
+slot_render_rotation = Vector3(0, 0, 0)
+slot_render_scale = 1.0

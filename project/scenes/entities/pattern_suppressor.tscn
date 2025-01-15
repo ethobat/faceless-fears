@@ -1,54 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://ltfdsqcwkkxd"]
+[gd_scene load_steps=5 format=3 uid="uid://ltfdsqcwkkxd"]
 
 [ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_ubmub"]
-[ext_resource type="ArrayMesh" uid="uid://bakxg1euio4i1" path="res://assets/models/entities/entities_RayGun1.res" id="2_1yofv"]
 [ext_resource type="Resource" uid="uid://caeci20h8q4wp" path="res://scenes/entities/pattern_suppressor.tres" id="2_8mdsu"]
-[ext_resource type="Script" path="res://scripts/world/dial.gd" id="4_03qtv"]
-[ext_resource type="PackedScene" uid="uid://45wamguhelo6" path="res://scenes/ui/diegetic/pattern_suppressor_display.tscn" id="6_feu00"]
+[ext_resource type="PackedScene" uid="uid://caoh3fsc3frxc" path="res://scenes/entities/pattern_suppressor_model.tscn" id="3_sdph8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gvl22"]
-size = Vector3(5.73511, 2.2337, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_87un8"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_pe2bd"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shynu"]
-resource_local_to_scene = true
-transparency = 1
-albedo_texture = SubResource("ViewportTexture_pe2bd")
+size = Vector3(0.574, 0.22827, 0.083)
 
 [node name="PatternSuppressor" type="Node3D"]
-transform = Transform3D(0.485911, -0.870506, 0.0781634, 0.717612, 0.448414, 0.532876, -0.498922, -0.202839, 0.842575, 0.16, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 script = ExtResource("1_ubmub")
 entity = ExtResource("2_8mdsu")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="Body" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, -1.32349e-23, 0, -1.32349e-23, 0.1, 0, 0, 0)
-mesh = ExtResource("2_1yofv")
-skeleton = NodePath("../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.115515, 0.111685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113908, 0.111535, 0)
 shape = SubResource("BoxShape3D_gvl22")
 
-[node name="Screen" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(-7.98088e-10, 0.0139872, 0.0182581, 6.11399e-10, 0.0182581, -0.0139872, -0.023, -4.32723e-17, -1.00536e-09, -0.0327903, 0.203614, 0.0115631)
-mesh = SubResource("PlaneMesh_87un8")
-surface_material_override/0 = SubResource("StandardMaterial3D_shynu")
-script = ExtResource("4_03qtv")
-reverse = true
-
-[node name="SubViewport" type="SubViewport" parent="."]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(330, 300)
-
-[node name="PatternSuppressorDisplay" parent="SubViewport" instance=ExtResource("6_feu00")]
-offset_left = 186.387
-offset_top = 6.50629
-offset_right = 314.387
-offset_bottom = 299.506
+[node name="PatternSuppressorModel" parent="RigidBody3D" instance=ExtResource("3_sdph8")]

@@ -6,7 +6,7 @@ var display: MultiDigitDisplay
 func handle_event(entity: Entity, event: Event) -> Event:
 	match event.event_type:
 		"physicalized":
-			display = event.values[0].get_node("RigidBody3D/SubViewport/EMMeterDisplay")
+			display = event.values[0].get_node("RigidBody3D/EMMeterModel/SubViewport/EMMeterDisplay")
 		"in_hand":
 			var tgt: PhysicalEntity = event.values[0].look_target
 			var time = Time.get_ticks_msec() / 500.0 

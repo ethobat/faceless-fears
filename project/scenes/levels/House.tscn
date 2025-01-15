@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://rvg620pf1bxh"]
+[gd_scene load_steps=49 format=3 uid="uid://rvg620pf1bxh"]
 
 [ext_resource type="PackedScene" uid="uid://dml1ee451mdyr" path="res://scenes/level_parts/floors/in_floor1.tscn" id="1_50cca"]
 [ext_resource type="PackedScene" uid="uid://c5f78oklhognb" path="res://scenes/level_parts/walls/in_house1_doorframe.tscn" id="2_smvta"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://cbjiv2d5dax56" path="res://scenes/props/ObjectsInteriorVillageDemo/furniture/chest_drawers_03.tscn" id="44_4c4t1"]
 [ext_resource type="Environment" uid="uid://chp2771k35an4" path="res://house_environment.tres" id="45_llak8"]
 [ext_resource type="PackedScene" uid="uid://xdwh0fmxlpam" path="res://scenes/props/ObjectsInteriorVillageDemo/clutter/flower_table.tscn" id="46_0osew"]
+[ext_resource type="PackedScene" uid="uid://0a1q0sr15t42" path="res://scenes/entities/anomalous_prism.tscn" id="48_gmi12"]
 
 [node name="House" type="Node3D"]
 
@@ -691,6 +692,8 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.67084, 6.47269e-08, 
 [node name="SingleSofa2" parent="GroundFloor/Props" instance=ExtResource("20_y8yhh")]
 transform = Transform3D(-0.976341, 0, -0.216235, 0, 1, 0, 0.216235, 0, -0.976341, 2.80274, -5.44824e-08, 1.05212)
 
+[node name="Entities" type="Node3D" parent="GroundFloor"]
+
 [node name="1F" type="Node3D" parent="."]
 
 [node name="Ceilings" type="Node3D" parent="1F"]
@@ -1274,3 +1277,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0874
 
 [node name="FlowerTable01" parent="ChestDrawers03" instance=ExtResource("21_ly3iy")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0519269, 0.463601, -0.0269018)
+
+[node name="AnomalousPrism" parent="." instance=ExtResource("48_gmi12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261949, 0.512177, -4.75302)

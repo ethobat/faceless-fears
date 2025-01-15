@@ -14,11 +14,13 @@ surface_material_override/0 = ExtResource("2_8saav")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, -1.23024, 0)
+visible = false
 mesh = ExtResource("3_8ndfr")
 surface_material_override/0 = ExtResource("4_b3kqr")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.879375, 0.476131, 0, -0.476131, -0.879375, 0, 0.429354, -0.741848)
 light_energy = 0.2
+shadow_enabled = true
 spot_range = 3.29153
 spot_angle = 20.9529

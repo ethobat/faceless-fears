@@ -52,3 +52,14 @@ The two most important values in applied infodynamics are info density and perce
 Info density can be altered relatively easily with infodynamic containment tools, but perceptual hazard rating is generally static, so the most straightforward way to neutralize a perceptual hazard is by reducing info density to zero.
 
 _____ GRAND TOPOLOGY _____
+
+--
+
+Applied Infodynamics is a field of applied science used by DSI field agents to combat informational anomalies. A practitioner of applied infodynamics uses cuting-edge equipment to manipulate the immaterial substrate of information itself.
+
+Infohazardous residue is stored in heavy, expensive containers, which need to be emptied (at a cost) at HQ between jobs.
+
+The following tools are used to combat informational anomalies:
+Info tap - a stationary device that gradually siphons inforesidue from an anomaly, depositing it into an inforesidue container or venting it into the environment.
+Noise dump - handheld device that generates garbage information to neutralize infovacuums.
+Noise coherer - a stationary device that organizes an anoma;y's information over a long period of time, increasing its informational coherence. Can be manually calibrated to speed up the process.

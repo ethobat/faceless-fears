@@ -13,3 +13,4 @@ surface_material_override/0 = ExtResource("2_0x2u7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10442, 0)
 light_color = Color(0.890196, 0.552941, 0, 1)
 light_energy = 0.1
+shadow_enabled = true

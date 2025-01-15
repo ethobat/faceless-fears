@@ -27,12 +27,12 @@ func _process(_delta: float):
 		else:
 			open_pause_menu()
 			
-func _on_player_inventory_button_pressed(items: Dictionary):
+func _on_player_inventory_button_pressed(player: Entity):
 	if not paused:
 		if inv_windows_open:
 			hide_inv_windows()
 		else:
-			open_player_inventory(items)
+			open_player_inventory(player)
 
 func resume():
 	pause_menu.visible = false
@@ -55,25 +55,28 @@ func open_settings_menu():
 func update_hotbar(entities: Array, counts: Array):
 	hotbar.update(entities, counts)
 	
-func open_player_inventory(items: Dictionary):
+func open_player_inventory(player: Entity):
 	player_inv.visible = true
 	other_inv.visible = false
-	_on_player_inventory_updated(items.keys(), items.values())
+	player_inv.inventory_entity = player
+	_on_player_inventory_updated()
 	menu_opened.emit()
 	
-func open_other_inventory(player_entities: Array, player_counts: Array, other_entities: Array, other_counts: Array):
+func open_other_inventory(player: Entity, other: Entity):
 	player_inv.visible = true
 	other_inv.visible = true
-	_on_player_inventory_updated(player_entities, player_counts)
-	on_other_inventory_updated(other_entities, other_counts)
+	player_inv.inventory_entity = player
+	other_inv.inventory_entity = other
+	_on_player_inventory_updated()
+	on_other_inventory_updated()
 	menu_opened.emit()
 	
-func _on_player_inventory_updated(entities: Array, counts: Array):
+func _on_player_inventory_updated():
 	if player_inv.visible:
-		player_inv.update(entities, counts)
+		player_inv.update()
 	
-func on_other_inventory_updated(entities: Array, counts: Array):
-	other_inv.update(entities, counts)
+func on_other_inventory_updated():
+	other_inv.update()
 
 func hide_inv_windows():
 	player_inv.visible = false

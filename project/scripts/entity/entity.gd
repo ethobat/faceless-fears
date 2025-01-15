@@ -7,6 +7,10 @@ class_name Entity
 
 @export var components: Array[Component] = []
 
+@export var slot_render_position: Vector3 = Vector3.ZERO
+@export var slot_render_rotation: Vector3 = Vector3.ZERO
+@export var slot_render_scale: float = 1
+
 func handle_event(event: Event) -> Event:
 	for component in components:
 		component.handle_event(self, event)
@@ -33,6 +37,9 @@ func equals(en: Entity):
 func get_physical_entity_scene() -> PackedScene:
 	return load("res://scenes/entities/"+self.resource_name+".tscn")
 	
+func get_model_scene() -> PackedScene:
+	return load("res://scenes/entities/"+self.resource_name+"_model.tscn")
+	
 func get_ghost_scene() -> PackedScene:
 	return load("res://scenes/entities/"+self.resource_name+"_ghost.tscn")
 	
@@ -41,7 +48,19 @@ func physicalize() -> PhysicalEntity:
 	pe.entity = self
 	fire_event("physicalized", [pe])
 	return pe
+	
+func instantiate_model() -> Node3D:
+	return get_model_scene().instantiate()
 
 func instantiate_ghost() -> Node3D:
-	var ghost = get_ghost_scene().instantiate()
-	return ghost
+	return get_ghost_scene().instantiate()
+	
+	
+###########################################
+## "Shorthand" methods for firing events ##
+###########################################
+
+func get_items() -> Dictionary:
+	return fire_event("get_items", [{}]).values[0]
+
+########################################

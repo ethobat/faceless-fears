@@ -24,3 +24,6 @@ script = ExtResource("4_o2ud7")
 script = ExtResource("1_4e07d")
 placeable = false
 components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_mvrln"), SubResource("Resource_qmjwh")])
+slot_render_position = Vector3(0, 0, 0)
+slot_render_rotation = Vector3(0, 0, 0)
+slot_render_scale = 1.0

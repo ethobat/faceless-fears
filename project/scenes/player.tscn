@@ -89,3 +89,5 @@ omni_range = 1.0
 [connection signal="hotbar_items_updated" from="." to="CanvasLayer/UI" method="update_hotbar"]
 [connection signal="inventory_button_pressed" from="." to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
 [connection signal="inventory_updated" from="." to="CanvasLayer/UI" method="_on_player_inventory_updated"]
+[connection signal="menu_opened" from="CanvasLayer/UI" to="." method="_on_ui_menu_opened"]
+[connection signal="menus_closed" from="CanvasLayer/UI" to="." method="_on_ui_menus_closed"]

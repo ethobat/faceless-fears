@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cua3auf7j7hj"]
 
 [ext_resource type="PackedScene" uid="uid://b85efult8x7e4" path="res://scenes/player.tscn" id="1_kdold"]
-[ext_resource type="PackedScene" uid="uid://bpu2kurbb8ixr" path="res://scenes/levels/TilesetTest.tscn" id="2_168j8"]
+[ext_resource type="PackedScene" uid="uid://rvg620pf1bxh" path="res://scenes/levels/House.tscn" id="2_ashwo"]
 
 [node name="Main" type="Node3D"]
 
@@ -14,8 +14,9 @@ shadow_enabled = true
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.0214505, 0.00599864)
 sensitivity = 0.2
 
-[node name="World" type="Node3D" parent="."]
+[node name="House" parent="." instance=ExtResource("2_ashwo")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="TilesetTest" parent="World" instance=ExtResource("2_168j8")]
+[node name="World" type="Node3D" parent="."]
 
 [node name="PlacedEntitiesParent" type="Node3D" parent="." groups=["placed_entities_parent"]]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0eiiejfkk0ja"]
 
-[ext_resource type="Script" path="res://scripts/ui/inventory_window.gd" id="1_h8w5w"]
-[ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/entity_panel_grid.tscn" id="1_qs008"]
-[ext_resource type="LabelSettings" uid="uid://byuxrryg8g8m6" path="res://scenes/ui/title_label_settings.tres" id="2_ug7ow"]
+[ext_resource type="Script" path="res://scripts/ui/inventory_window.gd" id="1_d30n5"]
+[ext_resource type="LabelSettings" uid="uid://byuxrryg8g8m6" path="res://scenes/ui/title_label_settings.tres" id="2_7340f"]
+[ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/inventory/entity_panel_grid.tscn" id="3_cyime"]
 
 [node name="InventoryWindow" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h8w5w")
+script = ExtResource("1_d30n5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Inventory"
-label_settings = ExtResource("2_ug7ow")
+label_settings = ExtResource("2_7340f")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -57,6 +57,8 @@ offset_bottom = -30.0
 color = Color(0.1855, 0.245817, 0.35, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="EntityPanelGrid" parent="ItemsBG" instance=ExtResource("1_qs008")]
+[node name="EntityPanelGrid" parent="ItemsBG" instance=ExtResource("3_cyime")]
 layout_mode = 1
 metadata/_edit_lock_ = true
+
+[connection signal="gui_input" from="ItemsBG" to="." method="_on_gui_input"]

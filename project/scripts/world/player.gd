@@ -3,7 +3,7 @@ class_name Player
 
 signal inventory_updated(items: Dictionary)
 signal hotbar_items_updated(entities: Array[Entity], counts: Array[int])
-signal inventory_button_pressed(items: Dictionary)
+signal inventory_button_pressed(player: Entity)
 
 @onready var body: CharacterBody3D = $CharacterBody3D
 @onready var head: Node3D = $CharacterBody3D/Head
@@ -116,7 +116,7 @@ func _ready():
 	
 	var hi: Array[Entity] = [null, null, null, null, null, null, null, null, null, null]
 	var n = 1
-	for en in get_items():
+	for en in entity.get_items():
 		hi[n] = en
 		n += 1
 		if n == 9:
@@ -150,9 +150,6 @@ func disable_footsteps():
 		played_footsteps_last_frame = false
 		footsteps_player.stop()
 
-func get_items() -> Dictionary:
-	return entity.fire_event("get_items", [{}]).values[0]
-
 func toggle_flashlight():
 	print("Toggle flashlight")
 	# also needs to play sound
@@ -185,7 +182,7 @@ func _process(delta: float):
 	var dv = Vector3.ZERO if noclip else Vector3(0, body.velocity.y - gravity, 0)
 		
 	if Input.is_action_just_pressed("inventory"):
-			inventory_button_pressed.emit(get_items())
+		inventory_button_pressed.emit(entity)
 		
 	if not controls_locked:
 		if Input.is_action_just_pressed("use") and look_target != null:

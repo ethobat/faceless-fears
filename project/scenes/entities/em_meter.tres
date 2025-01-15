@@ -16,3 +16,6 @@ resource_name = "em_meter"
 script = ExtResource("2_pfo0p")
 placeable = false
 components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_tte5p"), SubResource("Resource_gic46")])
+slot_render_position = Vector3(0, 0.08, 0)
+slot_render_rotation = Vector3(0, -115, -70)
+slot_render_scale = 1.0

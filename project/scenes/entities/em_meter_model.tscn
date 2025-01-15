@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bash42bx58ofn"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3jxfmuwqb4md" path="res://assets/models/entities/entities_EMMeter.res" id="3_q8fgh"]
+[ext_resource type="ArrayMesh" uid="uid://tlab1w8ywv2e" path="res://assets/models/entities/entities_Dial.res" id="4_o8cr7"]
+[ext_resource type="Script" path="res://scripts/world/dial.gd" id="5_isa8i"]
+[ext_resource type="PackedScene" uid="uid://h5toe48hq57u" path="res://scenes/ui/diegetic/em_meter_display.tscn" id="6_mkxpr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_84a3d"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trn3o"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_84a3d")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2k3jd"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_trn3o")
+
+[node name="EMMeterModel" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("3_q8fgh")
+
+[node name="Dial" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.05, 0, 0.0866025, 0, 0.1, 0, -0.0866025, 0, -0.05, 0.0381219, 0.030999, 0)
+mesh = ExtResource("4_o8cr7")
+skeleton = NodePath("")
+script = ExtResource("5_isa8i")
+reverse = true
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.74846e-09, 0, 0.02, 0, 0.04, 0, -0.04, 0, -8.74228e-10, -0.0688753, 0.0302495, -0.00186699)
+mesh = SubResource("PlaneMesh_2k3jd")
+skeleton = NodePath("")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(460, 300)
+
+[node name="EMMeterDisplay" parent="SubViewport" instance=ExtResource("6_mkxpr")]
