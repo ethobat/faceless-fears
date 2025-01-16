@@ -13,11 +13,11 @@ size = Vector3(0.47, 1.035, 0.363364)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534, 0)
 mesh = ExtResource("1_b37s2")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="UpperDoor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225683, 0.874539, 0.204205)
 mesh = ExtResource("2_f2tk7")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="LowerDoor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225683, 0.38279, 0.204205)
 mesh = ExtResource("3_ggysi")
 

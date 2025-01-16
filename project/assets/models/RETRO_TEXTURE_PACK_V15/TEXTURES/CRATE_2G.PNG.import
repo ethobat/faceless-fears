@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/CRATE_2G.PNG-c7d1c33ea9fc1b556e3133fd4ce3e985
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

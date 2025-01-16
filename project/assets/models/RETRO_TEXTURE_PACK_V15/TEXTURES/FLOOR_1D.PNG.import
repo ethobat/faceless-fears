@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/FLOOR_1D.PNG-4437de563d21a4e7ad76ff391898b8a2
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/TILE_2C.PNG-58694dc535adc1bb2eb85341932b7783.
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

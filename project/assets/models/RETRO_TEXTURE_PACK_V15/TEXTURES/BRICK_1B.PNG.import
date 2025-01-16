@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/BRICK_1B.PNG-3b97e034a4101d08fd8a5b5bd97cccc8
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

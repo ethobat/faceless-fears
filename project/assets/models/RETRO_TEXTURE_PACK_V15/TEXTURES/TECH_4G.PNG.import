@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/TECH_4G.PNG-3898ccb325e7164a16088a6adf43b9e8.
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

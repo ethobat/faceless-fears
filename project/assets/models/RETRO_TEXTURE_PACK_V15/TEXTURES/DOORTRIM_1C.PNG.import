@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/DOORTRIM_1C.PNG-37b363ae6e25d47528ef08277e9eb
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

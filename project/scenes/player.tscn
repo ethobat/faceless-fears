@@ -41,12 +41,12 @@ return_speed = 0.16
 horizontal_bob_distance = 0.02
 vertical_bob_distance = 0.01
 
-[node name="ItemGhostRaycast" type="RayCast3D" parent="CharacterBody3D/Head"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
+[node name="ItemGhostRaycast" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, -0.08)
 target_position = Vector3(0, -2, 0)
 
-[node name="LookRaycast" type="RayCast3D" parent="CharacterBody3D/Head"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
+[node name="LookRaycast" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, -0.08)
 target_position = Vector3(0, -5, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

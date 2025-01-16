@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/PANEL_2C.PNG-16c8189fb0e6cdbec5f602384989848f
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

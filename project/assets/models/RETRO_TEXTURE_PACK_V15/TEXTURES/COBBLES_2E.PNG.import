@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/COBBLES_2E.PNG-40602cc7523f09882df52b371cb211
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -11,8 +11,8 @@ signal inventory_button_pressed(player: Entity)
 @onready var sub_viewport_camera: Camera3D = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D2
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
 @onready var hand: Node3D = $CanvasLayer/SubViewportContainer/SubViewport/Hand
-@onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/ItemGhostRaycast
-@onready var look_raycast: RayCast3D = $CharacterBody3D/Head/LookRaycast
+@onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/Camera3D/ItemGhostRaycast
+@onready var look_raycast: RayCast3D = $CharacterBody3D/Head/Camera3D/LookRaycast
 
 var mouse_motion_relative: Vector2
 
@@ -108,6 +108,9 @@ var held_item: Entity = null:
 # Awake
 func _ready():
 	super._ready()
+	head.rotation_degrees.y = rotation_degrees.y
+	mx = deg_to_rad(head.rotation_degrees.y)
+	rotation = Vector3.ZERO
 	start_pos = body.position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	controls_locked = false

@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/TARMAC_3A.PNG-01972f4cf1b246ba74990ab1de5a7e4
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

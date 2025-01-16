@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/PIPES_2A.PNG-3702c9dd576c165670466d0b78c52fb0
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

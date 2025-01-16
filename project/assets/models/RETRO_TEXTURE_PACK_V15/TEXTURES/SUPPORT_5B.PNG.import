@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/SUPPORT_5B.PNG-1154ab3a6c6eca61be3fbb40a9e29e
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

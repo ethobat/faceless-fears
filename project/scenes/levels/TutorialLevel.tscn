@@ -1,0 +1,207 @@
+[gd_scene load_steps=22 format=3 uid="uid://de3kanoucw7im"]
+
+[ext_resource type="PackedScene" uid="uid://cvcnlrrinciix" path="res://scenes/level_parts/in/in_house_room_side.tscn" id="1_20vam"]
+[ext_resource type="PackedScene" uid="uid://mrrel42t1u22" path="res://scenes/level_parts/tr/tr_end_window.tscn" id="1_rhd68"]
+[ext_resource type="PackedScene" uid="uid://d2kx1fa70fv8j" path="res://scenes/level_parts/tr/tr_door.tscn" id="2_8rat2"]
+[ext_resource type="PackedScene" uid="uid://sauq1hgrf6xi" path="res://scenes/level_parts/in/in_house_room_corner.tscn" id="2_mdid8"]
+[ext_resource type="PackedScene" uid="uid://bo77qx2ufbw7u" path="res://scenes/level_parts/in/in_house_room_middle.tscn" id="3_7x6ib"]
+[ext_resource type="PackedScene" uid="uid://l55mplp287ul" path="res://scenes/level_parts/tr/tr_window.tscn" id="3_8bgdv"]
+[ext_resource type="PackedScene" uid="uid://b5i8uqwm7japu" path="res://scenes/level_parts/tr/tr_end.tscn" id="4_4pt7k"]
+[ext_resource type="PackedScene" uid="uid://chi3s8rba1obs" path="res://scenes/level_parts/in/in_house_corridor_straight.tscn" id="5_dqwft"]
+[ext_resource type="PackedScene" uid="uid://bmu8qmiyk7h85" path="res://scenes/level_parts/tr/tr_plain.tscn" id="5_m8hbv"]
+[ext_resource type="PackedScene" uid="uid://co60mpd0wcvus" path="res://scenes/level_parts/in/in_house_room_door.tscn" id="6_earmn"]
+[ext_resource type="PackedScene" uid="uid://cotogpkawrqb8" path="res://scenes/level_parts/in/in_house_pillar.tscn" id="6_ojsf5"]
+[ext_resource type="PackedScene" uid="uid://cjkj2t8na5moq" path="res://scenes/props/standing_lamp.tscn" id="7_y28y2"]
+[ext_resource type="Environment" uid="uid://chp2771k35an4" path="res://house_environment.tres" id="9_xd7qk"]
+[ext_resource type="PackedScene" uid="uid://uawlx1uhwe08" path="res://scenes/props/ObjectsInteriorVillageDemo/furniture/bookcase.tscn" id="10_h848p"]
+[ext_resource type="PackedScene" uid="uid://bpljkqtjxsyg8" path="res://scenes/props/RetroPSXMansionStyleAssets/bed.tscn" id="11_q5tk2"]
+[ext_resource type="PackedScene" uid="uid://cv4twb13evye8" path="res://scenes/props/ObjectsInteriorVillageDemo/books/book001.tscn" id="12_p2nd5"]
+[ext_resource type="PackedScene" uid="uid://73qbc6dpd1ow" path="res://scenes/level_parts/in/in_house_corridor_deadend.tscn" id="13_8q5dn"]
+[ext_resource type="PackedScene" uid="uid://cf6udg2ur3hms" path="res://scenes/props/ObjectsInteriorVillageDemo/kitchen/refrigerator.tscn" id="14_6koro"]
+[ext_resource type="PackedScene" uid="uid://dn5th0lsnjwxs" path="res://scenes/level_parts/in/in_house_room_diag.tscn" id="14_bethl"]
+[ext_resource type="PackedScene" uid="uid://djofxc5h2cctb" path="res://scenes/level_parts/in/in_house_windowlong.tscn" id="14_ov2wr"]
+[ext_resource type="PackedScene" uid="uid://cb3dygn4h24l1" path="res://scenes/level_parts/in/in_house_window.tscn" id="15_ovkyh"]
+
+[node name="TutorialLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("9_xd7qk")
+
+[node name="Trailer" type="Node3D" parent="."]
+
+[node name="Exterior" type="Node3D" parent="Trailer"]
+
+[node name="tr_end_window" parent="Trailer/Exterior" instance=ExtResource("1_rhd68")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -1)
+
+[node name="tr_door" parent="Trailer/Exterior" instance=ExtResource("2_8rat2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="tr_window" parent="Trailer/Exterior" instance=ExtResource("3_8bgdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+
+[node name="tr_window2" parent="Trailer/Exterior" instance=ExtResource("3_8bgdv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -6, 0, -1)
+
+[node name="tr_end" parent="Trailer/Exterior" instance=ExtResource("4_4pt7k")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0, -1)
+
+[node name="tr_window3" parent="Trailer/Exterior" instance=ExtResource("3_8bgdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="tr_plain" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="tr_plain2" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="tr_plain3" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+
+[node name="tr_plain4" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
+
+[node name="tr_plain5" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -1)
+
+[node name="tr_plain6" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, -1)
+
+[node name="tr_plain7" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, -1)
+
+[node name="tr_plain8" parent="Trailer/Exterior" instance=ExtResource("5_m8hbv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, -1)
+
+[node name="Interior" type="Node3D" parent="Trailer"]
+
+[node name="in_house_room_side3" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -1, 0, -2)
+
+[node name="in_house_room_side4" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, -2)
+
+[node name="in_house_room_side6" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(1, 0, 6.35732e-08, 0, 1, 0, -6.35732e-08, 0, 1, 0, 0, 0)
+
+[node name="in_house_room_side7" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5, 0, -2)
+
+[node name="in_house_room_side11" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 0)
+
+[node name="in_house_room_side9" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, 0, -1)
+
+[node name="in_house_room_side10" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -6, 0, -1)
+
+[node name="in_house_room_side5" parent="Trailer/Interior" instance=ExtResource("1_20vam")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, -2)
+
+[node name="in_house_room_middle" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="in_house_room_middle7" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2)
+
+[node name="in_house_room_middle5" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 0)
+
+[node name="in_house_room_middle4" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="in_house_room_middle3" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="in_house_room_middle2" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="in_house_corridor_straight" parent="Trailer/Interior" instance=ExtResource("5_dqwft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="in_house_corridor_straight2" parent="Trailer/Interior" instance=ExtResource("5_dqwft")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, -1)
+
+[node name="in_house_corridor_deadend" parent="Trailer/Interior" instance=ExtResource("13_8q5dn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, 0)
+
+[node name="in_house_room_corner7" parent="Trailer/Interior" instance=ExtResource("2_mdid8")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, 0, -2)
+
+[node name="in_house_room_corner8" parent="Trailer/Interior" instance=ExtResource("2_mdid8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="in_house_room_corner3" parent="Trailer/Interior" instance=ExtResource("2_mdid8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="in_house_room_corner4" parent="Trailer/Interior" instance=ExtResource("2_mdid8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+
+[node name="in_house_room_corner5" parent="Trailer/Interior" instance=ExtResource("2_mdid8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="in_house_room_corner6" parent="Trailer/Interior" instance=ExtResource("2_mdid8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -1)
+
+[node name="in_house_room_diag" parent="Trailer/Interior" instance=ExtResource("14_bethl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -1)
+
+[node name="in_house_room_diag2" parent="Trailer/Interior" instance=ExtResource("14_bethl")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2, 0, -1)
+
+[node name="in_house_pillar" parent="Trailer/Interior" instance=ExtResource("6_ojsf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+
+[node name="in_house_pillar3" parent="Trailer/Interior" instance=ExtResource("6_ojsf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="in_house_pillar4" parent="Trailer/Interior" instance=ExtResource("6_ojsf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
+
+[node name="in_house_pillar2" parent="Trailer/Interior" instance=ExtResource("6_ojsf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5)
+
+[node name="in_house_pillar5" parent="Trailer/Interior" instance=ExtResource("6_ojsf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -1.5)
+
+[node name="in_house_room_door" parent="Trailer/Interior" instance=ExtResource("6_earmn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -2)
+
+[node name="in_house_room_door2" parent="Trailer/Interior" instance=ExtResource("6_earmn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, -2)
+
+[node name="in_house_room_middle6" parent="Trailer/Interior" instance=ExtResource("3_7x6ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+
+[node name="in_house_windowlong" parent="Trailer/Interior" instance=ExtResource("14_ov2wr")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1)
+
+[node name="in_house_window" parent="Trailer/Interior" instance=ExtResource("15_ovkyh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 0)
+
+[node name="in_house_window2" parent="Trailer/Interior" instance=ExtResource("15_ovkyh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 0)
+
+[node name="in_house_window3" parent="Trailer/Interior" instance=ExtResource("15_ovkyh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -2)
+
+[node name="Props" type="Node3D" parent="Trailer"]
+
+[node name="StandingLamp" parent="Trailer/Props" instance=ExtResource("7_y28y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89342, 1.19209e-07, 0.160508)
+
+[node name="StandingLamp2" parent="Trailer/Props" instance=ExtResource("7_y28y2")]
+transform = Transform3D(0.33305, 0, 0.942909, 0, 1, 0, -0.942909, 0, 0.33305, -1.66474, 1.19209e-07, -0.90054)
+
+[node name="Bookcase" parent="Trailer/Props" instance=ExtResource("10_h848p")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.08817, 0, -0.901876)
+
+[node name="Bed" parent="Trailer/Props" instance=ExtResource("11_q5tk2")]
+transform = Transform3D(0.6, 0, 1.77636e-15, 0, 0.6, 0, -1.77636e-15, 0, 0.6, -3.31579, 0, -0.123084)
+
+[node name="Book001" parent="Trailer/Props" instance=ExtResource("12_p2nd5")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -2.30686, 0.463378, -1.12763)
+
+[node name="Refrigerator" parent="Trailer/Props" instance=ExtResource("14_6koro")]
+transform = Transform3D(-8.58279e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -8.58279e-08, -7.32874, 0.00013265, -0.971068)

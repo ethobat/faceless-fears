@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/DOOR_2E.PNG-fa4a6dd417f8dc395b1e9f8e9b52cc28.
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

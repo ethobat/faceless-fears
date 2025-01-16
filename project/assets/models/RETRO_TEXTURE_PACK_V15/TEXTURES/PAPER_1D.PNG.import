@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bemabejlplt15"
-path.s3tc="res://.godot/imported/PAPER_1D.PNG-b71c169ae52a4c87d346b2608bfd033c.s3tc.ctex"
+path.bptc="res://.godot/imported/PAPER_1D.PNG-b71c169ae52a4c87d346b2608bfd033c.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,12 +12,12 @@ metadata={
 [deps]
 
 source_file="res://assets/models/RETRO_TEXTURE_PACK_V15/TEXTURES/PAPER_1D.PNG"
-dest_files=["res://.godot/imported/PAPER_1D.PNG-b71c169ae52a4c87d346b2608bfd033c.s3tc.ctex"]
+dest_files=["res://.godot/imported/PAPER_1D.PNG-b71c169ae52a4c87d346b2608bfd033c.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

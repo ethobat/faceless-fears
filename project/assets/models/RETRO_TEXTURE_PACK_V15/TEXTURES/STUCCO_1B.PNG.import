@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/STUCCO_1B.PNG-63d5503f994858e5372e8e1e9dc4774
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

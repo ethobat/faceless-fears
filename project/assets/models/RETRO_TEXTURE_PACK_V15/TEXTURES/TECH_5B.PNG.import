@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/TECH_5B.PNG-2b884e38cda2093b7fe6e6f76cafbf3f.
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

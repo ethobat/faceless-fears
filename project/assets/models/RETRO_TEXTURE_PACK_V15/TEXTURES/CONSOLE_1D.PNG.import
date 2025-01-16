@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/CONSOLE_1D.PNG-48cd886efc4ae2f9a3a08bc8a39c66
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

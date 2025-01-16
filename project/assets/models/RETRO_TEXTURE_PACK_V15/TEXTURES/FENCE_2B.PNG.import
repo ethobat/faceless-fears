@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/FENCE_2B.PNG-6ef1c8db23d02070686a5a089947adab
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

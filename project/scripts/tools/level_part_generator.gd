@@ -6,7 +6,7 @@ var limit = -1
 var meshes_path = "res://assets/models/level_parts/"
 var level_parts_path = "res://scenes/level_parts/"
 
-var subfolders = ["in", "ex", "p", "rv"]
+var subfolders = ["in", "ex", "p", "rv", "tr"]
 
 func _run():
 	for file_name in DirAccess.get_files_at(meshes_path):

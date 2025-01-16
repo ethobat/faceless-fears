@@ -5,11 +5,12 @@
 [node name="StandingLamp" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 cast_shadow = 0
 mesh = ExtResource("1_bp57x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640956, 0)
-light_color = Color(0.890196, 0.552941, 0, 1)
-light_energy = 0.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734591, 0)
+light_color = Color(0.89, 0.81257, 0.6319, 1)
 shadow_enabled = true
+shadow_bias = 0.02

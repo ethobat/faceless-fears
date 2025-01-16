@@ -15,6 +15,7 @@ func update(entities: Array, counts: Array, inventory_window: InventoryWindow = 
 		slot.slot_number = i + 1
 		slot.show_slot_number = show_slot_numbers
 		slot.inventory_window = inventory_window
+		slot.visible = slot.entity != null
 		add_child(slot)
 		
 func set_inventory_entity(en: Entity):
