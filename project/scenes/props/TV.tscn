@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c68pixt2iq7g4"]
+
+[ext_resource type="ArrayMesh" uid="uid://de3p6smynisuh" path="res://assets/models/props/props_tv.res" id="1_0n6li"]
+
+[node name="PropsTv" type="MeshInstance3D"]
+mesh = ExtResource("1_0n6li")

@@ -47,16 +47,6 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_coll_ramp.res"
 },
-"level_parts_doorframe": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_doorframe.res"
-},
 "level_parts_in_banister1": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -297,7 +287,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_in_house_room_side.res"
 },
-"level_parts_in_house_room_side_008": {
+"level_parts_in_house_windowframe": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -305,17 +295,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_in_house_room_side_008.res"
-},
-"level_parts_in_house_window": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_in_house_window.res"
+"save_to_file/path": "res://assets/models/level_parts/level_parts_in_house_windowframe.res"
 },
 "level_parts_in_house_windowlong": {
 "generate/lightmap_uv": 0,
@@ -1157,6 +1137,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_rv_wheel.res"
 },
+"level_parts_tr_baywindow": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/level_parts/level_parts_tr_baywindow.res"
+},
 "level_parts_tr_door": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -1197,6 +1187,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_tr_plain.res"
 },
+"level_parts_tr_stairs_efcsg": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/level_parts/level_parts_tr_stairs_efcsg.res"
+},
 "level_parts_tr_window": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -1206,6 +1206,16 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_tr_window.res"
+},
+"level_parts_tr_window1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/level_parts/level_parts_tr_window1.res"
 }
 }
 }
