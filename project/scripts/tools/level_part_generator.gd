@@ -6,7 +6,7 @@ var limit = -1
 var meshes_path = "res://assets/models/level_parts/"
 var level_parts_path = "res://scenes/level_parts/"
 
-var subfolders = ["in", "ex", "p", "rv", "tr"]
+var subfolders = ["in", "ex", "p", "rv", "tr", "terr"]
 
 func _run():
 	for file_name in DirAccess.get_files_at(meshes_path):
@@ -40,9 +40,6 @@ func create_concave_collision_level_part(meshes_path: String, mesh_file_name: St
 	var extracted_name = extract_name(mesh_file_name)
 	var save_path = get_destination_path(extracted_name)
 	
-	if extracted_name != "tr_end":
-		return
-		
 	print("---\nFound mesh "+mesh_file_name)
 		
 	var mesh_path = meshes_path + mesh_file_name

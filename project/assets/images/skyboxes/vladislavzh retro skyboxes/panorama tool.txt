@@ -1,0 +1,3 @@
+https://danilw.github.io/GLSL-howto/cubemap_to_panorama_js/cubemap_to_panorama.html
+
+used this tool to convert cubemap images to single panorama images for godot

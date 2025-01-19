@@ -1,16 +1,18 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://chp2771k35an4"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://chp2771k35an4"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljh8h"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[ext_resource type="Texture2D" uid="uid://s3w0qaoskiah" path="res://assets/images/skyboxes/vladislavzh retro skyboxes/vz_sinister_land_panorama.png" id="1_3ibiw"]
 
-[sub_resource type="Sky" id="Sky_ekqui"]
-sky_material = SubResource("ProceduralSkyMaterial_ljh8h")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2gg0m"]
+panorama = ExtResource("1_3ibiw")
+
+[sub_resource type="Sky" id="Sky_tvryl"]
+sky_material = SubResource("PanoramaSkyMaterial_2gg0m")
 
 [resource]
-sky = SubResource("Sky_ekqui")
+background_mode = 2
+sky = SubResource("Sky_tvryl")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.5
+ambient_light_energy = 0.01
 tonemap_mode = 2
 glow_enabled = true

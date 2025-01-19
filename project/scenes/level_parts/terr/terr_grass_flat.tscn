@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://k7giqw1cy6tu"]
+
+[ext_resource type="ArrayMesh" uid="uid://cv7wrmi363swm" path="res://assets/models/level_parts/level_parts_terr_grass_flat.res" id="1_mkhep"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c4kh6"]
+data = PackedVector3Array(-7, 0, 1, 1, 0, -7, 1, 0, 1, -7, 0, 1, -7, 0, -7, 1, 0, -7)
+
+[node name="terr_grass_flat" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_mkhep")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_c4kh6")

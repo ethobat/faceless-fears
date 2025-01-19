@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://gkylqglxo6ua" path="res://assets/models/level_parts/level_parts_in_house_room_side.res" id="1_wjb5b"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e305g"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gy2e6"]
 data = PackedVector3Array(-0.5, 0.125, 0.4844, 0.5, 1.125, 0.4844, -0.5, 1.125, 0.4844, -0.5, 0.125, 0.4844, 0.5, 0.125, 0.4844, 0.5, 1.125, 0.4844, -0.5, 0.125, 0.4844, 0.5, 0.125, 0.4688, 0.5, 0.125, 0.4844, -0.5, 0.125, 0.4844, -0.5, 0.125, 0.4688, 0.5, 0.125, 0.4688, -0.5, 0.125, 0.4688, 0.5, 0, 0.4688, 0.5, 0.125, 0.4688, -0.5, 0.125, 0.4688, -0.5, 0, 0.4688, 0.5, 0, 0.4688, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1.125, 0.5, -0.5, 1.125, -0.5, -0.5, 1.125, 0.5, 0.5, 1.125, 0.5, 0.5, 1.125, -0.5, -0.5, 1.125, -0.5)
 
 [node name="in_house_room_side" type="StaticBody3D"]
@@ -11,4 +11,4 @@ data = PackedVector3Array(-0.5, 0.125, 0.4844, 0.5, 1.125, 0.4844, -0.5, 1.125, 
 mesh = ExtResource("1_wjb5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_e305g")
+shape = SubResource("ConcavePolygonShape3D_gy2e6")
