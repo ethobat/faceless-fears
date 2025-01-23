@@ -1,0 +1,242 @@
+[gd_scene load_steps=28 format=3 uid="uid://cs2vcg3oxt28g"]
+
+[ext_resource type="Texture2D" uid="uid://d1dx15ejvbeuk" path="res://assets/images/skyboxes/vladislavzh retro skyboxes/vz_clear_ocean_panorama.png" id="1_cp84s"]
+[ext_resource type="Texture2D" uid="uid://bvoqgb412sk2s" path="res://assets/models/SBS Textures/Seamless Abstract/128x128/Texture_128x128_34.png" id="1_uabn4"]
+[ext_resource type="Material" uid="uid://c78jl30qodi7r" path="res://scenes/debug/lsd0.tres" id="2_4lvaj"]
+[ext_resource type="Shader" path="res://shaders/portal.gdshader" id="2_hylwc"]
+[ext_resource type="Texture2D" uid="uid://b0iqk4p3r0qd4" path="res://assets/models/SBS Textures/Seamless Abstract/128x128/Texture_128x128_50.png" id="3_pl4pn"]
+[ext_resource type="Material" uid="uid://idyb5fidnhgc" path="res://scenes/debug/lsd1.tres" id="4_8vhhi"]
+[ext_resource type="Texture2D" uid="uid://4vihiy3l5j1u" path="res://assets/models/SBS Textures/Abstract Noise/Abstract_Noise_008-128x128.png" id="4_yim7d"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="8_7asrk"]
+[ext_resource type="Texture2D" uid="uid://dxhxnqcs1jhke" path="res://assets/models/SBS Textures/Noise/128x128/Gabor/Gabor_08-128x128.png" id="9_n2wmy"]
+[ext_resource type="Material" uid="uid://b1yau53txw0ah" path="res://shaders/godotshaders-water.tres" id="10_0ngau"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q8ma8"]
+panorama = ExtResource("1_cp84s")
+
+[sub_resource type="Sky" id="Sky_tph5w"]
+sky_material = SubResource("PanoramaSkyMaterial_q8ma8")
+
+[sub_resource type="Environment" id="Environment_5ldsy"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_tph5w")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5yjv"]
+render_priority = 0
+shader = ExtResource("2_hylwc")
+shader_parameter/uv_scale = Vector2(4, 2)
+shader_parameter/uv_speed = Vector2(0.02, 0.01)
+shader_parameter/warp_uv_scale = Vector2(1, 1)
+shader_parameter/warp_uv_speed = Vector2(0.05, -0.5)
+shader_parameter/warp_factor = 0.096
+shader_parameter/tex = ExtResource("3_pl4pn")
+shader_parameter/warp_tex = ExtResource("4_yim7d")
+
+[sub_resource type="PrismMesh" id="PrismMesh_tcc33"]
+material = SubResource("ShaderMaterial_y5yjv")
+
+[sub_resource type="Shader" id="Shader_vuxx8"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.2.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6sadc"]
+render_priority = 0
+next_pass = ExtResource("2_4lvaj")
+shader = SubResource("Shader_vuxx8")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("1_uabn4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i7y41"]
+material = SubResource("ShaderMaterial_6sadc")
+
+[sub_resource type="BoxMesh" id="BoxMesh_tridd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hsokb"]
+material = ExtResource("2_4lvaj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_komw3"]
+material = ExtResource("4_8vhhi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ms3a"]
+render_priority = 0
+shader = ExtResource("8_7asrk")
+shader_parameter/warp_uv_scale = Vector2(1, 1)
+shader_parameter/warp_uv_speed = Vector2(0.01, 0.01)
+shader_parameter/warp_factor = 1.0
+shader_parameter/warp_tex = ExtResource("9_n2wmy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vxfv2"]
+material = SubResource("ShaderMaterial_1ms3a")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h2hat"]
+material = ExtResource("10_0ngau")
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="Shader" id="Shader_btjs8"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.2.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mf8yf"]
+render_priority = 0
+shader = SubResource("Shader_btjs8")
+shader_parameter/albedo = Color(0.168627, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.42
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k3kr2"]
+material = SubResource("ShaderMaterial_mf8yf")
+
+[node name="ShaderTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5ldsy")
+
+[node name="Portal" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.24577, 3.24577, -6.55209, -0.823442, 7.28527, 3.20106, 7.26546, -0.624327, 3.28988, 0, 0, 7.88034)
+mesh = SubResource("PrismMesh_tcc33")
+
+[node name="Reference" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.41421, 1.41421, 0, -1.41421, 1.41421, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_i7y41")
+
+[node name="Reference2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -4.02191, -3.40729)
+mesh = SubResource("BoxMesh_tridd")
+
+[node name="LSD" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.41421, 1.41421, 0, -1.41421, 1.41421, 0, 0, 0, 2, 0, 0, -4)
+mesh = SubResource("PlaneMesh_hsokb")
+
+[node name="LSD2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.41421, 1.41421, 0, -1.41421, 1.41421, 0, 0, 0, 2, 0, 0, -8)
+mesh = SubResource("PlaneMesh_komw3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.744039, -7.53817, -17.2748)
+light_energy = 16.0
+light_size = 1.0
+omni_range = 12.6689
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.744039, -7.53817, -51.5819)
+light_energy = 16.0
+light_size = 1.0
+omni_range = 12.6689
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -10.3206, -24.2324)
+mesh = SubResource("PlaneMesh_vxfv2")
+
+[node name="Water6" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -10.3206, -46.7402)
+mesh = SubResource("PlaneMesh_h2hat")
+
+[node name="bar" type="MeshInstance3D" parent="."]
+transform = Transform3D(21.4006, 0, 0, 0, 1.20189, 0, 0, 0, 1.09219, 0, -10.3206, -32.7155)
+mesh = SubResource("BoxMesh_k3kr2")
+
+[node name="bar4" type="MeshInstance3D" parent="."]
+transform = Transform3D(21.4006, 0, 0, 0, 1.20189, 0, 0, 0, 1.09219, 0, -10.3206, -15.8121)
+mesh = SubResource("BoxMesh_k3kr2")
+
+[node name="bar2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-9.35449e-07, 0, 1.09219, 0, 1.20189, 0, -21.4006, 0, -4.77411e-08, -8.0715, -10.3206, -24.1563)
+mesh = SubResource("BoxMesh_k3kr2")
+
+[node name="bar5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.74653, -0.325666, -0.887622, -1.56306, -0.291456, 0.99181, -0.875482, 1.17004, 1.72826e-07, -2.63098, -10.1877, -41.8697)
+mesh = SubResource("BoxMesh_k3kr2")
+
+[node name="bar3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-9.35449e-07, 0, 1.09219, 0, 1.20189, 0, -21.4006, 0, -4.77411e-08, 7.79387, -10.3206, -24.1563)
+mesh = SubResource("BoxMesh_k3kr2")

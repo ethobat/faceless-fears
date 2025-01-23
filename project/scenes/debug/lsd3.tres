@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dble026316eji"]
+
+[ext_resource type="Shader" path="res://shaders/lsd.gdshader" id="1_cnobf"]
+[ext_resource type="Texture2D" uid="uid://rnbwk3dbsplt" path="res://assets/models/SBS Textures/Seamless Abstract/128x128/Texture_128x128_26.png" id="2_aiohy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cnobf")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = 1.0
+shader_parameter/alpha_falloff = 1.0
+shader_parameter/scroll_speed = Vector2(0.196, -0.132)
+shader_parameter/grayscale_texture = ExtResource("2_aiohy")

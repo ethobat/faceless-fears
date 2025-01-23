@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c78jl30qodi7r"]
+
+[ext_resource type="Shader" path="res://shaders/lsd.gdshader" id="1_kiidk"]
+[ext_resource type="Material" uid="uid://idyb5fidnhgc" path="res://scenes/debug/lsd1.tres" id="1_xa11r"]
+[ext_resource type="Texture2D" uid="uid://cvtr6ajvqikq2" path="res://assets/models/SBS Textures/Abstract Noise/Abstract_Noise_057-128x128.png" id="3_qejpo"]
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_xa11r")
+shader = ExtResource("1_kiidk")
+shader_parameter/modulate = Color(1, 0.916667, 0, 1)
+shader_parameter/uv_scale = 1.235
+shader_parameter/alpha_falloff = 17.191
+shader_parameter/scroll_speed = Vector2(0.08, 0.4)
+shader_parameter/grayscale_texture = ExtResource("3_qejpo")
