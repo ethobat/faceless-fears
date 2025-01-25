@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkk1bju5ygnr4"]
 
-[ext_resource type="ArrayMesh" uid="uid://buyb1wqp5v7hc" path="res://assets/models/level_parts/level_parts_p_office_pillar.res" id="1_0jknq"]
+[ext_resource type="ArrayMesh" uid="uid://buyb1wqp5v7hc" path="res://assets/models/level_parts/level_parts_p_office_pillar.res" id="1_car3k"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wlxdp"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4xvr7"]
 data = PackedVector3Array(-0.1, 0, 0, -0.1, 1, -0.1, -0.1, 1, 0, -0.1, 0, 0, -0.1, 0, -0.1, -0.1, 1, -0.1, 0, 0, -0.1, 0.1, 1, -0.1, 0, 1, -0.1, 0, 0, -0.1, 0.1, 0, -0.1, 0.1, 1, -0.1, 0.1, 0, 0, 0.1, 1, 0.1, 0.1, 1, 0, 0.1, 0, 0, 0.1, 0, 0.1, 0.1, 1, 0.1, 0, 0, 0.1, -0.1, 1, 0.1, 0, 1, 0.1, 0, 0, 0.1, -0.1, 0, 0.1, -0.1, 1, 0.1, -0.1, 0, -0.1, 0, 1, -0.1, -0.1, 1, -0.1, -0.1, 0, -0.1, 0, 0, -0.1, 0, 1, -0.1, 0.1, 0, 0.1, 0, 1, 0.1, 0.1, 1, 0.1, 0.1, 0, 0.1, 0, 0, 0.1, 0, 1, 0.1, 0.1, 0, -0.1, 0.1, 1, 0, 0.1, 1, -0.1, 0.1, 0, -0.1, 0.1, 0, 0, 0.1, 1, 0, -0.1, 0, 0.1, -0.1, 1, 0, -0.1, 1, 0.1, -0.1, 0, 0.1, -0.1, 0, 0, -0.1, 1, 0)
 
 [node name="p_office_pillar" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_0jknq")
+mesh = ExtResource("1_car3k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_wlxdp")
+shape = SubResource("ConcavePolygonShape3D_4xvr7")

@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://k2e67hha7yfk"]
 
-[ext_resource type="ArrayMesh" uid="uid://dw4gbve1ysget" path="res://assets/models/level_parts/level_parts_p_crate_large.res" id="1_335s4"]
+[ext_resource type="ArrayMesh" uid="uid://dw4gbve1ysget" path="res://assets/models/level_parts/level_parts_p_crate_large.res" id="1_epkpw"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ui25q"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cwg8i"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
 [node name="p_crate_large" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_335s4")
+mesh = ExtResource("1_epkpw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_ui25q")
+shape = SubResource("ConcavePolygonShape3D_cwg8i")

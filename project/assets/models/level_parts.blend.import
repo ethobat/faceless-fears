@@ -1017,16 +1017,6 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_rv_door.res"
 },
-"level_parts_rv_door2": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_rv_door2.res"
-},
 "level_parts_rv_end": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -1037,26 +1027,6 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_rv_end.res"
 },
-"level_parts_rv_end_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_rv_end_001.res"
-},
-"level_parts_rv_end_0012": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_rv_end_0012.res"
-},
 "level_parts_rv_front": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -1066,16 +1036,6 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_rv_front.res"
-},
-"level_parts_rv_front2": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_rv_front2.res"
 },
 "level_parts_rv_long_windows_wheel": {
 "generate/lightmap_uv": 0,

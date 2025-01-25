@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
-uniform sampler2D warp_tex : source_color, repeat_enable, filter_nearest;
+uniform sampler2D warp_tex : source_color, repeat_enable, filter_linear;
 uniform vec2 warp_uv_scale = vec2(1,1);
 uniform vec2 warp_uv_speed = vec2(0,0);
 uniform float warp_factor = 1.0;

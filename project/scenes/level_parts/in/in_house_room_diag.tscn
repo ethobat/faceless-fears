@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://b4du6pfns1ufo" path="res://assets/models/level_parts/level_parts_in_house_room_diag.res" id="1_acxtm"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c244d"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_slcl1"]
 data = PackedVector3Array(-0.0078, 0.125, -0.0078, 0.4844, 1.125, -0.5, -0.0078, 1.125, -0.0078, -0.0078, 0.125, -0.0078, 0.4844, 0.125, -0.5, 0.4844, 1.125, -0.5, -0.0078, 0.125, -0.0078, 0.4688, 0.125, -0.5, 0.4844, 0.125, -0.5, -0.0078, 0.125, -0.0078, -0.0156, 0.125, -0.0156, 0.4688, 0.125, -0.5, -0.0156, 0.125, -0.0156, 0.4688, 0, -0.5, 0.4688, 0.125, -0.5, -0.0156, 0.125, -0.0156, -0.0156, 0, -0.0156, 0.4688, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.125, 0.4688, -0.0156, 0, -0.0156, -0.0156, 0.125, -0.0156, -0.5, 0.125, 0.4688, -0.5, 0, 0.4688, -0.0156, 0, -0.0156, -0.5, 0.125, 0.4844, -0.0156, 0.125, -0.0156, -0.0078, 0.125, -0.0078, -0.5, 0.125, 0.4844, -0.5, 0.125, 0.4688, -0.0156, 0.125, -0.0156, -0.5, 0.125, 0.4844, -0.0078, 1.125, -0.0078, -0.5, 1.125, 0.4844, -0.5, 0.125, 0.4844, -0.0078, 0.125, -0.0078, -0.0078, 1.125, -0.0078, -0.5, 1.125, -0.5, -0.5, 1.125, 0.5, 0.5, 1.125, -0.5)
 
 [node name="in_house_room_diag" type="StaticBody3D"]
@@ -11,4 +11,4 @@ data = PackedVector3Array(-0.0078, 0.125, -0.0078, 0.4844, 1.125, -0.5, -0.0078,
 mesh = ExtResource("1_acxtm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_c244d")
+shape = SubResource("ConcavePolygonShape3D_slcl1")

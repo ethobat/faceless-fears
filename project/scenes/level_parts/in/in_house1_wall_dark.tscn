@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3fhtq2bedppu"]
 
-[ext_resource type="ArrayMesh" uid="uid://bg8y6m7odkd2m" path="res://assets/models/level_parts/level_parts_in_house1_wall_dark.res" id="1_kc5d6"]
+[ext_resource type="ArrayMesh" uid="uid://bg8y6m7odkd2m" path="res://assets/models/level_parts/level_parts_in_house1_wall_dark.res" id="1_o5g3c"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k1fso"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c6rff"]
 data = PackedVector3Array(-0.5, 0, -0.03, -0.5, 1, 0.03, -0.5, 0, 0.03, -0.5, 0, -0.03, -0.5, 1, -0.03, -0.5, 1, 0.03, -0.5, 0, -0.03, 0.5, 1, -0.03, -0.5, 1, -0.03, -0.5, 0, -0.03, 0.5, 0, -0.03, 0.5, 1, -0.03, 0.5, 0, 0.03, -0.5, 1, 0.03, 0.5, 1, 0.03, 0.5, 0, 0.03, -0.5, 0, 0.03, -0.5, 1, 0.03, 0.5, 0, 0.03, -0.5, 0, -0.03, -0.5, 0, 0.03, 0.5, 0, 0.03, 0.5, 0, -0.03, -0.5, 0, -0.03, 0.5, 0, 0.03, 0.5, 1, -0.03, 0.5, 0, -0.03, 0.5, 0, 0.03, 0.5, 1, 0.03, 0.5, 1, -0.03, -0.5, 1, 0.03, 0.5, 1, -0.03, 0.5, 1, 0.03, -0.5, 1, 0.03, -0.5, 1, -0.03, 0.5, 1, -0.03)
 
 [node name="in_house1_wall_dark" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_kc5d6")
+mesh = ExtResource("1_o5g3c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_k1fso")
+shape = SubResource("ConcavePolygonShape3D_c6rff")
