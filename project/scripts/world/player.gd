@@ -8,11 +8,12 @@ signal inventory_button_pressed(player: Entity)
 @onready var body: CharacterBody3D = $CharacterBody3D
 @onready var head: Node3D = $CharacterBody3D/Head
 @onready var camera: Camera3D = $CharacterBody3D/Head/Camera3D
-@onready var sub_viewport_camera: Camera3D = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D2
+@onready var sub_viewport_camera: Camera3D = $CanvasLayer/SubViewportContainer/SubViewport/HeldItemCamera
 @onready var footsteps_player: AudioStreamPlayer3D = $CharacterBody3D/FootstepsPlayer
-@onready var hand: Node3D = $CanvasLayer/SubViewportContainer/SubViewport/Hand
+@onready var hand: Node3D = $CanvasLayer/SubViewportContainer/SubViewport/HeldItemCamera/Hand
 @onready var item_ghost_raycast: RayCast3D = $CharacterBody3D/Head/Camera3D/ItemGhostRaycast
 @onready var look_raycast: RayCast3D = $CharacterBody3D/Head/Camera3D/LookRaycast
+@onready var long_raycast: RayCast3D = $CharacterBody3D/Head/Camera3D/LongRaycast
 
 var mouse_motion_relative: Vector2
 
@@ -104,6 +105,9 @@ var held_item: Entity = null:
 			var pe = held_item.physicalize()
 			pe.disable_collision()
 			hand.add_child(pe)
+			pe.set_mesh_instance_layers(2)
+			pe.position = pe.entity.hand_position
+			pe.rotation_degrees = pe.entity.hand_rotation
 
 # Awake
 func _ready():
@@ -158,6 +162,7 @@ func toggle_flashlight():
 	# also needs to play sound
 
 func _process(delta: float):
+	sub_viewport_camera.global_transform = camera.global_transform
 	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
 	
 	if look_raycast.is_colliding():
@@ -235,10 +240,10 @@ func _process(delta: float):
 	body.move_and_slide()
 	if body.velocity == Vector3.ZERO or body.velocity.y != 0:
 		camera.bobbing = false
-		sub_viewport_camera.bobbing = false
+		hand.bobbing = false
 	else:
 		camera.bobbing = true
-		sub_viewport_camera.bobbing = true
+		hand.bobbing = true
 		
 	mouse_motion_relative = Vector2.ZERO
 

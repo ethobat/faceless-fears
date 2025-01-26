@@ -1,18 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://b85efult8x7e4"]
+[gd_scene load_steps=7 format=3 uid="uid://b85efult8x7e4"]
 
 [ext_resource type="Script" path="res://scripts/world/player.gd" id="1_k2s7n"]
 [ext_resource type="Resource" uid="uid://hsjeffubbbkg" path="res://scenes/entities/player.tres" id="2_a7xx0"]
 [ext_resource type="AudioStream" uid="uid://d3x7hcip1w8aw" path="res://assets/sounds/player/footstep.mp3" id="2_ihd0j"]
 [ext_resource type="Script" path="res://scripts/world/head_bob.gd" id="2_vfd0f"]
 [ext_resource type="PackedScene" uid="uid://dd2emxxrb6ks5" path="res://scenes/ui/ui.tscn" id="5_1side"]
-[ext_resource type="Environment" uid="uid://chp2771k35an4" path="res://house_environment.tres" id="6_ln0s0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vnri"]
 radius = 0.2
 height = 1.0
-
-[sub_resource type="World3D" id="World3D_knl73"]
-environment = ExtResource("6_ln0s0")
 
 [node name="Player" type="Node3D" groups=["player"]]
 script = ExtResource("1_k2s7n")
@@ -35,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+cull_mask = 1048573
 script = ExtResource("2_vfd0f")
 bob_speed = 0.072
 return_speed = 0.16
@@ -49,6 +46,10 @@ target_position = Vector3(0, -2, 0)
 transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, -0.08)
 target_position = Vector3(0, -5, 0)
 
+[node name="LongRaycast" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, -0.08)
+target_position = Vector3(0, -10, 0)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
@@ -61,28 +62,21 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
-own_world_3d = true
-world_3d = SubResource("World3D_knl73")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.275369, -0.755904, -0.593953, -0.773116, 0.541342, -0.330514, 0.571369, 0.368181, -0.733471, 0.35, 0.28, -0.38)
+[node name="HeldItemCamera" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+cull_mask = 2
 
-[node name="Camera3D2" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+[node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport/HeldItemCamera"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.2, -0.38)
 script = ExtResource("2_vfd0f")
 bob_speed = 0.072
 return_speed = 0.16
 horizontal_bob_distance = 0.02
 vertical_bob_distance = -0.01
-
-[node name="OmniLight3D" type="OmniLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595764, -0.155096)
-light_energy = 0.2
-omni_range = 1.0
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_1side")]
 

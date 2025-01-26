@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cih1h2csxlh8d"]
+
+[ext_resource type="PackedScene" uid="uid://ltfdsqcwkkxd" path="res://scenes/entities/pattern_suppressor.tscn" id="2_4e473"]
+[ext_resource type="PackedScene" uid="uid://cvwwmei8yd7s0" path="res://scenes/entities/cube.tscn" id="2_hor04"]
+[ext_resource type="Script" path="res://scripts/world/head_bob.gd" id="3_cykg6"]
+[ext_resource type="PackedScene" uid="uid://b4w2dmewuyc1q" path="res://scenes/entities/em_meter.tscn" id="3_xwpdm"]
+[ext_resource type="PackedScene" uid="uid://dohaeil4423x1" path="res://scenes/entities/flashlight.tscn" id="4_68qds"]
+
+[node name="HeldItemTransformSetter" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Hand" type="Node3D" parent="SubViewport"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.28, -0.38)
+
+[node name="PatternSuppressor" parent="SubViewport/Hand" instance=ExtResource("2_4e473")]
+transform = Transform3D(-0.237677, -0.0560732, -0.969723, -0.161579, 0.986705, -0.0174524, 0.95781, 0.152539, -0.243578, -0.191, -0.073, 0.193)
+visible = false
+
+[node name="Cube" parent="SubViewport/Hand" instance=ExtResource("2_hor04")]
+visible = false
+
+[node name="EMMeter" parent="SubViewport/Hand" instance=ExtResource("3_xwpdm")]
+transform = Transform3D(-0.211494, -0.586257, -0.782031, -0.92253, 0.384012, -0.0383878, 0.322815, 0.713328, -0.622056, 0, 0, 0)
+visible = false
+
+[node name="Flashlight" parent="SubViewport/Hand" instance=ExtResource("4_68qds")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.32, -0.107, 0.35)
+
+[node name="Camera3D2" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+script = ExtResource("3_cykg6")
+bob_speed = 0.072
+return_speed = 0.16
+horizontal_bob_distance = 0.02
+vertical_bob_distance = -0.01
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595764, -0.155096)
+light_energy = 0.1
+omni_range = 1.0

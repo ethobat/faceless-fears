@@ -1,4 +1,4 @@
-extends Camera3D
+extends Node3D
 
 var bobbing: bool = false
 var bobbing_fast: bool = false: # Whether the camera should bob faster; no effect if bobbing is false

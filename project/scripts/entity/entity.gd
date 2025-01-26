@@ -11,6 +11,9 @@ class_name Entity
 @export var slot_render_rotation: Vector3 = Vector3.ZERO
 @export var slot_render_scale: float = 1
 
+@export var hand_position: Vector3 = Vector3.ZERO
+@export var hand_rotation: Vector3 = Vector3.ZERO
+
 func handle_event(event: Event) -> Event:
 	for component in components:
 		component.handle_event(self, event)
@@ -35,13 +38,22 @@ func equals(en: Entity):
 	return true
 
 func get_physical_entity_scene() -> PackedScene:
-	return load("res://scenes/entities/"+self.resource_name+".tscn")
+	var path = "res://scenes/entities/"+self.resource_name+".tscn"
+	var scene = load(path)
+	assert(scene != null, "Couldn't find physical entity scene at "+path)
+	return scene
 	
 func get_model_scene() -> PackedScene:
-	return load("res://scenes/entities/"+self.resource_name+"_model.tscn")
+	var path = "res://scenes/entities/"+self.resource_name+"_model.tscn"
+	var scene = load(path)
+	assert(scene != null, "Couldn't find entity model scene at "+path)
+	return scene
 	
 func get_ghost_scene() -> PackedScene:
-	return load("res://scenes/entities/"+self.resource_name+"_ghost.tscn")
+	var path = "res://scenes/entities/"+self.resource_name+"_ghost.tscn"
+	var scene = load(path)
+	assert(scene != null, "Couldn't find entity ghost scene at "+path)
+	return scene
 	
 func physicalize() -> PhysicalEntity:
 	var pe = get_physical_entity_scene().instantiate()

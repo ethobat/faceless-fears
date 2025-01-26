@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dohaeil4423x1"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_e7r3p"]
+[ext_resource type="Resource" uid="uid://dj0o1c5dc6k4k" path="res://scenes/entities/flashlight.tres" id="2_a1jfg"]
+[ext_resource type="PackedScene" uid="uid://dxixik0tnet0a" path="res://scenes/entities/flashlight_model.tscn" id="3_exspu"]
+[ext_resource type="AudioStream" uid="uid://bvk236e6mra7p" path="res://assets/sounds/player/flashlight_on.wav" id="4_qdk7h"]
+[ext_resource type="AudioStream" uid="uid://ckgblsx0h6qgh" path="res://assets/sounds/player/flashlight_off.wav" id="5_xohim"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvl22"]
+size = Vector3(3.63406, 0.483803, 1)
+
+[node name="Flashlight" type="Node3D"]
+script = ExtResource("1_e7r3p")
+entity = ExtResource("2_a1jfg")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0282456, 0.00984306, 0)
+shape = SubResource("BoxShape3D_gvl22")
+
+[node name="FlashlightModel" parent="RigidBody3D" instance=ExtResource("3_exspu")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.35, 0, 0)
+shadow_enabled = true
+spot_angle = 10.0
+
+[node name="OnSound" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+stream = ExtResource("4_qdk7h")
+volume_db = 10.0
+
+[node name="OffSound" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+stream = ExtResource("5_xohim")
+volume_db = 80.0
+max_db = 6.0

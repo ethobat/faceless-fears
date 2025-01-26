@@ -31,6 +31,56 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
+"entities_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Cube_001.res"
+},
+"entities_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Cube_002.res"
+},
+"entities_Cube_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Cube_007.res"
+},
+"entities_Cube_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Cube_013.res"
+},
+"entities_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Cylinder.res"
+},
 "entities_Dial": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -40,6 +90,36 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/entities/entities_Dial.res"
+},
+"entities_DistortionGun": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_DistortionGun.res"
+},
+"entities_DistortionGunScreen": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_DistortionGunScreen.res"
+},
+"entities_DistortionGunSwitch": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_DistortionGunSwitch.res"
 },
 "entities_EMMeter": {
 "generate/lightmap_uv": 0,
@@ -51,6 +131,26 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/entities/entities_EMMeter.res"
 },
+"entities_Egometer": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Egometer.res"
+},
+"entities_Flashlight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Flashlight.res"
+},
 "entities_Lightstick": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -60,6 +160,16 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/entities/entities_Lightstick.res"
+},
+"entities_Magnetometer": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/entities/entities_Magnetometer.res"
 },
 "entities_RayGun1": {
 "generate/lightmap_uv": 0,

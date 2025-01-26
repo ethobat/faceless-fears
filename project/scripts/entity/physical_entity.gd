@@ -44,3 +44,8 @@ static func get_all_children_recursive(node, children := []):
 		children = get_all_children_recursive(child, children)
 	return children
 
+func set_mesh_instance_layers(mask: int):
+	for ch in get_all_children():
+		if is_instance_of(ch, GeometryInstance3D):
+			var vi: VisualInstance3D = ch
+			vi.layers = mask
