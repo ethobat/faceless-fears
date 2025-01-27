@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvasr433l10b"
-path.s3tc="res://.godot/imported/Palet.png-31b9c77b870259e7466a05340e56a91e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Palet.png-7151d0b3780fed1ee4d830f508918f52.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/textures/Palet.png"
-dest_files=["res://.godot/imported/Palet.png-31b9c77b870259e7466a05340e56a91e.s3tc.ctex"]
+source_file="res://assets/models/Textures/Palet.png"
+dest_files=["res://.godot/imported/Palet.png-7151d0b3780fed1ee4d830f508918f52.s3tc.ctex"]
 
 [params]
 

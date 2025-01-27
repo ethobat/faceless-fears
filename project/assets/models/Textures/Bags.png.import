@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b45rrbplj54i2"
-path.s3tc="res://.godot/imported/Bags.png-a75cdf06a344cc9e94c1a3d7cb8c07b3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Bags.png-624e7c9586c3b55be57469f1f6defe67.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/textures/Bags.png"
-dest_files=["res://.godot/imported/Bags.png-a75cdf06a344cc9e94c1a3d7cb8c07b3.s3tc.ctex"]
+source_file="res://assets/models/Textures/Bags.png"
+dest_files=["res://.godot/imported/Bags.png-624e7c9586c3b55be57469f1f6defe67.s3tc.ctex"]
 
 [params]
 
