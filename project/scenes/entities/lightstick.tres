@@ -18,3 +18,5 @@ components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("
 slot_render_position = Vector3(0, -0.175, 0)
 slot_render_rotation = null
 slot_render_scale = 0.6
+hand_position = Vector3(0, 0, 0)
+hand_rotation = Vector3(0, 0, 0)
