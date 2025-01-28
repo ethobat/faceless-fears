@@ -244,7 +244,7 @@ func _process(delta: float):
 	else:
 		camera.bobbing = true
 		hand.bobbing = true
-		
+	
 	mouse_motion_relative = Vector2.ZERO
 
 func add_control_hint(_action_name: String, _text: String):

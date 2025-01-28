@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbnb8mbppwqoi"]
 
-[ext_resource type="ArrayMesh" uid="uid://d06qvk3k53x5m" path="res://assets/models/level_parts/level_parts_tr_stairs_efcsg.res" id="1_7c4ah"]
+[ext_resource type="ArrayMesh" uid="uid://0k77uce334vx" path="res://assets/models/level_parts/level_parts_tr_stairs.res" id="1_7c4ah"]
 
 [node name="tr_stairs" type="StaticBody3D"]
 
