@@ -8,6 +8,8 @@ var level_parts_path = "res://scenes/level_parts/"
 
 var subfolders = ["in", "ex", "p", "rv", "tr", "terr"]
 
+var blacklist = ["tr_stairs"]
+
 func _run():
 	for file_name in DirAccess.get_files_at(meshes_path):
 		if (file_name.get_extension() == "res"):
@@ -30,18 +32,16 @@ func get_destination_path(str: String):
 			ret += prefix + "/"
 	return ret + str + ".tscn"
 
-# efcsg: "exclude from collision shape generation"
 func create_concave_collision_level_part(meshes_path: String, mesh_file_name: String):
-	var efcsg = false
-	if mesh_file_name.contains("efcsg"):
-		efcsg = true
-	#mesh_file_name = mesh_file_name.replace("_efcsg", "")
-	
 	var extracted_name = extract_name(mesh_file_name)
 	var save_path = get_destination_path(extracted_name)
 	
 	print("---\nFound mesh "+mesh_file_name)
-		
+	
+	if blacklist.has(extracted_name):
+		print(extracted_name + " is blacklisted, return")
+		return
+	
 	var mesh_path = meshes_path + mesh_file_name
 	var mesh = load(meshes_path+mesh_file_name)
 	
@@ -54,12 +54,11 @@ func create_concave_collision_level_part(meshes_path: String, mesh_file_name: St
 	static_body.add_child(mesh_instance)
 	mesh_instance.owner = static_body
 	
-	if not efcsg:
-		var collision_shape = CollisionShape3D.new()
-		collision_shape.name = "CollisionShape3D"
-		collision_shape.shape = mesh.create_trimesh_shape()
-		static_body.add_child(collision_shape)
-		collision_shape.owner = static_body
+	var collision_shape = CollisionShape3D.new()
+	collision_shape.name = "CollisionShape3D"
+	collision_shape.shape = mesh.create_trimesh_shape()
+	static_body.add_child(collision_shape)
+	collision_shape.owner = static_body
 	
 	save_packed_scene(static_body, extracted_name, save_path)
 	

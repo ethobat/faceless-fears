@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://g6rwp5kkaux8"]
 
-[ext_resource type="ArrayMesh" uid="uid://6gyjpfkxnbad" path="res://assets/models/level_parts/level_parts_in_office_room_corner.res" id="1_34j8o"]
+[ext_resource type="ArrayMesh" uid="uid://6gyjpfkxnbad" path="res://assets/models/level_parts/level_parts_in_office_room_corner.res" id="1_l3hav"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_81r6x"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wprwf"]
 data = PackedVector3Array(-0.4844, 0.125, -0.5, -0.4844, 1.125, 0.4844, -0.4844, 1.125, -0.5, -0.4844, 0.125, -0.5, -0.4844, 0.125, 0.4844, -0.4844, 1.125, 0.4844, 0.5, 0.125, 0.4844, -0.4844, 1.125, 0.4844, -0.4844, 0.125, 0.4844, 0.5, 0.125, 0.4844, 0.5, 1.125, 0.4844, -0.4844, 1.125, 0.4844, -0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.4844, 0.125, 0.5, 0.5, 0.125, 0.4687, 0.5, 0.125, 0.4844, -0.4844, 0.125, 0.5, -0.4687, 0.125, 0.4687, 0.5, 0.125, 0.4687, -0.4687, 0.125, 0.4687, 0.5, 0, 0.4687, 0.5, 0.125, 0.4687, -0.4687, 0.125, 0.4687, -0.4688, 0, 0.4688, 0.5, 0, 0.4687, -0.4687, 0.125, -0.5, -0.4688, 0, 0.4688, -0.4687, 0.125, 0.4687, -0.4687, 0.125, -0.5, -0.4687, 0, -0.5, -0.4688, 0, 0.4688, -0.4844, 0.125, -0.5, -0.4687, 0.125, 0.4687, -0.5, 0.125, 0.4844, -0.4844, 0.125, -0.5, -0.4687, 0.125, -0.5, -0.4687, 0.125, 0.4687, -0.4687, 0.125, 0.4687, -0.4844, 0.125, 0.4844, -0.5, 0.125, 0.4844, -0.4687, 0.125, 0.4687, -0.4844, 0.125, 0.5, -0.4844, 0.125, 0.4844, -0.5, 1.125, 0.5, 0.5, 1.125, -0.5, -0.5, 1.125, -0.5, -0.5, 1.125, 0.5, 0.5, 1.125, 0.5, 0.5, 1.125, -0.5)
 
 [node name="in_office_room_corner" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_34j8o")
+mesh = ExtResource("1_l3hav")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_81r6x")
+shape = SubResource("ConcavePolygonShape3D_wprwf")

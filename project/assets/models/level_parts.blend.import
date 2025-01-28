@@ -1027,6 +1027,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_rv_end.res"
 },
+"level_parts_rv_end_trailer": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/models/level_parts/level_parts_rv_end_trailer.res"
+},
 "level_parts_rv_front": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -1157,7 +1167,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/models/level_parts/level_parts_tr_plain.res"
 },
-"level_parts_tr_stairs_efcsg": {
+"level_parts_tr_stairs": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -1165,7 +1175,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/level_parts/level_parts_tr_stairs_efcsg.res"
+"save_to_file/path": "res://assets/models/level_parts/level_parts_tr_stairs.res"
 },
 "level_parts_tr_window": {
 "generate/lightmap_uv": 0,

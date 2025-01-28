@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbnb8mbppwqoi"]
+
+[ext_resource type="ArrayMesh" uid="uid://d06qvk3k53x5m" path="res://assets/models/level_parts/level_parts_tr_stairs_efcsg.res" id="1_7c4ah"]
+
+[node name="tr_stairs" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_7c4ah")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+depth = 0.576
+polygon = PackedVector2Array(2.603, -0.8, 1.622, -0.8, 1.62248, 0.000280071, 1.938, 0)

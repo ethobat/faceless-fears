@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://khsd53b1l60x"]
 
-[ext_resource type="ArrayMesh" uid="uid://bl6u0i83mopg6" path="res://assets/models/level_parts/level_parts_rv_short.res" id="1_mvha6"]
+[ext_resource type="ArrayMesh" uid="uid://bl6u0i83mopg6" path="res://assets/models/level_parts/level_parts_rv_short.res" id="1_mohic"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_32l7s"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_grpii"]
 data = PackedVector3Array(0.5, 0.9844, 0.75, -0.5, 1.125, 0.625, -0.5, 0.9844, 0.75, 0.5, 0.9844, 0.75, 0.5, 1.125, 0.625, -0.5, 1.125, 0.625, 0.5, 0, 0.8125, -0.5, 1, 0.8125, 0.5, 1, 0.8125, 0.5, 0, 0.8125, -0.5, 0, 0.8125, -0.5, 1, 0.8125, -0.5, -0.25, 0.6875, 0.5, -0.25, 0.8125, 0.5, -0.25, 0.6875, -0.5, -0.25, 0.6875, -0.5, -0.25, 0.8125, 0.5, -0.25, 0.8125, 0.5, 1.1875, 0.6406, -0.5, 1.1875, 0, 0.5, 1.1875, 0, 0.5, 1.1875, 0.6406, -0.5, 1.1875, 0.6406, -0.5, 1.1875, 0, 0.5, 0.9844, 0.75, -0.5, 0, 0.75, 0.5, 0, 0.75, 0.5, 0.9844, 0.75, -0.5, 0.9844, 0.75, -0.5, 0, 0.75, -0.5, 1.125, 0.625, 0.5, 1.125, 0, -0.5, 1.125, 0, -0.5, 1.125, 0.625, 0.5, 1.125, 0.625, 0.5, 1.125, 0, 0.5, 1, 0.8125, -0.5, 1.1875, 0.6406, 0.5, 1.1875, 0.6406, 0.5, 1, 0.8125, -0.5, 1, 0.8125, -0.5, 1.1875, 0.6406, 0.5, -0.25, 0.8125, -0.5, 0, 0.8125, 0.5, 0, 0.8125, 0.5, -0.25, 0.8125, -0.5, -0.25, 0.8125, -0.5, 0, 0.8125, 0.5, 0, 0.75, -0.5, 0, 0, 0.5, 0, 0, 0.5, 0, 0.75, -0.5, 0, 0.75, -0.5, 0, 0, 0.5, -0.125, 0, -0.5, -0.125, 0.6875, 0.5, -0.125, 0.6875, 0.5, -0.125, 0, -0.5, -0.125, 0, -0.5, -0.125, 0.6875, -0.5, -0.25, 0.6875, 0.5, -0.125, 0.6875, -0.5, -0.125, 0.6875, -0.5, -0.25, 0.6875, 0.5, -0.25, 0.6875, 0.5, -0.125, 0.6875)
 
 [node name="rv_short" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_mvha6")
+mesh = ExtResource("1_mohic")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_32l7s")
+shape = SubResource("ConcavePolygonShape3D_grpii")
