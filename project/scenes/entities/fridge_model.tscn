@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://u7cc2qkvrvns"]
+
+[ext_resource type="ArrayMesh" uid="uid://bidpt5tskhh0y" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Refrigerator_001.res" id="1_qqnei"]
+[ext_resource type="ArrayMesh" uid="uid://ccghrw82ufbnw" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Refrigerator_Door_01_001.res" id="2_t1wga"]
+[ext_resource type="Script" path="res://scripts/world/physics_door.gd" id="3_b3r4x"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="4_cr18w"]
+[ext_resource type="ArrayMesh" uid="uid://cp35gywj5upd1" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Refrigerator_Door_001.res" id="5_22ald"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vp0n4"]
+size = Vector3(0.464, 0.3, 0.0472559)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqwfv"]
+size = Vector3(0.464, 0.709277, 0.0472559)
+
+[node name="FridgeModel" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535, 0)
+mesh = ExtResource("1_qqnei")
+
+[node name="UpperDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23207, 0.878532, 0.20454)
+mesh = ExtResource("2_t1wga")
+script = ExtResource("3_b3r4x")
+max_angle = 1.74533
+friction = 0.01
+
+[node name="InteractionArea" type="Area3D" parent="UpperDoor"]
+collision_mask = 0
+script = ExtResource("4_cr18w")
+show_hint = true
+hint = "Open/close door"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperDoor/InteractionArea"]
+transform = Transform3D(1, 0, -5.68443e-14, 0, 1, 0, 5.68443e-14, 0, 1, -0.232544, 0.00377655, 0.00653806)
+shape = SubResource("BoxShape3D_vp0n4")
+
+[node name="LowerDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23236, 0.388644, 0.204901)
+mesh = ExtResource("5_22ald")
+script = ExtResource("3_b3r4x")
+max_angle = 1.74533
+friction = 0.01
+
+[node name="InteractionArea" type="Area3D" parent="LowerDoor"]
+collision_mask = 0
+script = ExtResource("4_cr18w")
+show_hint = true
+hint = "Open/close door"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerDoor/InteractionArea"]
+transform = Transform3D(1, 0, -5.68443e-14, 0, 1, 0, 5.68443e-14, 0, 1, -0.232544, -0.0198074, 0.00653806)
+shape = SubResource("BoxShape3D_gqwfv")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952669, -0.0441754)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 10.0
+omni_range = 1.0
+omni_attenuation = 0.000793216
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805126, -0.0441754)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 10.0
+omni_range = 1.0
+omni_attenuation = 0.000793216
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635533, -0.0441754)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 10.0
+omni_range = 1.0
+omni_attenuation = 0.000793216
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485219, -0.0441754)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 10.0
+omni_range = 1.0
+omni_attenuation = 0.000793216
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.307664, -0.0441754)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 10.0
+omni_range = 1.0
+omni_attenuation = 0.000793216
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105444, -0.0441754)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_blur = 10.0
+omni_range = 1.0
+omni_attenuation = 0.000793216

@@ -18,6 +18,7 @@ entity = ExtResource("2_a7xx0")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+collision_layer = 2
 floor_constant_speed = true
 floor_max_angle = 1.0472
 
@@ -48,6 +49,8 @@ target_position = Vector3(0, -2, 0)
 [node name="LookRaycast" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
 transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, -0.08)
 target_position = Vector3(0, -5, 0)
+hit_from_inside = true
+collide_with_areas = true
 
 [node name="LongRaycast" type="RayCast3D" parent="CharacterBody3D/Head/Camera3D"]
 transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, -0.08)
@@ -89,5 +92,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -5.92737, 0.782743, -2.69188
 [connection signal="hotbar_items_updated" from="." to="CanvasLayer/UI" method="update_hotbar"]
 [connection signal="inventory_button_pressed" from="." to="CanvasLayer/UI" method="_on_player_inventory_button_pressed"]
 [connection signal="inventory_updated" from="." to="CanvasLayer/UI" method="_on_player_inventory_updated"]
+[connection signal="update_interaction_hint" from="." to="CanvasLayer/UI" method="_on_player_update_interaction_hint"]
 [connection signal="menu_opened" from="CanvasLayer/UI" to="." method="_on_ui_menu_opened"]
 [connection signal="menus_closed" from="CanvasLayer/UI" to="." method="_on_ui_menus_closed"]

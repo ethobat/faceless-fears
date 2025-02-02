@@ -15,6 +15,7 @@ class_name Entity
 @export var hand_rotation: Vector3 = Vector3.ZERO
 
 func handle_event(event: Event) -> Event:
+	if len(components) == 0: return event
 	for component in components:
 		component.handle_event(self, event)
 	return event

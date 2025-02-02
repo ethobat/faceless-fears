@@ -17,7 +17,7 @@ func _ready():
 	hide_tooltip()
 	update_panel()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	clicked_this_frame = false
 	position = get_global_mouse_position()
 

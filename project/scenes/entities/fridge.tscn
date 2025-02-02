@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvtrjg2m220mp"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_d7hw8"]
+[ext_resource type="Resource" uid="uid://bn1ojcnx40u82" path="res://scenes/entities/fridge.tres" id="2_a3un5"]
+[ext_resource type="PackedScene" uid="uid://u7cc2qkvrvns" path="res://scenes/entities/fridge_model.tscn" id="3_nssc0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arpvg"]
+size = Vector3(0.47, 1.034, 0.357)
+
+[node name="Fridge" type="Node3D"]
+script = ExtResource("1_d7hw8")
+entity = ExtResource("2_a3un5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="FridgeModel" parent="StaticBody3D" instance=ExtResource("3_nssc0")]
+
+[node name="InteractionArea" parent="StaticBody3D/FridgeModel/UpperDoor" index="0" node_paths=PackedStringArray("physical_entity")]
+physical_entity = NodePath("../../../..")
+event_type = "upper_door_interact"
+
+[node name="InteractionArea" parent="StaticBody3D/FridgeModel/LowerDoor" index="0" node_paths=PackedStringArray("physical_entity")]
+physical_entity = NodePath("../../../..")
+event_type = "lower_door_interact"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519928, 0.0245361)
+shape = SubResource("BoxShape3D_arpvg")
+
+[editable path="StaticBody3D/FridgeModel"]

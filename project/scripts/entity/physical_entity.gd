@@ -10,6 +10,9 @@ func _ready():
 func dephysicalize():
 	entity.fire_event("dephysicalized", [self])
 
+func fire_event(event_type: String):
+	entity.fire_event(event_type, [])
+
 func handle_event(event: Event) -> Event:
 	return event
 
@@ -49,3 +52,4 @@ func set_mesh_instance_layers(mask: int):
 		if is_instance_of(ch, GeometryInstance3D):
 			var vi: VisualInstance3D = ch
 			vi.layers = mask
+

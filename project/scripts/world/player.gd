@@ -4,6 +4,7 @@ class_name Player
 signal inventory_updated(items: Dictionary)
 signal hotbar_items_updated(entities: Array[Entity], counts: Array[int])
 signal inventory_button_pressed(player: Entity)
+signal update_interaction_hint(hint: String)
 
 @onready var body: CharacterBody3D = $CharacterBody3D
 @onready var head: Node3D = $CharacterBody3D/Head
@@ -17,7 +18,7 @@ signal inventory_button_pressed(player: Entity)
 
 var mouse_motion_relative: Vector2
 
-var look_target: PhysicalEntity
+var look_target
 
 var noclip: bool = false
 var mx: float = 0
@@ -38,6 +39,10 @@ var paused = false
 @export var interaction_distance: float = 2.2
 @export var scan_time = 20
 @export var enable_debug_hotkeys: bool = false
+
+var interaction_hint: String:
+	set(value):
+		update_interaction_hint.emit(value)
 
 var controls_locked: bool = false:
 	set(value):
@@ -144,9 +149,6 @@ func _on_ui_menus_closed():
 func quit_to_desktop():
 	get_tree().quit()
 
-#func quit_to_title_screen():
-#    # TODO
-
 func enable_footsteps():
 	if not played_footsteps_last_frame:
 		played_footsteps_last_frame = true
@@ -157,35 +159,58 @@ func disable_footsteps():
 		played_footsteps_last_frame = false
 		footsteps_player.stop()
 
-func toggle_flashlight():
-	print("Toggle flashlight")
-	# also needs to play sound
+func is_interactable(node: Node):
+	return node != null and (node.owner is PhysicalEntity or node is Interactable)
+
+func on_start_looking(obj):
+	if obj == null: return
+	if obj.owner is PhysicalEntity:
+		obj.owner.entity.fire_event("player_look_start", [self,obj])
+	elif obj is Interactable:
+		obj.start_looking.emit(self)
+
+func while_looking(obj):
+	if obj == null: return
+	if obj.owner is PhysicalEntity:
+		obj.owner.entity.fire_event("player_look", [self,obj])
+	elif obj is Interactable:
+		obj.looking.emit(self)
+		
+func on_stop_looking(obj):
+	if obj == null: return
+	if obj.owner is PhysicalEntity:
+		obj.owner.entity.fire_event("player_look_end", [self,obj])
+	elif obj is Interactable:
+		obj.stop_looking.emit(self)
+
+func interact(obj):
+	if obj == null: return
+	if obj.owner is PhysicalEntity:
+		obj.owner.entity.fire_event("interact", [self,obj])
+	elif obj is Interactable:
+		obj.interact.emit(self)
 
 func _process(delta: float):
 	sub_viewport_camera.global_transform = camera.global_transform
-	#tools.rotation = tools.rotation.slerp(camera.rotation, tools_turn_speed);
-	
 	if look_raycast.is_colliding():
-		var parent = look_raycast.get_collider().owner
-		if parent is PhysicalEntity:
-			if parent != look_target:
-				look_target = parent
-				look_target.entity.fire_event("player_look_start", [self,look_target])
+		var obj = look_raycast.get_collider()
+		if is_interactable(obj):
+			if obj != look_target:
+				if look_target != null:
+					on_stop_looking(look_target)
+				look_target = obj
+				on_start_looking(look_target)
 		else:
-			if look_target != null:
-				look_target.entity.fire_event("player_look_end", [self,look_target])
+			on_stop_looking(look_target)
 			look_target = null
 	else:
+		on_stop_looking(look_target)
 		look_target = null
-	if look_target != null:
-		look_target.entity.fire_event("player_look", [self,look_target])
+		
+	while_looking(look_target)
 	
 	if held_item != null:
 		held_item.fire_event("in_hand", [self, mouse_motion_relative])
-	
-	if Input.is_action_just_pressed("screenshot"):
-		print("TODO: Take screenshot")
-		#ScreenCapture.CaptureScreenshot("screenshot");
 		
 	var dv = Vector3.ZERO if noclip else Vector3(0, body.velocity.y - gravity, 0)
 		
@@ -193,7 +218,11 @@ func _process(delta: float):
 		inventory_button_pressed.emit(entity)
 		
 	if not controls_locked:
-		if Input.is_action_just_pressed("use") and look_target != null:
+		
+		if Input.is_action_just_pressed("interact") and look_target != null:
+			interact(look_target)
+		
+		if Input.is_action_just_pressed("use"):
 			look_target.entity.fire_event("player_use", [self,look_target])
 		
 		for n in range(10):
@@ -203,8 +232,6 @@ func _process(delta: float):
 				else:
 					selected_slot = n
 				break
-		if Input.is_action_just_pressed("flashlight"):
-			toggle_flashlight()
 		
 		# Movement
 		var ad = 1 if Input.is_action_pressed("move_right") else (-1 if Input.is_action_pressed("move_left") else 0)
@@ -254,12 +281,16 @@ func remove_control_hint(_action_name: String, _text: String):
 	pass # TODO
 
 func _input(event):
+	
+	# Handle mouse motion for looking around
 	if event is InputEventMouseMotion:
 		mouse_motion_relative = event.relative
 		if not mouse_look_locked:
 			mx += -event.relative.x * sensitivity * get_process_delta_time();
 			my = clamp(my + -event.relative.y * sensitivity * get_process_delta_time(), -PI/2, PI/2)
 			head.rotation = Vector3(my, mx, 0)
+	
+	# Handle debug key inputs, which don't use the input map system
 	if event is InputEventKey:
 		var ev: InputEventKey = event
 		if not ev.pressed: return

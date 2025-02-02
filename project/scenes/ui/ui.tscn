@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd2emxxrb6ks5"]
+[gd_scene load_steps=13 format=3 uid="uid://dd2emxxrb6ks5"]
 
 [ext_resource type="Theme" uid="uid://bybdhtdnymat5" path="res://scenes/ui/vhs_ui_theme.tres" id="1_ffhv7"]
 [ext_resource type="Script" path="res://scripts/ui/UI.gd" id="2_21fc8"]
 [ext_resource type="PackedScene" uid="uid://11alw2brk14t" path="res://scenes/ui/pause_menu.tscn" id="2_iv1s3"]
 [ext_resource type="PackedScene" uid="uid://c2qw8bypwbmt6" path="res://scenes/ui/settings_menu.tscn" id="3_630b3"]
 [ext_resource type="PackedScene" uid="uid://drn8urexlgpsv" path="res://scenes/ui/inventory/entity_panel_grid.tscn" id="3_ingpk"]
+[ext_resource type="PackedScene" uid="uid://b0dxnf0cmgpxe" path="res://scenes/ui/inventory/entity_panel.tscn" id="4_8vn8f"]
 [ext_resource type="PackedScene" uid="uid://c0eiiejfkk0ja" path="res://scenes/ui/inventory/inventory_window.tscn" id="4_r8ga5"]
 [ext_resource type="Script" path="res://scripts/ui/debug_console.gd" id="7_icrjy"]
 [ext_resource type="FontFile" uid="uid://dlqren22d21yb" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="8_1l8rb"]
@@ -13,6 +14,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_q0rw1"]
 font = ExtResource("8_1l8rb")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_h36ri"]
+font_size = 12
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -44,6 +48,9 @@ anchors_preset = 12
 anchor_top = 1.0
 grow_vertical = 0
 alignment = 1
+
+[node name="EntityPanel" parent="Hotbar" instance=ExtResource("4_8vn8f")]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -141,6 +148,31 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="InteractionHint" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 211.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InteractionHint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -38.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to whatever"
+label_settings = SubResource("LabelSettings_h36ri")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseMenu/SettingsButton" to="." method="open_settings_menu"]

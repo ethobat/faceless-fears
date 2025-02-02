@@ -18,6 +18,7 @@ var inv_windows_open:
 
 func _ready():
 	pause_menu.visible = false
+	$InteractionHint.visible = false
 	hide_inv_windows()
 
 func _process(_delta: float):
@@ -88,3 +89,11 @@ func quit_to_title_screen():
 
 func quit_to_desktop():
 	get_tree().quit()
+
+
+func _on_player_update_interaction_hint(hint):
+	if hint == "":
+		$InteractionHint.visible = false
+	else:
+		$InteractionHint.visible = true
+		$InteractionHint/Label.text = hint

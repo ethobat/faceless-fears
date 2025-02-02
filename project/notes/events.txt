@@ -48,6 +48,10 @@ Called every frame while the player is looking directly at this entity.
 values: Player, PhysicalEntity
 Called when the player looks away from this entity.
 
+"interact"
+values: Player, PhysicalEntity
+Called when the player is looking at this entity and presses the interact key (E).
+
 "player_use"
 values: Player, PhysicalEntity
 Called when the player uses this entity. PhysicalEntity is null if the item is being used from the inventory.
