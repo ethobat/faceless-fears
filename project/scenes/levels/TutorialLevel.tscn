@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://b0uknj546gh2n" path="res://scenes/level_parts/tr/tr_window1.tscn" id="18_ksbw4"]
 [ext_resource type="PackedScene" uid="uid://5qsvqy2a8qod" path="res://scenes/level_parts/tr/tr_baywindow.tscn" id="19_sj2oi"]
 [ext_resource type="PackedScene" uid="uid://djftuu3rb0mme" path="res://scenes/props/ObjectsInteriorVillageDemo/kitchen/kitchen.tscn" id="25_rvfj5"]
-[ext_resource type="PackedScene" uid="uid://2loj52rna4dq" path="res://scenes/props/ObjectsInteriorVillageDemo/kitchen/stove.tscn" id="26_cxmdv"]
 [ext_resource type="PackedScene" uid="uid://wf4lpuepgarl" path="res://scenes/props/RetroPSXMansionStyleAssets/single_sofa.tscn" id="28_y5yv7"]
 [ext_resource type="PackedScene" uid="uid://dnlgirpdv4de5" path="res://scenes/props/ObjectsInteriorVillageDemo/furniture/armchair_08.tscn" id="29_kyhxp"]
 [ext_resource type="PackedScene" uid="uid://dnxji2b3m1hu5" path="res://scenes/props/ObjectsInteriorVillageDemo/furniture/chest_drawers_01.tscn" id="30_roc52"]
@@ -43,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://be3u2x244bco8" path="res://scenes/props/ObjectsInteriorVillageDemo/books/book006.tscn" id="43_rvnjm"]
 [ext_resource type="PackedScene" uid="uid://c318c06xkemd1" path="res://scenes/props/ObjectsInteriorVillageDemo/books/book007.tscn" id="44_3vsp2"]
 [ext_resource type="PackedScene" uid="uid://bvtrjg2m220mp" path="res://scenes/entities/fridge.tscn" id="44_sriul"]
+[ext_resource type="PackedScene" uid="uid://cudtodqiournj" path="res://scenes/entities/oven.tscn" id="44_vqq3u"]
 [ext_resource type="PackedScene" uid="uid://cne4286b7j6ap" path="res://scenes/props/ObjectsInteriorVillageDemo/clutter/flower_table_01.tscn" id="45_lj3ne"]
 [ext_resource type="PackedScene" uid="uid://k7giqw1cy6tu" path="res://scenes/level_parts/terr/terr_grass_flat.tscn" id="46_1kggh"]
 [ext_resource type="ArrayMesh" uid="uid://c1xui7cj6flxv" path="res://assets/models/tree_pack_1.1/tree_pack_1_1_tree07.res" id="47_h3a3n"]
@@ -257,9 +257,6 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 [node name="Kitchen" parent="Trailer/Props" instance=ExtResource("25_rvfj5")]
 transform = Transform3D(1.55766e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.55766e-07, -6.0539, 4.02331e-07, 0.026042)
 
-[node name="Stove" parent="Trailer/Props" instance=ExtResource("26_cxmdv")]
-transform = Transform3D(1.55766e-07, 0, -0.8, 0, 0.8, 0, 0.8, 0, 1.55766e-07, -5.68362, 8.55923e-05, -0.21926)
-
 [node name="SingleSofa" parent="Trailer/Props" instance=ExtResource("28_y5yv7")]
 transform = Transform3D(-0.293656, 0, 0.744155, 0, 0.8, 0, -0.744155, 0, -0.293656, -1.92276, 0, -1.33707)
 
@@ -374,6 +371,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.724422, 0.4219, -0.99248)
 
 [node name="Fridge" parent="Trailer/Props" instance=ExtResource("44_sriul")]
 transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, -6.97225, -0.00234234, 0.353003)
+
+[node name="Oven" parent="Trailer/Props" instance=ExtResource("44_vqq3u")]
+transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -5.67807, -0.00199997, -0.223)
 
 [node name="Terrain" type="Node3D" parent="."]
 

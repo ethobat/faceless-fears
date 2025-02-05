@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cudtodqiournj"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_jo02d"]
+[ext_resource type="Resource" uid="uid://crgw6jiwfclbm" path="res://scenes/entities/oven.tres" id="2_el3m6"]
+[ext_resource type="PackedScene" uid="uid://bxdjw02io77dr" path="res://scenes/entities/oven_model.tscn" id="3_barjy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arpvg"]
+size = Vector3(0.389, 0.484, 0.336)
+
+[node name="Oven" type="Node3D"]
+script = ExtResource("1_jo02d")
+entity = ExtResource("2_el3m6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244412, 0.00708834)
+shape = SubResource("BoxShape3D_arpvg")
+
+[node name="OvenModel" parent="StaticBody3D" instance=ExtResource("3_barjy")]

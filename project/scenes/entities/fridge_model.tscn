@@ -23,7 +23,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23207, 0.878532, 0.20454)
 mesh = ExtResource("2_t1wga")
 script = ExtResource("3_b3r4x")
 max_angle = 1.74533
-friction = 0.01
+friction = 0.015
+open_velocity = 2.0
+close_velocity = 3.0
 
 [node name="InteractionArea" type="Area3D" parent="UpperDoor"]
 collision_mask = 0
@@ -40,7 +42,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23236, 0.388644, 0.204901)
 mesh = ExtResource("5_22ald")
 script = ExtResource("3_b3r4x")
 max_angle = 1.74533
-friction = 0.01
+friction = 0.015
+open_velocity = 2.0
+close_velocity = 3.0
 
 [node name="InteractionArea" type="Area3D" parent="LowerDoor"]
 collision_mask = 0
@@ -101,3 +105,6 @@ shadow_bias = 0.01
 shadow_blur = 10.0
 omni_range = 1.0
 omni_attenuation = 0.000793216
+
+[connection signal="interact" from="UpperDoor/InteractionArea" to="UpperDoor" method="open_or_close" unbinds=1]
+[connection signal="interact" from="LowerDoor/InteractionArea" to="LowerDoor" method="open_or_close" unbinds=1]

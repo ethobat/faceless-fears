@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxdjw02io77dr"]
+
+[ext_resource type="ArrayMesh" uid="uid://c70i7wookhfw3" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Stove.res" id="1_45xj0"]
+[ext_resource type="ArrayMesh" uid="uid://cs8ac2nxt44yb" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_StoveDoor.res" id="2_1468l"]
+[ext_resource type="Script" path="res://scripts/world/physics_door.gd" id="3_wsygs"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="4_42fcc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vp0n4"]
+size = Vector3(0.39, 0.328598, 0.021)
+
+[node name="OvenModel" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258, 0)
+mesh = ExtResource("1_45xj0")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055, 0.165)
+mesh = ExtResource("2_1468l")
+script = ExtResource("3_wsygs")
+max_angle = 1.6057
+axis = 0
+open_velocity = 3.0
+bounce_mult = 0.0
+
+[node name="InteractionArea" type="Area3D" parent="Door"]
+collision_mask = 0
+script = ExtResource("4_42fcc")
+show_hint = true
+hint = "Open/close door"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/InteractionArea"]
+transform = Transform3D(1, 0, -5.68443e-14, 0, 1, 0, 5.68443e-14, 0, 1, 0, 0.167701, 0)
+shape = SubResource("BoxShape3D_vp0n4")
+
+[connection signal="interact" from="Door/InteractionArea" to="Door" method="open_or_close" unbinds=1]

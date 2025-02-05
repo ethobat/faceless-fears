@@ -221,10 +221,7 @@ func _process(delta: float):
 		
 		if Input.is_action_just_pressed("interact") and look_target != null:
 			interact(look_target)
-		
-		if Input.is_action_just_pressed("use"):
-			look_target.entity.fire_event("player_use", [self,look_target])
-		
+
 		for n in range(10):
 			if Input.is_action_just_pressed("hotbar_"+str(n)):
 				if selected_slot == n:

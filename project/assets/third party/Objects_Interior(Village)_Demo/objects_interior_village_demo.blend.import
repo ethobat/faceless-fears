@@ -371,7 +371,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Ceiling_Fan_Blades.res"
 },
-"objects_interior_village_demo_Ceiling_Fan_Blades_01_003": {
+"objects_interior_village_demo_Ceiling_Fan_Blades_01": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -379,7 +379,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Ceiling_Fan_Blades_01_003.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Ceiling_Fan_Blades_01.res"
 },
 "objects_interior_village_demo_Ceiling_Fan_Blades_02": {
 "generate/lightmap_uv": 0,
@@ -511,7 +511,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_01_003.res"
 },
-"objects_interior_village_demo_Chest_drawers_01_004": {
+"objects_interior_village_demo_Chest_drawers_01_005": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -519,7 +519,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_01_004.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_01_005.res"
 },
 "objects_interior_village_demo_Chest_drawers_01_006": {
 "generate/lightmap_uv": 0,
@@ -731,7 +731,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_001.res"
 },
-"objects_interior_village_demo_Chest_drawers_05_009": {
+"objects_interior_village_demo_Chest_drawers_05_003": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -739,9 +739,9 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_009.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_003.res"
 },
-"objects_interior_village_demo_Chest_drawers_05_010": {
+"objects_interior_village_demo_Chest_drawers_05_004": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -749,9 +749,9 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_010.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_004.res"
 },
-"objects_interior_village_demo_Chest_drawers_05_011": {
+"objects_interior_village_demo_Chest_drawers_05_005": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -759,9 +759,9 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_011.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_005.res"
 },
-"objects_interior_village_demo_Chest_drawers_05_012": {
+"objects_interior_village_demo_Chest_drawers_05_006": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -769,9 +769,9 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_012.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_006.res"
 },
-"objects_interior_village_demo_Chest_drawers_05_013": {
+"objects_interior_village_demo_Chest_drawers_05_007": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -779,9 +779,9 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_013.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_007.res"
 },
-"objects_interior_village_demo_Chest_drawers_05_014": {
+"objects_interior_village_demo_Chest_drawers_05_008": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -789,7 +789,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_014.res"
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Chest_drawers_05_008.res"
 },
 "objects_interior_village_demo_Chest_drawers_06": {
 "generate/lightmap_uv": 0,
@@ -1491,6 +1491,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Kitchen.res"
 },
+"objects_interior_village_demo_KitchenCounter": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_KitchenCounter.res"
+},
 "objects_interior_village_demo_Kitchen_01": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -1780,6 +1790,16 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Stove.res"
+},
+"objects_interior_village_demo_StoveDoor": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_StoveDoor.res"
 },
 "objects_interior_village_demo_Table": {
 "generate/lightmap_uv": 0,
