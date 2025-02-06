@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxoe5ixysiudo"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_iwgn2"]
+[ext_resource type="Resource" uid="uid://cymvilx67tbve" path="res://scenes/entities/ceiling_fan_2.tres" id="2_3qmx3"]
+[ext_resource type="PackedScene" uid="uid://368u0sebo473" path="res://scenes/entities/ceiling_fan_2_model.tscn" id="3_titil"]
+
+[node name="CeilingFan2" type="Node3D"]
+script = ExtResource("1_iwgn2")
+entity = ExtResource("2_3qmx3")
+
+[node name="CeilingFan2Model" parent="." instance=ExtResource("3_titil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.129366, 0)

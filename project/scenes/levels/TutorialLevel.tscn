@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://de3kanoucw7im"]
+[gd_scene load_steps=51 format=3 uid="uid://de3kanoucw7im"]
 
 [ext_resource type="PackedScene" uid="uid://cvcnlrrinciix" path="res://scenes/level_parts/in/in_house_room_side.tscn" id="1_20vam"]
 [ext_resource type="PackedScene" uid="uid://cvni3bb6dgqb1" path="res://scenes/level_parts/tr/tr_end_window.tscn" id="1_rhd68"]
@@ -43,10 +43,13 @@
 [ext_resource type="PackedScene" uid="uid://c318c06xkemd1" path="res://scenes/props/ObjectsInteriorVillageDemo/books/book007.tscn" id="44_3vsp2"]
 [ext_resource type="PackedScene" uid="uid://bvtrjg2m220mp" path="res://scenes/entities/fridge.tscn" id="44_sriul"]
 [ext_resource type="PackedScene" uid="uid://cudtodqiournj" path="res://scenes/entities/oven.tscn" id="44_vqq3u"]
+[ext_resource type="PackedScene" uid="uid://x8iemkgsggea" path="res://scenes/entities/ceiling_fan_1.tscn" id="45_a67ff"]
 [ext_resource type="PackedScene" uid="uid://cne4286b7j6ap" path="res://scenes/props/ObjectsInteriorVillageDemo/clutter/flower_table_01.tscn" id="45_lj3ne"]
 [ext_resource type="PackedScene" uid="uid://k7giqw1cy6tu" path="res://scenes/level_parts/terr/terr_grass_flat.tscn" id="46_1kggh"]
 [ext_resource type="ArrayMesh" uid="uid://c1xui7cj6flxv" path="res://assets/models/tree_pack_1.1/tree_pack_1_1_tree07.res" id="47_h3a3n"]
 [ext_resource type="ArrayMesh" uid="uid://dwcgjusnwp6r0" path="res://assets/models/tree_pack_1.1/tree_pack_1_1_tree12.res" id="48_rvtpe"]
+[ext_resource type="PackedScene" uid="uid://bxoe5ixysiudo" path="res://scenes/entities/ceiling_fan_2.tscn" id="49_m6ao4"]
+[ext_resource type="PackedScene" uid="uid://cwlojytvv0pjr" path="res://scenes/entities/ceiling_fan_3.tscn" id="50_niesu"]
 
 [node name="TutorialLevel" type="Node3D"]
 
@@ -276,13 +279,13 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -6.9919, 0.00048238, -1
 transform = Transform3D(0.121616, 0, 0.790702, 0, 0.8, 0, -0.790702, 0, 0.121616, -7.32491, 0, 0.341519)
 
 [node name="Chair01" parent="Trailer/Props" instance=ExtResource("34_r7dw6")]
-transform = Transform3D(0.899989, 0, 0.00446105, 0, 0.9, 0, -0.00446105, 0, 0.899989, -7.21694, 5.96046e-08, -1.46635)
+transform = Transform3D(0.79999, 0, 0.00396538, 0, 0.8, 0, -0.00396538, 0, 0.79999, -7.21694, 5.96046e-08, -1.46635)
 
 [node name="Chair02" parent="Trailer/Props" instance=ExtResource("34_r7dw6")]
-transform = Transform3D(0.899987, 0, 0.00486944, 0, 0.9, 0, -0.00486944, 0, 0.899987, -6.76606, 1.19209e-07, -1.47404)
+transform = Transform3D(0.799988, 0, 0.00432839, 0, 0.8, 0, -0.00432839, 0, 0.799988, -6.76606, 1.19209e-07, -1.47404)
 
 [node name="Chair03" parent="Trailer/Props" instance=ExtResource("34_r7dw6")]
-transform = Transform3D(-0.76951, 0, 0.466748, 0, 0.9, 0, -0.466748, 0, -0.76951, -7.24848, 5.96046e-08, -0.813756)
+transform = Transform3D(-0.684009, 0, 0.414887, 0, 0.8, 0, -0.414887, 0, -0.684009, -7.24848, 5.96046e-08, -0.813756)
 
 [node name="ChestDrawers05" parent="Trailer/Props" instance=ExtResource("35_rpd2d")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.277053, 0, -2.28701)
@@ -374,6 +377,12 @@ transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 
 
 [node name="Oven" parent="Trailer/Props" instance=ExtResource("44_vqq3u")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, -5.67807, -0.00199997, -0.223)
+
+[node name="CeilingFan1_1" parent="Trailer/Props" instance=ExtResource("45_a67ff")]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, -6.48069, 1.12676, -0.979664)
+
+[node name="CeilingFan1_2" parent="Trailer/Props" instance=ExtResource("45_a67ff")]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, -0.701352, 1.12676, -1.47846)
 
 [node name="Terrain" type="Node3D" parent="."]
 
@@ -649,3 +658,9 @@ skeleton = NodePath("../../..")
 transform = Transform3D(-0.0663259, 0, -0.696851, 0, 0.7, 0, 0.696851, 0, -0.0663259, 4.12826, 0.00602269, 5.48965)
 mesh = ExtResource("48_rvtpe")
 skeleton = NodePath("../../..")
+
+[node name="CeilingFan2" parent="." instance=ExtResource("49_m6ao4")]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, -3.60264, 1.82317, 2.66531)
+
+[node name="CeilingFan3" parent="." instance=ExtResource("50_niesu")]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, -3.56941, 1.82317, 1.91732)

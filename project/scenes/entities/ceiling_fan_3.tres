@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://j0ylrb13hvc8"]
+
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_82mol"]
+
+[resource]
+resource_name = "ceiling_fan_3"
+script = ExtResource("1_82mol")
+placeable = false
+components = Array[Resource("res://scripts/entity/component.gd")]([])
+slot_render_position = Vector3(0, 0, 0)
+slot_render_rotation = Vector3(0, 0, 0)
+slot_render_scale = 1.0
+hand_position = Vector3(0, 0, 0)
+hand_rotation = Vector3(0, 0, 0)
