@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2rgfpb7p6pxa"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_xfocy"]
+[ext_resource type="Resource" uid="uid://uta5coenlbbp" path="res://scenes/entities/deskfan_1.tres" id="2_s8t8l"]
+[ext_resource type="PackedScene" uid="uid://dc6kmsvunidvc" path="res://scenes/entities/deskfan_2_model.tscn" id="3_jc7v4"]
+
+[node name="Deskfan2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.130234, 0)
+script = ExtResource("1_xfocy")
+entity = ExtResource("2_s8t8l")
+
+[node name="Deskfan2Model" parent="." instance=ExtResource("3_jc7v4")]

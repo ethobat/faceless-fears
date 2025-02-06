@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcglxn5fwbqb6"]
+
+[ext_resource type="Script" path="res://scripts/world/spinner.gd" id="3_hbpeh"]
+[ext_resource type="ArrayMesh" uid="uid://dvqrkl4ieeceg" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_Ventilator_01_001.res" id="3_iuv4k"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="4_0i8mb"]
+[ext_resource type="ArrayMesh" uid="uid://j1ugu3t3x5rf" path="res://assets/third party/Objects_Interior(Village)_Demo/objects_interior_village_demo/objects_interior_village_demo_blades_02.res" id="4_jd8j1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dv835"]
+height = 0.01
+radius = 0.111
+
+[node name="Deskfan1Model" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_iuv4k")
+
+[node name="Blades" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0198451, 0.0595353, 0)
+mesh = ExtResource("4_jd8j1")
+script = ExtResource("3_hbpeh")
+axis = 0
+motor_power = 0.25
+
+[node name="InteractionArea" type="Area3D" parent="Blades"]
+script = ExtResource("4_0i8mb")
+show_hint = true
+hint = "Toggle fan"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blades/InteractionArea"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.00629868, 0)
+shape = SubResource("CylinderShape3D_dv835")
+
+[connection signal="interact" from="Blades/InteractionArea" to="Blades" method="toggle_motor" unbinds=1]

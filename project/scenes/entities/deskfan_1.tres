@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://uta5coenlbbp"]
+
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_7sude"]
+
+[resource]
+resource_name = "deskfan_1"
+script = ExtResource("1_7sude")
+placeable = false
+components = Array[Resource("res://scripts/entity/component.gd")]([])
+slot_render_position = Vector3(0, 0, 0)
+slot_render_rotation = Vector3(0, 0, 0)
+slot_render_scale = 1.0
+hand_position = Vector3(0, 0, 0)
+hand_rotation = Vector3(0, 0, 0)
