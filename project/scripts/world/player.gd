@@ -78,11 +78,8 @@ var selected_slot: int = 0: # 0 means no slot is selected
 	
 func toggle_noclip():
 	noclip = not noclip
-	# todo: disable collision
-	var mask = 0 if noclip else 1
-	body.collision_layer = mask
-	body.collision_mask = mask
-	#disable_footsteps()
+	body.collision_layer = 0 if noclip else 2
+	body.collision_mask = 0 if noclip else 1
 	
 func update_held_item():
 	update_hotbar_items()

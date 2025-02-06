@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://de3kanoucw7im"]
+[gd_scene load_steps=49 format=3 uid="uid://de3kanoucw7im"]
 
 [ext_resource type="PackedScene" uid="uid://cvcnlrrinciix" path="res://scenes/level_parts/in/in_house_room_side.tscn" id="1_20vam"]
 [ext_resource type="PackedScene" uid="uid://cvni3bb6dgqb1" path="res://scenes/level_parts/tr/tr_end_window.tscn" id="1_rhd68"]
@@ -48,8 +48,6 @@
 [ext_resource type="PackedScene" uid="uid://k7giqw1cy6tu" path="res://scenes/level_parts/terr/terr_grass_flat.tscn" id="46_1kggh"]
 [ext_resource type="ArrayMesh" uid="uid://c1xui7cj6flxv" path="res://assets/models/tree_pack_1.1/tree_pack_1_1_tree07.res" id="47_h3a3n"]
 [ext_resource type="ArrayMesh" uid="uid://dwcgjusnwp6r0" path="res://assets/models/tree_pack_1.1/tree_pack_1_1_tree12.res" id="48_rvtpe"]
-[ext_resource type="PackedScene" uid="uid://bxoe5ixysiudo" path="res://scenes/entities/ceiling_fan_2.tscn" id="49_m6ao4"]
-[ext_resource type="PackedScene" uid="uid://cwlojytvv0pjr" path="res://scenes/entities/ceiling_fan_3.tscn" id="50_niesu"]
 
 [node name="TutorialLevel" type="Node3D"]
 
@@ -658,9 +656,3 @@ skeleton = NodePath("../../..")
 transform = Transform3D(-0.0663259, 0, -0.696851, 0, 0.7, 0, 0.696851, 0, -0.0663259, 4.12826, 0.00602269, 5.48965)
 mesh = ExtResource("48_rvtpe")
 skeleton = NodePath("../../..")
-
-[node name="CeilingFan2" parent="." instance=ExtResource("49_m6ao4")]
-transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, -3.60264, 1.82317, 2.66531)
-
-[node name="CeilingFan3" parent="." instance=ExtResource("50_niesu")]
-transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, -3.56941, 1.82317, 1.91732)
