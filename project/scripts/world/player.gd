@@ -28,7 +28,7 @@ var start_pos: Vector3
 var played_footsteps_last_frame: bool = false
 var paused = false
 
-@export var sprint_forward_multipler: float = 1.8
+@export var sprint_forward_multiplier: float = 1.8
 @export var sprint_sideways_multiplier: float = 1.5
 @export var tools_turn_speed: float = 0.9
 @export var speed: float = 1
@@ -232,11 +232,7 @@ func _process(delta: float):
 		var ws = 1 if Input.is_action_pressed("move_backward") else (-1 if Input.is_action_pressed("move_forward") else 0)
 		var sprinting = false
 		if Input.is_action_pressed("sprint"):
-			if ws < 0:
-				ws *= sprint_forward_multipler
-				sprinting = true
-			if ad != 0:
-				ad *= sprint_sideways_multiplier
+			if ws < 0 or ad != 0:
 				sprinting = true
 		camera.bobbing_fast = sprinting
 		footsteps_player.pitch_scale = 1.2 if sprinting else 1.0
@@ -245,7 +241,12 @@ func _process(delta: float):
 			disable_footsteps()
 		else:
 			var jump = jump_power if Input.is_action_just_pressed("jump") and body.is_on_floor() else 0.0
-			dv += Quaternion.from_euler(Vector3(0, head.rotation.y, 0)) * Vector3(ad * speed, jump, ws * speed)
+			var direction = Vector3(ad, 0, ws).normalized()
+			direction *= speed
+			direction.z *= sprint_forward_multiplier if sprinting and direction.z < 0 else 1
+			direction.y = jump
+			direction.x *= sprint_sideways_multiplier if sprinting else 1
+			dv += Quaternion.from_euler(Vector3(0, head.rotation.y, 0)) * direction
 			#dv = Vector3(ad * speed, jump, ws * speed)
 			if (ws == 0 and ad == 0) or not body.is_on_floor():
 				disable_footsteps();
