@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=11 format=3 uid="uid://hsjeffubbbkg"]
+[gd_resource type="Resource" script_class="Entity" load_steps=12 format=3 uid="uid://hsjeffubbbkg"]
 
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_4e07d"]
 [ext_resource type="Resource" uid="uid://dwd0jbqti4dqe" path="res://scenes/entities/cube.tres" id="1_aogua"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://ci6rp4nihn5p" path="res://scenes/entities/lightstick.tres" id="4_hrthi"]
 [ext_resource type="Script" path="res://scripts/entity/components/player_ui_updater.gd" id="4_o2ud7"]
 [ext_resource type="Resource" uid="uid://dj0o1c5dc6k4k" path="res://scenes/entities/flashlight.tres" id="5_8677f"]
+[ext_resource type="Resource" uid="uid://oy6yxdq7lxpb" path="res://scenes/entities/geist_gun.tres" id="6_qwjws"]
 
 [sub_resource type="Resource" id="Resource_mvrln"]
 script = ExtResource("1_ds116")
@@ -16,7 +17,8 @@ ExtResource("1_aogua"): 10,
 ExtResource("2_mx61v"): 1,
 ExtResource("3_xtvx8"): 1,
 ExtResource("4_hrthi"): 5,
-ExtResource("5_8677f"): 1
+ExtResource("5_8677f"): 1,
+ExtResource("6_qwjws"): 1
 }
 
 [sub_resource type="Resource" id="Resource_qmjwh"]

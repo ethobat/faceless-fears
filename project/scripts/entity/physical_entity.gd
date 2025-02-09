@@ -53,3 +53,6 @@ func set_mesh_instance_layers(mask: int):
 			var vi: VisualInstance3D = ch
 			vi.layers = mask
 
+func _process(delta):
+	for comp in entity.components:
+		comp.physical_entity_process(delta, self)

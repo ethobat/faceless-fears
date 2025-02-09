@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj5og6wv36usk"]
+
+[ext_resource type="Script" path="res://scripts/entity/physical_entity.gd" id="1_fxifg"]
+[ext_resource type="PackedScene" uid="uid://phajexlxgmb6" path="res://scenes/entities/geist_gun_model.tscn" id="1_kpqvk"]
+[ext_resource type="Resource" uid="uid://oy6yxdq7lxpb" path="res://scenes/entities/geist_gun.tres" id="2_j31ov"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcvih"]
+size = Vector3(0.574, 0.22827, 0.083)
+
+[node name="GeistGun" type="Node3D"]
+script = ExtResource("1_fxifg")
+entity = ExtResource("2_j31ov")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113908, 0.111535, 0)
+shape = SubResource("BoxShape3D_vcvih")
+
+[node name="GeistGunModel" parent="RigidBody3D" instance=ExtResource("1_kpqvk")]

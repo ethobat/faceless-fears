@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=4 format=3 uid="uid://oy6yxdq7lxpb"]
+
+[ext_resource type="Script" path="res://scripts/entity/components/geist_gun.gd" id="1_7kdis"]
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_yo2jr"]
+
+[sub_resource type="Resource" id="Resource_l5yp8"]
+script = ExtResource("1_7kdis")
+
+[resource]
+resource_name = "geist_gun"
+script = ExtResource("1_yo2jr")
+placeable = false
+components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_l5yp8")])
+slot_render_position = Vector3(0, -0.2, -0.245)
+slot_render_rotation = Vector3(0, 0, 0)
+slot_render_scale = 1.2
+hand_position = Vector3(-0.191, -0.073, 0.193)
+hand_rotation = Vector3(1, -104.1, -9.3)

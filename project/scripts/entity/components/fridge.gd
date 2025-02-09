@@ -12,4 +12,7 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 		"dephysicalized":
 			upper_door = null
 			lower_door = null
+		"geist_pulse":
+			upper_door.nudge((randf()-0.2)*event.values[0])
+			lower_door.nudge((randf()-0.2)*event.values[0])
 	return event

@@ -14,7 +14,7 @@ func handle_event(entity: Entity, event: Event) -> Event:
 			var time = Time.get_ticks_msec() / 500.0 
 			var noise = ((sin(time) + sin(time/2) + sin(time/3))/3.0) + 0.01
 			# Get the PhysicalEntity the player is currently looking at.
-			var tgt: PhysicalEntity = event.values[0].look_target
+			var tgt: PhysicalEntity = event.values[0].pe_look_target
 			# If the player is actually looking at a physical entity:
 			if tgt != null:
 				# Send the em_probe event to the target entity, using this entity's value as the first argument. If the target entity doesn't respond to the event, the return value will be 0.

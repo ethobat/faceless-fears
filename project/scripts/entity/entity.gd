@@ -68,6 +68,18 @@ func instantiate_model() -> Node3D:
 func instantiate_ghost() -> Node3D:
 	return get_ghost_scene().instantiate()
 	
+func add_component(comp: Component):
+	components.append(comp)
+	comp.on_add(self)
+	
+func remove_first_component_of_type(type) -> Component:
+	for i in range(len(components)):
+		if is_instance_of(components[i], type):
+			var comp = components[i]
+			comp.on_remove(self)
+			components.remove_at(i)
+			return comp
+	return null
 	
 ###########################################
 ## "Shorthand" methods for firing events ##

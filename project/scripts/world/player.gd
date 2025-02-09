@@ -19,6 +19,9 @@ signal update_interaction_hint(hint: String)
 var mouse_motion_relative: Vector2
 
 var look_target
+var pe_look_target:
+	get:
+		return look_target.owner if look_target != null and is_instance_of(look_target.owner, PhysicalEntity) else null
 
 var noclip: bool = false
 var mx: float = 0
@@ -237,7 +240,7 @@ func _process(delta: float):
 		camera.bobbing_fast = sprinting
 		footsteps_player.pitch_scale = 1.2 if sprinting else 1.0
 		if noclip:
-			dv = Quaternion.from_euler(Vector3(head.rotation.x, head.rotation.y, 0)) * Vector3(ad * speed, 0, ws * speed)
+			dv = Quaternion.from_euler(Vector3(head.rotation.x, head.rotation.y, 0)) * Vector3(ad * speed, 0, ws * speed) * (sprint_forward_multiplier if Input.is_action_pressed("sprint") else 1)
 			disable_footsteps()
 		else:
 			var jump = jump_power if Input.is_action_just_pressed("jump") and body.is_on_floor() else 0.0

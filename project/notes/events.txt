@@ -127,3 +127,15 @@ Values: float, float(0)
 Try to remove the given amount of energy from the receiving entity.
 Once the event is complete, the first float is the outstanding amount of energy that could not be removed, and the second float is the amount of energy that was removed - their sum will always be equal to the value of the first float when the event was fired.
 Example users: EnergyContainer
+
+"geist_possession_start"
+Values: float
+Fired when a geist starts possessing an entity. First value is the geist's strength.
+
+"geist_possession_end"
+Values: float
+Fired when a geist leaves a possessed entity. First value is the geist's strength.
+
+"geist_pulse"
+Values: float
+Fired at semi-random intervals while a geist is possessing this entity. First value is the strength of the pulse.

@@ -13,10 +13,10 @@ script = ExtResource("2_dhr6b")
 [resource]
 resource_name = "lightstick"
 script = ExtResource("1_5vrpl")
-placeable = null
+placeable = false
 components = Array[Resource("res://scripts/entity/component.gd")]([SubResource("Resource_r23cw"), SubResource("Resource_lsi1l")])
 slot_render_position = Vector3(0, -0.175, 0)
-slot_render_rotation = null
+slot_render_rotation = Vector3(0, 0, 0)
 slot_render_scale = 0.6
 hand_position = Vector3(0, 0, 0)
 hand_rotation = Vector3(0, 0, 0)

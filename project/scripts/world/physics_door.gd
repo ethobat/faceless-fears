@@ -55,9 +55,7 @@ func nudge(velocity: float):
 	angular_velocity += velocity
 	
 func open_or_close():
-	var midpoint = (max_angle-min_angle)/2.0 + min_angle
-	print(angle)
-	print(midpoint)
+	var midpoint = (max_angle-min_angle)/8.0 + min_angle
 	if angle < midpoint:
 		open()
 	else:

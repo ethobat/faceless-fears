@@ -21,7 +21,7 @@ script = ExtResource("3_wsygs")
 max_angle = 1.6057
 axis = 0
 open_velocity = 3.0
-bounce_mult = 0.0
+bounce_mult = 0.2
 
 [node name="InteractionArea" type="Area3D" parent="Door"]
 collision_mask = 0

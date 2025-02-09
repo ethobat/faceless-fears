@@ -12,7 +12,7 @@ func handle_event(_entity: Entity, event: Event) -> Event:
 			display = event.values[0].get_node("RigidBody3D/PatternSuppressorModel/SubViewport/PatternSuppressorDisplay")
 		"in_hand":
 			if Input.is_action_just_pressed("use"):
-				var tgt: PhysicalEntity = event.values[0].look_target
+				var tgt: PhysicalEntity = event.values[0].pe_look_target
 				if tgt != null:
 					var ret = tgt.entity.fire_event("suppress_pattern", [tgt, target_pattern, false])
 					if ret.values[2]: # Success
