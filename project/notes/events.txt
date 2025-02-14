@@ -123,7 +123,7 @@ Returns with the amount of energy that was not successfully added.
 Example users: EnergyContainer
 
 "try_remove_energy"
-Values: float, float(0)
+Values: float, float (0)
 Try to remove the given amount of energy from the receiving entity.
 Once the event is complete, the first float is the outstanding amount of energy that could not be removed, and the second float is the amount of energy that was removed - their sum will always be equal to the value of the first float when the event was fired.
 Example users: EnergyContainer
@@ -139,3 +139,11 @@ Fired when a geist leaves a possessed entity. First value is the geist's strengt
 "geist_pulse"
 Values: float
 Fired at semi-random intervals while a geist is possessing this entity. First value is the strength of the pulse.
+
+"can_be_possessed"
+Values: bool (false), float
+First value when returned indicates whether the object is able to be possessed by a geist. The second value is the strength of the geist in question.
+
+"kill_geist"
+Values: bool (false)
+Instantly kill any geist in the receiving entity regardless of strength. First value returns true if a geist was killed.

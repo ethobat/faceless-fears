@@ -6,9 +6,11 @@ class_name PhysicalEntity
 func _ready():
 	entity.fire_event("physicalized", [self])
 	self.tree_exited.connect(dephysicalize)
+	EntityManager.on_physicalized(self)
 
 func dephysicalize():
 	entity.fire_event("dephysicalized", [self])
+	EntityManager.on_dephysicalized(self)
 
 func fire_event(event_type: String):
 	entity.fire_event(event_type, [])
